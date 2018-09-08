@@ -66,7 +66,7 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
                 }
 
                 // gets information from information.json
-                server.getSchoolData(forCode: buildingCode!, completion: { (infoDictionary) in
+                server.getBuildingData(forCode: buildingCode!, completion: { (infoDictionary) in
 
                     // save the basic data from the school info from information.json
                     building.numberOfFloors = infoDictionary["floorCount"].intValue

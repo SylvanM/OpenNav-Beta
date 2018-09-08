@@ -155,9 +155,9 @@
 		AE1AA5BD2143FEA200D173D6 /* OpenNav */ = {
 			isa = PBXGroup;
 			children = (
-				AE1AA5F62143FFE000D173D6 /* Classes and Structs */,
-				AE1AA5F22143FFE000D173D6 /* Helper Files */,
 				AE1AA5EC2143FFE000D173D6 /* View Controllers */,
+				AE1AA5F22143FFE000D173D6 /* Helper Files */,
+				AE1AA5F62143FFE000D173D6 /* Classes and Structs */,
 				AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */,
 				AE1AA5C22143FEA200D173D6 /* Main.storyboard */,
 				AE1AA5C52143FEA300D173D6 /* Assets.xcassets */,
@@ -401,12 +401,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyRSA.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

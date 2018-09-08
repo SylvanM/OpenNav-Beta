@@ -10,6 +10,7 @@ target 'OpenNav' do
   pod ‘CryptoSwift’
   pod ‘Alamofire’
   pod ’SwiftyJSON’
+  pod ‘SwiftyRSA’
 
   target 'OpenNavTests' do
     inherit! :search_paths
