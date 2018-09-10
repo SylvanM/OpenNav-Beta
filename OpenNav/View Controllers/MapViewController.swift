@@ -13,6 +13,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     // MARK: Properties
     let server = ServerCommunicator()
     var building: BuildingInfo!
+    var selectedImage: Int = 0
 
     @IBOutlet var mapImageView: UIImageView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -47,7 +48,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
                 displayErrorMessage()
             }
 
-            mapImageView.image = building.floorImages.first
+            mapImageView.image = building.floorImages[selectedImage]
 
             activityIndicator.stopAnimating()
         } catch {
@@ -94,8 +95,8 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
         for i in 1...self.building.numberOfFloors {
             let viewFloorAction = UIAlertAction(title: ("Floor " + String(i)), style: .default, handler: { (_) in
-                let image = self.building.floorImages[i - 1]
-                self.mapImageView.image = image
+                self.selectedImage = i - 1
+                self.refresh()
             })
 
             alertController.addAction(viewFloorAction)

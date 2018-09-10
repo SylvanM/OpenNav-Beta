@@ -7,4 +7,7 @@
 //
 
 import Foundation
-import SwiftyRSA
+
+func generateKeyPair() {
+
+}

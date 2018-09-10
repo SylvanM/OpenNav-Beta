@@ -14,6 +14,7 @@ class BuildingInfo {
     var acronym: String!
     var name: String!
     var floorImages: [UIImage]!
+    var mappedImages: [UIImage]!
     var layout: [String]!
 
     init(_ dummy: Any) {
@@ -37,6 +38,8 @@ class BuildingInfo {
 
                 } else { throw DataLoadingError.couldNotLoadData }
             }
+
+            mappedImages = floorImages
         } else { throw DataLoadingError.couldNotLoadData }
 
         if let name = UserDefaults.standard.object(forKey: "buildingName") as? String {
@@ -46,6 +49,7 @@ class BuildingInfo {
         if let acro = UserDefaults.standard.object(forKey: "buildingAcro") as? String {
             self.acronym = acro
         } else { throw DataLoadingError.couldNotLoadData }
+
     }
 
     func saveInfo() {
