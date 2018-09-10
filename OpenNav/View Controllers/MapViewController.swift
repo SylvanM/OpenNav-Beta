@@ -8,12 +8,19 @@
 
 import UIKit
 
+
 class MapViewController: UIViewController, UIScrollViewDelegate {
+
+    enum ViewType {
+        case normal
+        case route
+    }
 
     // MARK: Properties
     let server = ServerCommunicator()
     var building: BuildingInfo!
     var selectedImage: Int = 0
+    var viewType: ViewType = .normal
 
     @IBOutlet var mapImageView: UIImageView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -48,7 +55,12 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
                 displayErrorMessage()
             }
 
-            mapImageView.image = building.floorImages[selectedImage]
+            switch viewType {
+            case .normal:
+                mapImageView.image = building.floorImages[selectedImage]
+            case .route:
+                mapImageView.image = building.mappedImages[selectedImage]
+            }
 
             activityIndicator.stopAnimating()
         } catch {
@@ -102,7 +114,14 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
             alertController.addAction(viewFloorAction)
         }
 
+        let clearRouteAction = UIAlertAction(title: "Clear", style: .default, handler: { (_) in
+            self.viewType = .normal
+            self.refresh()
+        })
+
         let cancelAction = UIAlertAction(title: "Nevermind", style: .cancel, handler: nil)
+
+        alertController.addAction(clearRouteAction)
         alertController.addAction(cancelAction)
 
         self.present(alertController, animated: true, completion: nil)
@@ -123,7 +142,9 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
             if let start = Int(routePrompt.textFields![0].text!), let destination = Int(routePrompt.textFields![1].text!) {
                 let navigator = Navigator()
                 do {
-                    self.building.floorImages = try navigator.makePath(start: start, end: destination, layout: self.building.layout, maps: self.building.floorImages)
+                    self.building.mappedImages = try navigator.makePath(start: start, end: destination, layout: self.building.layout, maps: self.building.floorImages)
+                    self.viewType = .route
+                    self.refresh()
                 } catch {
                     self.displayErrorMessage(error)
                 }
@@ -147,5 +168,4 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
