@@ -13,6 +13,11 @@ class AppearanceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+
+        self.navigationItem.title = "Appearance"
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -22,6 +27,7 @@ class AppearanceTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
@@ -31,6 +37,7 @@ class AppearanceTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+    */
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
