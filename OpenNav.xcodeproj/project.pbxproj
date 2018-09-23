@@ -16,7 +16,6 @@
 		AE1AA5D42143FEA300D173D6 /* OpenNavTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5D32143FEA300D173D6 /* OpenNavTests.swift */; };
 		AE1AA5DF2143FEA300D173D6 /* OpenNavUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5DE2143FEA300D173D6 /* OpenNavUITests.swift */; };
 		AE1AA5FA2143FFE000D173D6 /* EncryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5EE2143FFE000D173D6 /* EncryptionViewController.swift */; };
-		AE1AA5FB2143FFE000D173D6 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5EF2143FFE000D173D6 /* InformationViewController.swift */; };
 		AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F02143FFE000D173D6 /* MapViewController.swift */; };
 		AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */; };
 		AE1AA5FE2143FFE000D173D6 /* Data+Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */; };
@@ -25,7 +24,7 @@
 		AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */; };
 		AE1AA6022143FFE000D173D6 /* ServerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */; };
 		AE1AA6032143FFE000D173D6 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F92143FFE000D173D6 /* Navigator.swift */; };
-		AEC256E62146AA4F008F4772 /* AppearanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC256E52146AA4F008F4772 /* AppearanceTableViewController.swift */; };
+		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
 		AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */; };
 		B385C19C47FC0FFE25758129 /* Pods_OpenNavTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F41548D3818E9E999A06CB /* Pods_OpenNavTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,7 +65,6 @@
 		AE1AA5DE2143FEA300D173D6 /* OpenNavUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNavUITests.swift; sourceTree = "<group>"; };
 		AE1AA5E02143FEA300D173D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE1AA5EE2143FFE000D173D6 /* EncryptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionViewController.swift; sourceTree = "<group>"; };
-		AE1AA5EF2143FFE000D173D6 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		AE1AA5F02143FFE000D173D6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Encryption.swift"; sourceTree = "<group>"; };
@@ -75,7 +73,7 @@
 		AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingInfo.swift; sourceTree = "<group>"; };
 		AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommunicator.swift; sourceTree = "<group>"; };
 		AE1AA5F92143FFE000D173D6 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
-		AEC256E52146AA4F008F4772 /* AppearanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceTableViewController.swift; sourceTree = "<group>"; };
+		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTableViewController.swift; sourceTree = "<group>"; };
 		B1108DBF75C6AA32A805BE25 /* Pods-OpenNavTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavTests/Pods-OpenNavTests.release.xcconfig"; sourceTree = "<group>"; };
 		B81830BA92EA1FE101878E59 /* Pods-OpenNavUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavUITests/Pods-OpenNavUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				AEC256E42146A911008F4772 /* Settings */,
-				AE1AA5EF2143FFE000D173D6 /* InformationViewController.swift */,
 				AE1AA5F02143FFE000D173D6 /* MapViewController.swift */,
 				AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */,
 			);
@@ -232,8 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				AE1AA5ED2143FFE000D173D6 /* Encryption */,
-				AEC256E52146AA4F008F4772 /* AppearanceTableViewController.swift */,
 				AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */,
+				AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -458,13 +455,12 @@
 				AE1AA6022143FFE000D173D6 /* ServerCommunicator.swift in Sources */,
 				AE1AA5BF2143FEA200D173D6 /* AppDelegate.swift in Sources */,
 				AE1AA5FE2143FFE000D173D6 /* Data+Encryption.swift in Sources */,
+				AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */,
 				AE1AA6032143FFE000D173D6 /* Navigator.swift in Sources */,
 				AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */,
-				AE1AA5FB2143FFE000D173D6 /* InformationViewController.swift in Sources */,
 				AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */,
 				AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */,
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
-				AEC256E62146AA4F008F4772 /* AppearanceTableViewController.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
 				AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */,
 			);
