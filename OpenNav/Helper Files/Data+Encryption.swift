@@ -16,10 +16,6 @@ extension Data {
 
     func encrypt(key: Data, iv: Data) throws -> Data {
 
-        // Hash data
-        let hashedData = self.sha256()
-        let bytes = hashedData.bytes
-
         do {
             let cbc = CBC(iv: iv.bytes)
             let aes = try AES(key: key.bytes, blockMode: cbc)

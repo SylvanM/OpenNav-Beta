@@ -11,3 +11,7 @@ import Foundation
 enum DataLoadingError: Error {
     case couldNotLoadData
 }
+
+enum EncryptingError: Error {
+    case fail
+}

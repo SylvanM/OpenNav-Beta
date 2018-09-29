@@ -10,9 +10,6 @@
 		267A49208CDE261C7897158E /* Pods_OpenNavUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA58F4B41B57CBC0DE2A831D /* Pods_OpenNavUITests.framework */; };
 		5D23C5FDA36106ED845F17DF /* Pods_OpenNav.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78DE2DE8FFBECDFEBA5EB293 /* Pods_OpenNav.framework */; };
 		AE1AA5BF2143FEA200D173D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */; };
-		AE1AA5C42143FEA200D173D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C22143FEA200D173D6 /* Main.storyboard */; };
-		AE1AA5C62143FEA300D173D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C52143FEA300D173D6 /* Assets.xcassets */; };
-		AE1AA5C92143FEA300D173D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C72143FEA300D173D6 /* LaunchScreen.storyboard */; };
 		AE1AA5D42143FEA300D173D6 /* OpenNavTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5D32143FEA300D173D6 /* OpenNavTests.swift */; };
 		AE1AA5DF2143FEA300D173D6 /* OpenNavUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5DE2143FEA300D173D6 /* OpenNavUITests.swift */; };
 		AE1AA5FA2143FFE000D173D6 /* EncryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5EE2143FFE000D173D6 /* EncryptionViewController.swift */; };
@@ -24,8 +21,13 @@
 		AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */; };
 		AE1AA6022143FFE000D173D6 /* ServerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */; };
 		AE1AA6032143FFE000D173D6 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F92143FFE000D173D6 /* Navigator.swift */; };
+		AE48DCB4215F0D5A00708691 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C22143FEA200D173D6 /* Main.storyboard */; };
+		AE48DCB5215F0D5F00708691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C52143FEA300D173D6 /* Assets.xcassets */; };
 		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
+		AE93C00C215EE4160079C70C /* RSAHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93C00B215EE4160079C70C /* RSAHandler.swift */; };
+		AE93C00E215EFE080079C70C /* EncryptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93C00D215EFE080079C70C /* EncryptionHandler.swift */; };
 		AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */; };
+		AEC462A6215997B4002B2696 /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC462A5215997B4002B2696 /* RSA.swift */; };
 		B385C19C47FC0FFE25758129 /* Pods_OpenNavTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F41548D3818E9E999A06CB /* Pods_OpenNavTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +76,10 @@
 		AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommunicator.swift; sourceTree = "<group>"; };
 		AE1AA5F92143FFE000D173D6 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
+		AE93C00B215EE4160079C70C /* RSAHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSAHandler.swift; sourceTree = "<group>"; };
+		AE93C00D215EFE080079C70C /* EncryptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionHandler.swift; sourceTree = "<group>"; };
 		AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTableViewController.swift; sourceTree = "<group>"; };
+		AEC462A5215997B4002B2696 /* RSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSA.swift; sourceTree = "<group>"; };
 		B1108DBF75C6AA32A805BE25 /* Pods-OpenNavTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavTests/Pods-OpenNavTests.release.xcconfig"; sourceTree = "<group>"; };
 		B81830BA92EA1FE101878E59 /* Pods-OpenNavUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavUITests/Pods-OpenNavUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C08BCA4147717B8F0D5BC3BE /* Pods-OpenNav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNav.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNav/Pods-OpenNav.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +162,7 @@
 		AE1AA5BD2143FEA200D173D6 /* OpenNav */ = {
 			isa = PBXGroup;
 			children = (
+				AE93C00A215EE3FA0079C70C /* Encryption */,
 				AE1AA5EC2143FFE000D173D6 /* View Controllers */,
 				AE1AA5F22143FFE000D173D6 /* Helper Files */,
 				AE1AA5F62143FFE000D173D6 /* Classes and Structs */,
@@ -211,6 +217,7 @@
 				AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */,
 				AE1AA5F42143FFE000D173D6 /* Encryption.swift */,
 				AE1AA5F52143FFE000D173D6 /* Errors.swift */,
+				AEC462A5215997B4002B2696 /* RSA.swift */,
 			);
 			path = "Helper Files";
 			sourceTree = "<group>";
@@ -223,6 +230,15 @@
 				AE1AA5F92143FFE000D173D6 /* Navigator.swift */,
 			);
 			path = "Classes and Structs";
+			sourceTree = "<group>";
+		};
+		AE93C00A215EE3FA0079C70C /* Encryption */ = {
+			isa = PBXGroup;
+			children = (
+				AE93C00B215EE4160079C70C /* RSAHandler.swift */,
+				AE93C00D215EFE080079C70C /* EncryptionHandler.swift */,
+			);
+			path = Encryption;
 			sourceTree = "<group>";
 		};
 		AEC256E42146A911008F4772 /* Settings */ = {
@@ -245,8 +261,8 @@
 				4615EB4FC628C0D6CCD5AE8A /* [CP] Check Pods Manifest.lock */,
 				AE1AA5B72143FEA200D173D6 /* Sources */,
 				AE1AA5B82143FEA200D173D6 /* Frameworks */,
-				AE1AA5B92143FEA200D173D6 /* Resources */,
 				B5D10626780E2FA4F393FCA0 /* [CP] Embed Pods Frameworks */,
+				AE48DCB3215F0D5300708691 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -339,16 +355,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AE1AA5B92143FEA200D173D6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE1AA5C92143FEA300D173D6 /* LaunchScreen.storyboard in Resources */,
-				AE1AA5C62143FEA300D173D6 /* Assets.xcassets in Resources */,
-				AE1AA5C42143FEA200D173D6 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AE1AA5CD2143FEA300D173D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,6 +366,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE48DCB3215F0D5300708691 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE48DCB5215F0D5F00708691 /* Assets.xcassets in Resources */,
+				AE48DCB4215F0D5A00708691 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +426,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-OpenNav/Pods-OpenNav-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Heimdall/Heimdall.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework",
 			);
@@ -418,6 +434,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Heimdall.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyRSA.framework",
 			);
@@ -460,7 +477,10 @@
 				AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */,
 				AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */,
 				AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */,
+				AE93C00C215EE4160079C70C /* RSAHandler.swift in Sources */,
+				AE93C00E215EFE080079C70C /* EncryptionHandler.swift in Sources */,
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
+				AEC462A6215997B4002B2696 /* RSA.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
 				AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */,
 			);
@@ -646,6 +666,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SM.OpenNav;
+				PRODUCT_MODULE_NAME = OpenNav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -665,6 +686,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SM.OpenNav;
+				PRODUCT_MODULE_NAME = OpenNav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
