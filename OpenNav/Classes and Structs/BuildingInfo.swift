@@ -31,9 +31,10 @@ class BuildingInfo {
             numberOfFloors = amountOfFloors
             floorImages = []
 
-            for i in 0...(amountOfFloors - 1) {
-                if let floor = UserDefaults.standard.data(forKey: ("floorImage" + String(i))) {
-                    let image = UIImage(data: floor)
+            for i in 0..<amountOfFloors {
+                if let floor = UserDefaults.standard.string(forKey: ("floorImage" + String(i))) {
+                    let imageData = Data(base64Encoded: floor)
+                    let image = UIImage(data: imageData!)
                     self.floorImages.append(image!)
 
                 } else { throw DataLoadingError.couldNotLoadData }
@@ -58,9 +59,15 @@ class BuildingInfo {
         UserDefaults.standard.set(name, forKey: "buildingName")
     }
 
+    func saveLayout() {
+        
+    }
+
     func saveImages(imageCount: Int) {
-        for i in 0...(imageCount - 1) {
-            UserDefaults.standard.set(floorImages[i].pngData(), forKey: ("floorImage" + String(i)))
+        for i in 0..<imageCount {
+            let imageData = floorImages[i].pngData()
+            let base64String = imageData?.base64EncodedString()
+            UserDefaults.standard.set(base64String, forKey: ("floorImage" + String(i)))
         }
     }
 
@@ -69,9 +76,7 @@ class BuildingInfo {
         UserDefaults.standard.set(acronym, forKey: "buildingAcro")
         UserDefaults.standard.set(name, forKey: "buildingName")
 
-        for i in 0...(numberOfFloors - 1) {
-            UserDefaults.standard.set(floorImages[i].pngData(), forKey: ("floorImage" + String(i)))
-        }
+        saveImages(imageCount: numberOfFloors)
 
         // TODO: Save layout string array
     }

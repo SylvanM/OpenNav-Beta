@@ -142,7 +142,9 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
             if let start = Int(routePrompt.textFields![0].text!), let destination = Int(routePrompt.textFields![1].text!) {
                 let navigator = Navigator()
                 do {
-                    self.building.mappedImages = try navigator.makePath(start: start, end: destination, layout: self.building.layout, maps: self.building.floorImages)
+                    let layout = self.building.layout!
+                    let maps = self.building.floorImages!
+                    self.building.mappedImages = try navigator.makePath(start: start, end: destination, layout: layout, maps: maps)
                     self.viewType = .route
                     self.refresh()
                 } catch {

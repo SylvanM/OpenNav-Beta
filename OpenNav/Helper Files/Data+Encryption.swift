@@ -15,10 +15,9 @@ extension Data {
     // MARK: AES-GCM
 
     func encrypt(key: Data, iv: Data) throws -> Data {
-
         do {
             let cbc = CBC(iv: iv.bytes)
-            let aes = try AES(key: key.bytes, blockMode: cbc)
+            let aes = try AES(key: key.bytes, blockMode: cbc, padding: .pkcs7)
 
             let encryptedBytes = try aes.encrypt(self.bytes)
             let encryptedData = Data(bytes: encryptedBytes)
@@ -30,13 +29,6 @@ extension Data {
     }
 
     func decrypt(key: Data, iv: Data) throws -> Data {
-
-        // Hash data
-        /*
-        let hashedData = self.sha256()
-        let bytes = hashedData.bytes
-        */
-
         do {
             let cbc = CBC(iv: iv.bytes)
             let aes = try AES(key: key.bytes, blockMode: cbc, padding: .pkcs7)

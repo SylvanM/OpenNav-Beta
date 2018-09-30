@@ -52,6 +52,10 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
                 let building = BuildingInfo("dummy") // make instance of SchoolInfo with all blank data, this is what we will save to UserDefaults later
                 let buildingCode = codeTextInput.text
 
+                /*
+                 * THIS CODE MIGHT BE THE ONLY THING THAT WORKS
+                 * DO NOT DELETE IT
+                 *
                 // make a variable to keep track of the number of images
                 var collectedImageCount: Int = 0 {
                     didSet {
@@ -82,6 +86,20 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
                     }
                     building.saveInfo() // saves school information, but not the images
 
+                })
+                */
+
+                // This is test code. It might not work. That is why we are keeping the previous commented code
+                server.getBuildingData(forCode: buildingCode!, completion: { (images, infoDictionary) in
+                    // save the basic data from the school info from information.json
+                    building.numberOfFloors = infoDictionary["floorCount"].intValue
+                    building.name = infoDictionary["buildingName"].stringValue
+                    building.acronym = infoDictionary["buildingAcro"].stringValue
+
+                    building.floorImages = images
+                    building.saveData()
+
+                    self.activityIndicator.stopAnimating()
                 })
 
             } catch {
