@@ -57,9 +57,11 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
             switch viewType {
             case .normal:
-                mapImageView.image = building.floorImages[selectedImage]
+                mapImageView.image = building.floorImages.first
+//                mapImageView.image = building.floorImages[selectedImage]
             case .route:
-                mapImageView.image = building.mappedImages[selectedImage]
+                mapImageView.image = building.mappedImages.first
+//                mapImageView.image = building.mappedImages[selectedImage]
             }
 
             activityIndicator.stopAnimating()

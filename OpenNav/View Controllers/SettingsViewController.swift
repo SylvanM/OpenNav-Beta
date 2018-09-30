@@ -48,7 +48,9 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
             codeTextInput.endEditing(true)
             do {
 
-                activityIndicator.startAnimating() // spin the "loading" icon
+                let alertController = UIAlertController(title: "Downloading Layouts", message: "This may take a couple seconds", preferredStyle: .alert)
+                self.present(alertController, animated: true, completion: nil)
+
                 let building = BuildingInfo("dummy") // make instance of SchoolInfo with all blank data, this is what we will save to UserDefaults later
                 let buildingCode = codeTextInput.text
 
@@ -99,7 +101,7 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
                     building.floorImages = images
                     building.saveData()
 
-                    self.activityIndicator.stopAnimating()
+                    alertController.dismiss(animated: true, completion: nil)
                 })
 
             } catch {
