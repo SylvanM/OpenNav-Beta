@@ -57,11 +57,14 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
             switch viewType {
             case .normal:
-                mapImageView.image = building.floorImages.first
-//                mapImageView.image = building.floorImages[selectedImage]
+//                mapImageView.image = building.floorImages.first
+                mapImageView.image = building.floorImages[selectedImage] // This line can result in crash sometimes
+                                                                         // When the previous layout has less images and the layout switches,
+                                                                         // if the selected image was of a higher index than the highest of the current layout,
+                                                                         // we will get the "Index out of range" error and then crash
             case .route:
-                mapImageView.image = building.mappedImages.first
-//                mapImageView.image = building.mappedImages[selectedImage]
+//                mapImageView.image = building.mappedImages.first
+                mapImageView.image = building.mappedImages[selectedImage] // This line can result in crash sometimes <#same reason as above#>
             }
 
             activityIndicator.stopAnimating()
