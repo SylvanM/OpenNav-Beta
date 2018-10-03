@@ -21,6 +21,8 @@
 		AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */; };
 		AE1AA6022143FFE000D173D6 /* ServerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */; };
 		AE1AA6032143FFE000D173D6 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F92143FFE000D173D6 /* Navigator.swift */; };
+		AE246C4B216524EC006BAE2B /* Attributions in Resources */ = {isa = PBXBuildFile; fileRef = AE246C4A216524EC006BAE2B /* Attributions */; };
+		AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE246C4C21657399006BAE2B /* AboutViewController.swift */; };
 		AE48DCB4215F0D5A00708691 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C22143FEA200D173D6 /* Main.storyboard */; };
 		AE48DCB5215F0D5F00708691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C52143FEA300D173D6 /* Assets.xcassets */; };
 		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
@@ -75,6 +77,8 @@
 		AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingInfo.swift; sourceTree = "<group>"; };
 		AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommunicator.swift; sourceTree = "<group>"; };
 		AE1AA5F92143FFE000D173D6 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		AE246C4A216524EC006BAE2B /* Attributions */ = {isa = PBXFileReference; lastKnownFileType = text; path = Attributions; sourceTree = "<group>"; };
+		AE246C4C21657399006BAE2B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		AE93C00B215EE4160079C70C /* RSAHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSAHandler.swift; sourceTree = "<group>"; };
 		AE93C00D215EFE080079C70C /* EncryptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionHandler.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				AE1AA5C52143FEA300D173D6 /* Assets.xcassets */,
 				AE1AA5C72143FEA300D173D6 /* LaunchScreen.storyboard */,
 				AE1AA5CA2143FEA300D173D6 /* Info.plist */,
+				AE246C4A216524EC006BAE2B /* Attributions */,
 			);
 			path = OpenNav;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				AE1AA5ED2143FFE000D173D6 /* Encryption */,
+				AE246C4C21657399006BAE2B /* AboutViewController.swift */,
 				AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */,
 				AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */,
 			);
@@ -375,6 +381,7 @@
 			files = (
 				AE48DCB5215F0D5F00708691 /* Assets.xcassets in Resources */,
 				AE48DCB4215F0D5A00708691 /* Main.storyboard in Resources */,
+				AE246C4B216524EC006BAE2B /* Attributions in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +489,7 @@
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
 				AEC462A6215997B4002B2696 /* RSA.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
+				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,
 				AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
