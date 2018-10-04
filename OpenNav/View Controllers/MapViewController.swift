@@ -110,9 +110,10 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func floorsButtonPressed(_ sender: Any) {
         let alertController = UIAlertController(title: "Which Floor?", message: "Choose the floor to view", preferredStyle: .actionSheet)
 
-        for i in 1...self.building.numberOfFloors {
-            let viewFloorAction = UIAlertAction(title: ("Floor " + String(i)), style: .default, handler: { (_) in
-                self.selectedImage = i - 1
+        for i in 0..<self.building.numberOfFloors {
+            let viewFloorAction = UIAlertAction(title: self.building.imageNames[i], style: .default, handler: { (_) in
+                self.selectedImage = i
+                print("Trying to view image \(i)")
                 self.refresh()
             })
 

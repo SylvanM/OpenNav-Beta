@@ -18,6 +18,7 @@ import UIKit
 class SettingsViewController: UITableViewController, UITextFieldDelegate {
 
     let server = ServerCommunicator()
+    let keys = Keys()
 
     // MARK: Properties
 
@@ -92,12 +93,13 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
                 */
 
                 // This is test code. It might not work. That is why we are keeping the previous commented code
-                server.getBuildingData(forCode: buildingCode!, completion: { (images, infoDictionary) in
+                server.getBuildingData(forCode: buildingCode!, completion: { (images, names, infoDictionary) in
                     // save the basic data from the school info from information.json
-                    building.numberOfFloors = infoDictionary["floorCount"].intValue
-                    building.name = infoDictionary["buildingName"].stringValue
-                    building.acronym = infoDictionary["buildingAcro"].stringValue
+                    building.numberOfFloors = infoDictionary[self.keys.imageCount].intValue
+                    building.name = infoDictionary[self.keys.buildingName].stringValue
+                    building.acronym = infoDictionary[self.keys.acronym].stringValue
 
+                    building.imageNames = names
                     building.floorImages = images
                     building.saveData()
 

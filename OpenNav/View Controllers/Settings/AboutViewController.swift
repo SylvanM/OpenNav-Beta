@@ -19,7 +19,7 @@ class AboutViewController: UIViewController {
 
         self.navigationItem.title = "About"
 
-        textView.text = "App by Sylvan Martin and Madhava Paliyam \n\nAttributions:\nPLACE IMAGE CREDITS HERE"
+        textView.text = "App by Sylvan Martin and Madhava Paliyam \n\nAttributions:\n\nSettings Icon: \"Settings\" by Bharat from thenounproject.com\nMenu Icon: \"menu\" by Nawicon Studio from thenounproject.com\nInfo Icon: \"Info\" by Antony from thenounproject.com\nRoute Icon: \"route\" by Royyan Razka from thenounproject.com"
 
         // Do any additional setup after loading the view.
     }

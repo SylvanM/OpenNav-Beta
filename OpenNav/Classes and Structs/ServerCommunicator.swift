@@ -46,7 +46,7 @@ class ServerCommunicator {
         }
     }
 
-    func getBuildingData(forCode: String, completion: @escaping ([UIImage], JSON) -> ()) {
+    func getBuildingData(forCode: String, completion: @escaping ([UIImage], [String], JSON) -> ()) {
         let request = BuildingInfoRequest(code: forCode, fileName: "data.json")
 
 
@@ -55,6 +55,7 @@ class ServerCommunicator {
 
             print("Entering Group")
             group.enter()
+
             getDecryptionInfo(forCode: forCode, completion: { (keyBytes, ivBytes) in
                 self.key = keyBytes
                 self.iv = ivBytes
@@ -76,23 +77,33 @@ class ServerCommunicator {
                             let jsonData = try JSON(data: decryptedData)
 
                             // get basic info
-                            let floorCount = jsonData["info"]["floorCount"].intValue
+                            let floorCount = jsonData["floors"].count
 
                             let info = jsonData["info"]
 
+                            // get image names
+
+                            var reversedImageNames: [String] = []
+
+                            for (key, _) in jsonData["floors"] {
+                                reversedImageNames.append(key)
+                            }
+
+                            let imageNames: [String] = reversedImageNames.reversed()
+                            
                             // get images
                             var images: [UIImage] = []
 
-                            for floor in 1...floorCount {
-                                let base64StringForImage = jsonData["floors"]["floorImage\(floor)"].stringValue
+                            for floor in 0..<floorCount {
+                                let base64StringForImage = jsonData["floors"][imageNames[floor]].stringValue
                                 let dataFromEncodedString = Data(base64Encoded: base64StringForImage, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)
 
-                                let imageFromDecodedDaa = UIImage(data: dataFromEncodedString!)
+                                let imageFromDecodedData = UIImage(data: dataFromEncodedString!)
 
-                                images.append(imageFromDecodedDaa!)
+                                images.append(imageFromDecodedData!)
                             }
 
-                            completion(images, info)
+                            completion(images, imageNames, info)
                             print("Successfully downloaded json info")
                         } catch {
                             print("Error: \(error)")
