@@ -423,7 +423,11 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Map" largeTitleDisplayMode="never" id="McP-Dv-Atz">
-                        <barButtonItem key="leftBarButtonItem" title="Info" image="info" id="Zea-wI-3pA"/>
+                        <barButtonItem key="leftBarButtonItem" title="Info" image="info" id="Zea-wI-3pA">
+                            <connections>
+                                <action selector="infoButtonPressed:" destination="Kkx-vD-8CL" id="0io-sd-5KJ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="settings" id="k58-XB-FhW">
                             <connections>
                                 <segue destination="I6H-lA-2Zo" kind="show" id="5D3-Mf-s5y"/>

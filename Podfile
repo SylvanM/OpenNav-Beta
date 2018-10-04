@@ -10,7 +10,6 @@ target 'OpenNav' do
   pod ‘CryptoSwift’
   pod ‘Alamofire’
 
-  pod ’Heimdall', '~> 1.1.0’
   pod ‘SwiftyJSON’
   pod ’SwiftyRSA’
 

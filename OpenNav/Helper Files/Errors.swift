@@ -10,6 +10,7 @@ import Foundation
 
 enum DataLoadingError: Error {
     case couldNotLoadData
+    case couldNotSaveData
 }
 
 enum EncryptingError: Error {

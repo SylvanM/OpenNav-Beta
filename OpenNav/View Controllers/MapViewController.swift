@@ -11,6 +11,8 @@ import UIKit
 
 class MapViewController: UIViewController, UIScrollViewDelegate {
 
+    let dict = BuildingInfoDictionaryItemNames()
+
     enum ViewType {
         case normal
         case route
@@ -49,8 +51,8 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
             building = try BuildingInfo()
 
-            if building.acronym != nil {
-                self.navigationItem.title = building.acronym + " Map"
+            if let acro = building.info[dict.acronym] as? String {
+                self.navigationItem.title = acro + " Map"
             } else {
                 displayErrorMessage()
             }
@@ -106,11 +108,15 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: Actions
 
+    @objc func userTappedBackground() {
+        self.dismiss(animated: true, completion: nil)
+    }
+
     // This will make a popup for the user to select a floor to view (because idk how to use page views)
     @IBAction func floorsButtonPressed(_ sender: Any) {
         let alertController = UIAlertController(title: "Which Floor?", message: "Choose the floor to view", preferredStyle: .actionSheet)
 
-        for i in 0..<self.building.numberOfFloors {
+        for i in 0..<(self.building.info[dict.floorCount] as! Int) {
             let viewFloorAction = UIAlertAction(title: self.building.imageNames[i], style: .default, handler: { (_) in
                 self.selectedImage = i
                 print("Trying to view image \(i)")
@@ -166,6 +172,24 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
         self.present(routePrompt, animated: true, completion: nil)
     }
+
+    @IBAction func infoButtonPressed(_ sender: Any) {
+
+        var message: String = ""
+
+        for (key, _) in building.info {
+            message += "\(key): \(building.info[key]!)\n"
+        }
+
+        let alertController = UIAlertController(title: (building.info[dict.name] as! String), message: message, preferredStyle: .alert)
+
+        self.present(alertController, animated: true, completion: {
+            alertController.view.superview?.isUserInteractionEnabled = true
+            alertController.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.userTappedBackground)))
+        })
+    }
+
+
 
     /*
     // MARK: - Navigation

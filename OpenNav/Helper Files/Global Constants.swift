@@ -14,4 +14,11 @@ struct Keys {
     public let imageNameBase = "imageName"
     public let imageBase = "floorImage"
     public let acronym = "buildingAcro"
+    public let infoDict = "layoutInformationDictionary"
+}
+
+struct BuildingInfoDictionaryItemNames {
+    public let floorCount = "Images Available"
+    public let acronym = "Acronym"
+    public let name = "Name"
 }

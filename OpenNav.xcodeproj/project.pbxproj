@@ -27,7 +27,7 @@
 		AE48DCB4215F0D5A00708691 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C22143FEA200D173D6 /* Main.storyboard */; };
 		AE48DCB5215F0D5F00708691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C52143FEA300D173D6 /* Assets.xcassets */; };
 		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
-		AE93C00C215EE4160079C70C /* RSAHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93C00B215EE4160079C70C /* RSAHandler.swift */; };
+		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
 		AE93C00E215EFE080079C70C /* EncryptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93C00D215EFE080079C70C /* EncryptionHandler.swift */; };
 		AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */; };
 		AEC462A6215997B4002B2696 /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC462A5215997B4002B2696 /* RSA.swift */; };
@@ -82,7 +82,7 @@
 		AE246C4C21657399006BAE2B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		AE246C4E21657BFA006BAE2B /* Global Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Global Constants.swift"; sourceTree = "<group>"; };
 		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
-		AE93C00B215EE4160079C70C /* RSAHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSAHandler.swift; sourceTree = "<group>"; };
+		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
 		AE93C00D215EFE080079C70C /* EncryptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionHandler.swift; sourceTree = "<group>"; };
 		AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTableViewController.swift; sourceTree = "<group>"; };
 		AEC462A5215997B4002B2696 /* RSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSA.swift; sourceTree = "<group>"; };
@@ -225,6 +225,7 @@
 				AE1AA5F52143FFE000D173D6 /* Errors.swift */,
 				AEC462A5215997B4002B2696 /* RSA.swift */,
 				AE246C4E21657BFA006BAE2B /* Global Constants.swift */,
+				AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */,
 			);
 			path = "Helper Files";
 			sourceTree = "<group>";
@@ -242,7 +243,6 @@
 		AE93C00A215EE3FA0079C70C /* Encryption */ = {
 			isa = PBXGroup;
 			children = (
-				AE93C00B215EE4160079C70C /* RSAHandler.swift */,
 				AE93C00D215EFE080079C70C /* EncryptionHandler.swift */,
 			);
 			path = Encryption;
@@ -436,7 +436,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-OpenNav/Pods-OpenNav-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Heimdall/Heimdall.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework",
 			);
@@ -444,7 +443,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Heimdall.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyRSA.framework",
 			);
@@ -486,8 +484,8 @@
 				AE1AA6032143FFE000D173D6 /* Navigator.swift in Sources */,
 				AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */,
 				AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */,
+				AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */,
 				AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */,
-				AE93C00C215EE4160079C70C /* RSAHandler.swift in Sources */,
 				AE93C00E215EFE080079C70C /* EncryptionHandler.swift in Sources */,
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
 				AEC462A6215997B4002B2696 /* RSA.swift in Sources */,

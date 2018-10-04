@@ -23,13 +23,6 @@ class EncryptionViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Encryption"
         // Do any additional setup after loading the view.
-
-        let rsa = RSAHandler()
-        do {
-            try rsa.decryptData(data: Data(bytes: "Hello, World!".bytes))
-        } catch {
-            print("RSA Fail")
-        }
     }
 
     // MARK: Methods

@@ -10,28 +10,36 @@ import Foundation
 import UIKit
 
 class BuildingInfo {
-    var numberOfFloors: Int!
-    var acronym: String!
-    var name: String!
     var floorImages: [UIImage]!
     var mappedImages: [UIImage]!
     var layout: [String]!
     var imageNames: [String]!
+    var info: [String : Any]!
 
     let keys = Keys()
+    let dict = BuildingInfoDictionaryItemNames()
 
     init(_ dummy: Any) {
-        numberOfFloors = 0
-        acronym = ""
-        name = ""
+        info = [:]
+
+        info[dict.floorCount] = 0
+        info[dict.acronym] = ""
+        info[dict.name] = ""
 
         floorImages = []
         layout = []
     }
 
     init() throws {
+        info = [:]
+
+        if let dictData = UserDefaults.standard.data(forKey: keys.infoDict) {
+            self.info = NSKeyedUnarchiver.unarchiveObject(with: dictData) as? [String : Any]
+        }
+
         if let amountOfFloors = UserDefaults.standard.object(forKey: keys.imageCount) as? Int {
-            numberOfFloors = amountOfFloors
+            print("floor count: \(amountOfFloors)")
+            info[dict.floorCount] = amountOfFloors
             floorImages = []
             self.imageNames = []
 
@@ -58,23 +66,17 @@ class BuildingInfo {
 
             mappedImages = floorImages
         } else { throw DataLoadingError.couldNotLoadData }
-
-        if let name = UserDefaults.standard.object(forKey: keys.buildingName) as? String {
-            self.name = name
-        } else { throw DataLoadingError.couldNotLoadData }
-
-        if let acro = UserDefaults.standard.object(forKey: keys.acronym) as? String {
-            self.acronym = acro
-        } else { throw DataLoadingError.couldNotLoadData }
     }
 
     func saveInfo() {
         let defaults = UserDefaults.standard
 
-        defaults.set(numberOfFloors, forKey: keys.imageCount)
-        defaults.set(acronym, forKey: keys.acronym)
-        defaults.set(name, forKey: keys.buildingName)
-
+        do {
+            let infoDictData = try NSKeyedArchiver.archivedData(withRootObject: self.info, requiringSecureCoding: true)
+            defaults.set(infoDictData, forKey: keys.infoDict)
+        } catch {
+            print("Error on saving info dictionary: \(error)")
+        }
         for i in 0..<imageNames.count {
             defaults.set(imageNames[i], forKey: (keys.imageNameBase + String(i)))
         }
@@ -90,7 +92,7 @@ class BuildingInfo {
 
     func saveData() {
         saveInfo()
-        saveImages(imageCount: numberOfFloors)
+        saveImages(imageCount: info![dict.floorCount] as! Int)
 
         // TODO: Save layout string array
     }

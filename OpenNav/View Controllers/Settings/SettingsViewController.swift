@@ -19,6 +19,7 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
 
     let server = ServerCommunicator()
     let keys = Keys()
+    let dict = BuildingInfoDictionaryItemNames()
 
     // MARK: Properties
 
@@ -95,15 +96,16 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
                 // This is test code. It might not work. That is why we are keeping the previous commented code
                 server.getBuildingData(forCode: buildingCode!, completion: { (images, names, infoDictionary) in
                     // save the basic data from the school info from information.json
-                    building.numberOfFloors = infoDictionary[self.keys.imageCount].intValue
-                    building.name = infoDictionary[self.keys.buildingName].stringValue
-                    building.acronym = infoDictionary[self.keys.acronym].stringValue
+                    building.info[self.dict.floorCount] = infoDictionary[self.keys.imageCount].intValue
+                    building.info[self.dict.name] = infoDictionary[self.keys.buildingName].stringValue
+                    building.info[self.dict.acronym] = infoDictionary[self.keys.acronym].stringValue
 
                     building.imageNames = names
                     building.floorImages = images
                     building.saveData()
 
                     alertController.dismiss(animated: true, completion: nil)
+                    _ = self.navigationController?.popViewController(animated: true)
                 })
 
             } catch {
