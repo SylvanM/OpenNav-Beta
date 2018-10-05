@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: CONSTANTS
 struct Keys {
     public let buildingName = "buildingName"
     public let imageCount = "floorCount"
@@ -15,10 +16,20 @@ struct Keys {
     public let imageBase = "floorImage"
     public let acronym = "buildingAcro"
     public let infoDict = "layoutInformationDictionary"
+    public let layoutCode = "codeInputText"
 }
 
 struct BuildingInfoDictionaryItemNames {
     public let floorCount = "Images Available"
     public let acronym = "Acronym"
     public let name = "Name"
+}
+
+// MARK: FUNCTIONS
+func clearUserDefaults() {
+    let domain = Bundle.main.bundleIdentifier!
+    UserDefaults.standard.removePersistentDomain(forName: domain)
+    UserDefaults.standard.synchronize()
+
+    print("Cleared UserDefaults")
 }

@@ -23,9 +23,9 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     var building: BuildingInfo!
     var selectedImage: Int = 0
     var viewType: ViewType = .normal
-
+    
+    @IBOutlet var infoButton: UIBarButtonItem!
     @IBOutlet var mapImageView: UIImageView!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     // MARK: View Controller
 
@@ -47,6 +47,10 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     // this just refreshes the view
     func refresh() {
         do {
+            let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+            let barButton = UIBarButtonItem(customView: activityIndicator)
+            self.navigationItem.setLeftBarButton(barButton, animated: true)
+
             activityIndicator.startAnimating()
 
             building = try BuildingInfo()
@@ -70,6 +74,8 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
             }
 
             activityIndicator.stopAnimating()
+
+            self.navigationItem.setLeftBarButton(infoButton, animated: true)
         } catch {
             displayErrorMessage(error)
             print(error)

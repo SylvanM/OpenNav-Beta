@@ -42,7 +42,7 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
     // called when "go" button is pressed on the keyboard for the code input field
     @IBAction func userEnteredCode(_ sender: Any) {
         if codeTextInput.text != nil {  // detect if there is in fact text
-            UserDefaults.standard.set(codeTextInput.text, forKey: "codeInputText") // save text so it will be there when user reloads the view
+            UserDefaults.standard.set(codeTextInput.text, forKey: keys.layoutCode) // save text so it will be there when user reloads the view
 
             // dismiss keyboard
             view.endEditing(true)
@@ -51,47 +51,26 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
             do {
 
                 let alertController = UIAlertController(title: "Downloading Layouts", message: "This may take a couple seconds", preferredStyle: .alert)
+
+                let indicator = UIActivityIndicatorView()
+                indicator.translatesAutoresizingMaskIntoConstraints = false
+                indicator.style = UIActivityIndicatorView.Style.gray
+                indicator.startAnimating()
+
+                alertController.view.addSubview(indicator)
+
+                let views = ["pending" : alertController.view, "indicator" : indicator]
+                var constraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[indicator]-(50)-|", options: [], metrics: [:], views: views as [String : Any])
+                constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[indicator]-(-235)-|", options: [], metrics: [:], views: views as [String : Any])
+                alertController.view.addConstraints(constraints)
+
+
+
                 self.present(alertController, animated: true, completion: nil)
 
                 let building = BuildingInfo("dummy") // make instance of SchoolInfo with all blank data, this is what we will save to UserDefaults later
                 let buildingCode = codeTextInput.text
 
-                /*
-                 * THIS CODE MIGHT BE THE ONLY THING THAT WORKS
-                 * DO NOT DELETE IT
-                 *
-                // make a variable to keep track of the number of images
-                var collectedImageCount: Int = 0 {
-                    didSet {
-                        // this code executes if collectedImageCount ever changes
-
-                        if collectedImageCount == building.numberOfFloors { // another way of saying "if this image is the last floor image"
-                            building.saveImages(imageCount: building.numberOfFloors) // save all floor images to UserDefaults
-                            activityIndicator.stopAnimating() // self explanatory
-                            print("Images saved!")
-                        }
-                    }
-                }
-
-                // gets information from information.json
-                server.getBuildingData(forCode: buildingCode!, completion: { (infoDictionary) in
-
-                    // save the basic data from the school info from information.json
-                    building.numberOfFloors = infoDictionary["floorCount"].intValue
-                    building.name = infoDictionary["buildingName"].stringValue
-                    building.acronym = infoDictionary["buildingAcro"].stringValue
-
-                    // get images for each floor
-                    for i in 0...(building.numberOfFloors - 1) {
-                        self.server.getImage(forCode: buildingCode!, image: ("floor\(String(i + 1)).png"), completion: { (image) in
-                            building.floorImages.append(image)
-                            collectedImageCount = collectedImageCount + 1
-                        })
-                    }
-                    building.saveInfo() // saves school information, but not the images
-
-                })
-                */
 
                 // This is test code. It might not work. That is why we are keeping the previous commented code
                 server.getBuildingData(forCode: buildingCode!, completion: { (images, names, infoDictionary) in

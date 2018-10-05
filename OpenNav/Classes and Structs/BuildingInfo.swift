@@ -37,7 +37,7 @@ class BuildingInfo {
             self.info = NSKeyedUnarchiver.unarchiveObject(with: dictData) as? [String : Any]
         }
 
-        if let amountOfFloors = UserDefaults.standard.object(forKey: keys.imageCount) as? Int {
+        if let amountOfFloors = info[dict.floorCount] as? Int {
             print("floor count: \(amountOfFloors)")
             info[dict.floorCount] = amountOfFloors
             floorImages = []
@@ -65,18 +65,21 @@ class BuildingInfo {
             }
 
             mappedImages = floorImages
-        } else { throw DataLoadingError.couldNotLoadData }
+        } else {
+            print("Failed to load amount of floors")
+            throw DataLoadingError.couldNotLoadData
+        }
     }
 
     func saveInfo() {
         let defaults = UserDefaults.standard
-
         do {
             let infoDictData = try NSKeyedArchiver.archivedData(withRootObject: self.info, requiringSecureCoding: true)
             defaults.set(infoDictData, forKey: keys.infoDict)
         } catch {
             print("Error on saving info dictionary: \(error)")
         }
+
         for i in 0..<imageNames.count {
             defaults.set(imageNames[i], forKey: (keys.imageNameBase + String(i)))
         }
@@ -91,9 +94,14 @@ class BuildingInfo {
     }
 
     func saveData() {
+        let code = UserDefaults.standard.string(forKey: keys.layoutCode)
+        clearUserDefaults()
+        UserDefaults.standard.set(code, forKey: keys.layoutCode)
+
         saveInfo()
         saveImages(imageCount: info![dict.floorCount] as! Int)
 
+        UserDefaults.standard.synchronize()
         // TODO: Save layout string array
     }
 }
