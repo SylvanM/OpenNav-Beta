@@ -52,20 +52,6 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
 
                 let alertController = UIAlertController(title: "Downloading Layouts", message: "This may take a couple seconds", preferredStyle: .alert)
 
-                let indicator = UIActivityIndicatorView()
-                indicator.translatesAutoresizingMaskIntoConstraints = false
-                indicator.style = UIActivityIndicatorView.Style.gray
-                indicator.startAnimating()
-
-                alertController.view.addSubview(indicator)
-
-                let views = ["pending" : alertController.view, "indicator" : indicator]
-                var constraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[indicator]-(50)-|", options: [], metrics: [:], views: views as [String : Any])
-                constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[indicator]-(-235)-|", options: [], metrics: [:], views: views as [String : Any])
-                alertController.view.addConstraints(constraints)
-
-
-
                 self.present(alertController, animated: true, completion: nil)
 
                 let building = BuildingInfo("dummy") // make instance of SchoolInfo with all blank data, this is what we will save to UserDefaults later
@@ -74,16 +60,23 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
 
                 // This is test code. It might not work. That is why we are keeping the previous commented code
                 server.getBuildingData(forCode: buildingCode!, completion: { (images, names, infoDictionary) in
+                    
                     // save the basic data from the school info from information.json
-                    building.info[self.dict.floorCount] = infoDictionary[self.keys.imageCount].intValue
-                    building.info[self.dict.name] = infoDictionary[self.keys.buildingName].stringValue
-                    building.info[self.dict.acronym] = infoDictionary[self.keys.acronym].stringValue
+                    if images.first == images.last {
+                        print("Images are not different")
+                    } else {
+                        print("Images are different")
+                    }
+                    
+                    building.info = infoDictionary.dictionaryObject
+                    building.info[self.dict.floorCount] = images.count
 
                     building.imageNames = names
                     building.floorImages = images
                     building.saveData()
 
                     alertController.dismiss(animated: true, completion: nil)
+                    
                     _ = self.navigationController?.popViewController(animated: true)
                 })
 

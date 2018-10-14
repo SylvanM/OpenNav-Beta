@@ -52,8 +52,6 @@ class ServerCommunicator {
 
         if verifyUrl(urlString: request.url) {
             let group = DispatchGroup()
-
-            print("Entering Group")
             group.enter()
 
             getDecryptionInfo(forCode: forCode, completion: { (keyBytes, ivBytes) in
@@ -70,7 +68,6 @@ class ServerCommunicator {
                             let keyData = Data(bytes: self.key)
                             let ivData = Data(bytes: self.iv)
 
-                            print(response)
                             let dataFromServer = response.data!
                             let decryptedData = try dataFromServer.decrypt(key: keyData, iv: ivData)
 
@@ -96,11 +93,11 @@ class ServerCommunicator {
 
                             for floor in 0..<floorCount {
                                 let base64StringForImage = jsonData["floors"][imageNames[floor]].stringValue
-                                let dataFromEncodedString = Data(base64Encoded: base64StringForImage, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)
+                                let dataFromEncodedString = Data(base64Encoded: base64StringForImage, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
+                                
+                                let imageFromDecodedData = UIImage(data: dataFromEncodedString)!
 
-                                let imageFromDecodedData = UIImage(data: dataFromEncodedString!)
-
-                                images.append(imageFromDecodedData!)
+                                images.append(imageFromDecodedData)
                             }
 
                             completion(images, imageNames, info)
