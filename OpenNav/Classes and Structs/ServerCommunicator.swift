@@ -22,26 +22,21 @@ class ServerCommunicator {
     func getDecryptionInfo(forCode: String, completion: @escaping ([UInt8], [UInt8]) -> ()) {
         let request = BuildingInfoRequest(code: forCode, fileName: "encryption.json")
 
-        if verifyUrl(urlString: request.url) {
+        if verifyURL(urlString: request.url) {
             print("Making Request: \(request.url)")
             Alamofire.request(request.url).responseJSON { (response) in
                 print("Request completed: \(request.url)")
-                do {
+                print("Making JSON ->")
+                let json = JSON(response.result.value!)
+                print(" -> JSON successfully created")
 
-                    print("Making JSON ->")
-                    let json = JSON(response.result.value!)
-                    print(" -> JSON successfully created")
+                let keyBytes = json["key"].stringValue.bytes
+                let ivBytes = json["iv"].stringValue.bytes
 
-                    let keyBytes = json["key"].stringValue.bytes
-                    let ivBytes = json["iv"].stringValue.bytes
+                print("Key: \(json["key"].stringValue)")
+                print("IV: \(json["iv"].stringValue)")
 
-                    print("Key: \(json["key"].stringValue)")
-                    print("IV: \(json["iv"].stringValue)")
-
-                    completion(keyBytes, ivBytes)
-                } catch {
-                    // catch errors
-                }
+                completion(keyBytes, ivBytes)
             }
         }
     }
@@ -50,7 +45,7 @@ class ServerCommunicator {
         let request = BuildingInfoRequest(code: forCode, fileName: "data.json")
 
 
-        if verifyUrl(urlString: request.url) {
+        if verifyURL(urlString: request.url) {
             let group = DispatchGroup()
             group.enter()
 
@@ -110,67 +105,43 @@ class ServerCommunicator {
             })
         }
     }
-
-    // this function is useless for now but we should keep it just in case
-//    func getBuildingData(forCode: String, completion: @escaping (_ infoDictionary: JSON) -> ()) {
-//
-//        let request = BuildingInfoRequest(code: forCode, fileName: "information.json")
-//
-//        if verifyUrl(urlString: request.url) {
-//            Alamofire.request(request.url).responseData { (response) in
-//                if response.error != nil {
-//                    // Handle error
-//                } else {
-//                    do {
-//                        let decryptedData = try response.data?.decrypt(key: Data(bytes: "passwordpassword".bytes), iv: Data(bytes: "drowssapdrowssap".bytes))
-//                        let jsonData = try? JSON(data: decryptedData!)
-//
-//                        completion(jsonData!)
-//                    } catch {
-//                        print(error)
-//                    }
-//                }
-//            }
-//        } else {
-//            //throw ServerError.code404
-//        }
-//    }
-
-    func getBuildingLayouts(forCode: String, completion: @escaping (_ infoDictionary: JSON) -> ()) {
-
-        let request = BuildingInfoRequest(code: forCode, fileName: "information.json")
-
-        if verifyUrl(urlString: request.url) {
-            Alamofire.request(request.url).responseData { (response) in
-                if response.error != nil {
-                    // Handle error
-                } else {
-                    do {
-                        let decryptedData = try response.data?.decrypt(key: Data(bytes: "passwordpassword".bytes), iv: Data(bytes: "drowssapdrowssap".bytes))
-                        let jsonData = try? JSON(data: decryptedData!)
-
-                        completion(jsonData!)
-                    } catch {
-                        print(error)
-                    }
-                }
-            }
-        } else {
-            //throw ServerError.code404
+    
+    func verifyURL(urlString: String) -> Bool {
+        return true
+    }
+    
+    func postDataToServer(data: JSON, to file: String) {
+        let request = POSTRequest(file: "debug")
+        
+        let infoDictionary: [String : Any] = [
+            "Hello?": "World."
+        ]
+        
+        let infoJSON = JSON(infoDictionary)
+        
+        do {
+            let infoData = try infoJSON.rawData()
+            
+            Alamofire.upload(infoData, to: request.url)
+            print("Made POST request")
+        } catch {
+            print("Error on making Data object: \(error)")
         }
     }
-
-    // TODO: Make this function detect if url will give 404 status code!
-    func verifyUrl(urlString: String?) -> Bool {
-        //Check for nil
-        if let urlString = urlString {
-            // create NSURL instance
-            if let url = NSURL(string: urlString) {
-                // check if your application can open the NSURL instance
-                return UIApplication.shared.canOpenURL(url as URL)
-            }
+    
+    struct POSTRequest {
+        let baseURL = "https://navdataservice.000webhostapp.com/postData/"
+        var fileName: String
+        
+        var urlString: String
+        var url: URL
+        
+        init(file: String) {
+            fileName = file
+            
+            urlString = baseURL + file
+            url = URL(string: urlString)!
         }
-        return false
     }
 
     struct BuildingInfoRequest {

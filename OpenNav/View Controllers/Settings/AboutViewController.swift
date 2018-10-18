@@ -8,6 +8,10 @@
 
 import UIKit
 
+/*
+ * This class is just to provide a view to credit the authors of the icons used in the app
+ */
+
 class AboutViewController: UIViewController {
 
     // MARK: Propeties

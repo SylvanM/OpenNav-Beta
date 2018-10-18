@@ -16,6 +16,7 @@ class AdvancedTableViewController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
+        // title view
         self.navigationItem.title = "Advanced"
 
         // Uncomment the following line to preserve selection between presentations

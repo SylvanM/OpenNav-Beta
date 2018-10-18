@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ * This file us just to house all global constants
+ */
+
 // MARK: CONSTANTS
 struct Keys {
     public let buildingName = "buildingName"

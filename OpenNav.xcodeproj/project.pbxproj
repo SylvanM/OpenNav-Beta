@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		267A49208CDE261C7897158E /* Pods_OpenNavUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA58F4B41B57CBC0DE2A831D /* Pods_OpenNavUITests.framework */; };
 		5D23C5FDA36106ED845F17DF /* Pods_OpenNav.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78DE2DE8FFBECDFEBA5EB293 /* Pods_OpenNav.framework */; };
+		AE073401217563E9008F3835 /* POSTRequestTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE073400217563E9008F3835 /* POSTRequestTestViewController.swift */; };
 		AE1AA5BF2143FEA200D173D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */; };
 		AE1AA5D42143FEA300D173D6 /* OpenNavTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5D32143FEA300D173D6 /* OpenNavTests.swift */; };
 		AE1AA5DF2143FEA300D173D6 /* OpenNavUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5DE2143FEA300D173D6 /* OpenNavUITests.swift */; };
-		AE1AA5FA2143FFE000D173D6 /* EncryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5EE2143FFE000D173D6 /* EncryptionViewController.swift */; };
 		AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F02143FFE000D173D6 /* MapViewController.swift */; };
 		AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */; };
 		AE1AA5FE2143FFE000D173D6 /* Data+Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */; };
@@ -28,9 +28,7 @@
 		AE48DCB5215F0D5F00708691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C52143FEA300D173D6 /* Assets.xcassets */; };
 		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
 		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
-		AE93C00E215EFE080079C70C /* EncryptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93C00D215EFE080079C70C /* EncryptionHandler.swift */; };
 		AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */; };
-		AEC462A6215997B4002B2696 /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC462A5215997B4002B2696 /* RSA.swift */; };
 		B385C19C47FC0FFE25758129 /* Pods_OpenNavTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F41548D3818E9E999A06CB /* Pods_OpenNavTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +55,7 @@
 		78DE2DE8FFBECDFEBA5EB293 /* Pods_OpenNav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenNav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8393C1DFDDEDBD85A586C5 /* Pods-OpenNavUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavUITests/Pods-OpenNavUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9CDAA4A135D5AC0C93E68953 /* Pods-OpenNav.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNav.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNav/Pods-OpenNav.release.xcconfig"; sourceTree = "<group>"; };
+		AE073400217563E9008F3835 /* POSTRequestTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POSTRequestTestViewController.swift; sourceTree = "<group>"; };
 		AE1AA5BB2143FEA200D173D6 /* OpenNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE1AA5C32143FEA200D173D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,7 +68,6 @@
 		AE1AA5DA2143FEA300D173D6 /* OpenNavUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenNavUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1AA5DE2143FEA300D173D6 /* OpenNavUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNavUITests.swift; sourceTree = "<group>"; };
 		AE1AA5E02143FEA300D173D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE1AA5EE2143FFE000D173D6 /* EncryptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionViewController.swift; sourceTree = "<group>"; };
 		AE1AA5F02143FFE000D173D6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Encryption.swift"; sourceTree = "<group>"; };
@@ -83,9 +81,7 @@
 		AE246C4E21657BFA006BAE2B /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
-		AE93C00D215EFE080079C70C /* EncryptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionHandler.swift; sourceTree = "<group>"; };
 		AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTableViewController.swift; sourceTree = "<group>"; };
-		AEC462A5215997B4002B2696 /* RSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSA.swift; sourceTree = "<group>"; };
 		B1108DBF75C6AA32A805BE25 /* Pods-OpenNavTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavTests/Pods-OpenNavTests.release.xcconfig"; sourceTree = "<group>"; };
 		B81830BA92EA1FE101878E59 /* Pods-OpenNavUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavUITests/Pods-OpenNavUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C08BCA4147717B8F0D5BC3BE /* Pods-OpenNav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNav.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNav/Pods-OpenNav.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +137,14 @@
 				FA58F4B41B57CBC0DE2A831D /* Pods_OpenNavUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE0733FF217563A8008F3835 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				AE073400217563E9008F3835 /* POSTRequestTestViewController.swift */,
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		AE1AA5B22143FEA200D173D6 = {
@@ -209,21 +213,12 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		AE1AA5ED2143FFE000D173D6 /* Encryption */ = {
-			isa = PBXGroup;
-			children = (
-				AE1AA5EE2143FFE000D173D6 /* EncryptionViewController.swift */,
-			);
-			path = Encryption;
-			sourceTree = "<group>";
-		};
 		AE1AA5F22143FFE000D173D6 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
 				AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */,
 				AE1AA5F42143FFE000D173D6 /* Encryption.swift */,
 				AE1AA5F52143FFE000D173D6 /* Errors.swift */,
-				AEC462A5215997B4002B2696 /* RSA.swift */,
 				AE246C4E21657BFA006BAE2B /* Global.swift */,
 				AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */,
 			);
@@ -243,7 +238,6 @@
 		AE93C00A215EE3FA0079C70C /* Encryption */ = {
 			isa = PBXGroup;
 			children = (
-				AE93C00D215EFE080079C70C /* EncryptionHandler.swift */,
 			);
 			path = Encryption;
 			sourceTree = "<group>";
@@ -251,7 +245,7 @@
 		AEC256E42146A911008F4772 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				AE1AA5ED2143FFE000D173D6 /* Encryption */,
+				AE0733FF217563A8008F3835 /* Debug */,
 				AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */,
 				AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */,
 				AE246C4C21657399006BAE2B /* AboutViewController.swift */,
@@ -476,7 +470,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE1AA5FA2143FFE000D173D6 /* EncryptionViewController.swift in Sources */,
 				AE1AA6022143FFE000D173D6 /* ServerCommunicator.swift in Sources */,
 				AE1AA5BF2143FEA200D173D6 /* AppDelegate.swift in Sources */,
 				AE1AA5FE2143FFE000D173D6 /* Data+Encryption.swift in Sources */,
@@ -486,9 +479,8 @@
 				AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */,
 				AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */,
 				AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */,
-				AE93C00E215EFE080079C70C /* EncryptionHandler.swift in Sources */,
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
-				AEC462A6215997B4002B2696 /* RSA.swift in Sources */,
+				AE073401217563E9008F3835 /* POSTRequestTestViewController.swift in Sources */,
 				AE246C4F21657BFA006BAE2B /* Global.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
 				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,

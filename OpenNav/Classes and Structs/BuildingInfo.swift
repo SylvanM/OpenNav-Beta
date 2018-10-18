@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/*
+ * Class used to store information on the downloaded layout
+ */
+
 class BuildingInfo {
     var floorImages: [UIImage]!
     var mappedImages: [UIImage]!
@@ -19,6 +23,7 @@ class BuildingInfo {
     let keys = Keys()
     let dict = BuildingInfoDictionaryItemNames()
 
+    // make a blank class instance
     init(_ dummy: Any) {
         info = [:]
 
@@ -30,19 +35,21 @@ class BuildingInfo {
         layout = []
     }
 
+    // make instance from data in UserDefaults
     init() throws {
         info = [:]
 
+        // retrieve info dict from defaults
         if let dictData = UserDefaults.standard.data(forKey: keys.infoDict) {
             self.info = NSKeyedUnarchiver.unarchiveObject(with: dictData) as? [String : Any]
         }
 
         if let amountOfFloors = info[dict.floorCount] as? Int {
-            print("floor count: \(amountOfFloors)")
             info[dict.floorCount] = amountOfFloors
             floorImages = []
             self.imageNames = []
 
+            // get image names
             for i in 0..<amountOfFloors {
                 let key = (keys.imageNameBase + String(i))
 
@@ -55,8 +62,10 @@ class BuildingInfo {
 
             print("Names: \(String(describing: self.imageNames))")
 
+            // get saved images
             for i in 0..<amountOfFloors {
                 if let floor = UserDefaults.standard.string(forKey: (keys.imageBase + String(i))) {
+                    // retrieve and decode base64 encoded image data
                     let imageData = Data(base64Encoded: floor)
                     let image = UIImage(data: imageData!)
                     self.floorImages.append(image!)
@@ -64,6 +73,7 @@ class BuildingInfo {
                 } else { throw DataLoadingError.couldNotLoadData }
             }
 
+            // these should be the same until the user makes a route
             mappedImages = floorImages
         } else {
             print("Failed to load amount of floors")
@@ -71,6 +81,7 @@ class BuildingInfo {
         }
     }
 
+    // save info dictionary to UserDefaults
     func saveInfo() {
         let defaults = UserDefaults.standard
         do {
@@ -85,6 +96,7 @@ class BuildingInfo {
         }
     }
 
+    // encode images to base64 data and save to UserDefaults
     func saveImages(imageCount: Int) {
         for i in 0..<imageCount {
             let imageData = floorImages[i].pngData()
@@ -93,6 +105,7 @@ class BuildingInfo {
         }
     }
 
+    // save ALL data stored in this class to userDefaults
     func saveData() {
         let code = UserDefaults.standard.string(forKey: keys.layoutCode)
         clearUserDefaults()
