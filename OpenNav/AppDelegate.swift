@@ -16,6 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // create app ID and save it
+        // app ID created on first launch of app, and is used for authentication on the web server
+        let keys = Keys()
+        if UserDefaults.standard.string(forKey: keys.applicationID) == nil {
+            let randomString = generateRandomBase64String(length: 16)
+            UserDefaults.standard.set(randomString, forKey: keys.applicationID)
+            
+            print("Generated app ID: \(randomString)")
+        } else {
+            let appID = UserDefaults.standard.string(forKey: keys.applicationID)
+            print("App ID: \(appID!)")
+        }
+        
         return true
     }
 

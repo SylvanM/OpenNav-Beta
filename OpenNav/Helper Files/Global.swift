@@ -21,6 +21,8 @@ struct Keys {
     public let acronym = "buildingAcro"
     public let infoDict = "layoutInformationDictionary"
     public let layoutCode = "codeInputText"
+    
+    public let applicationID = "applicationID"
 }
 
 struct BuildingInfoDictionaryItemNames {
@@ -30,10 +32,33 @@ struct BuildingInfoDictionaryItemNames {
 }
 
 // MARK: FUNCTIONS
-func clearUserDefaults() {
+func clearLayoutData() {
+    let keys = Keys()
+    
+    // save items in UserDefaults that we DON'T want to get rid of
+    var appID: String? {
+        if let string = UserDefaults.standard.object(forKey: keys.applicationID) as? String {
+            return string
+        } else {
+            return nil
+        }
+    }
+    var layoutCode: String? {
+        if let code = UserDefaults.standard.object(forKey: keys.layoutCode) as? String {
+            return code
+        } else {
+            return nil
+        }
+    }
+    
+    // clear all items in UserDefaults
     let domain = Bundle.main.bundleIdentifier!
     UserDefaults.standard.removePersistentDomain(forName: domain)
     UserDefaults.standard.synchronize()
+    
+    // save persisted data
+    UserDefaults.standard.set(appID, forKey: keys.applicationID)
+    UserDefaults.standard.set(layoutCode, forKey: keys.layoutCode)
 
-    print("Cleared UserDefaults")
+    print("Cleared Layout Data")
 }

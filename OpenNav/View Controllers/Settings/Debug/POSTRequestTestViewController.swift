@@ -26,7 +26,12 @@ class POSTRequestTestViewController: UIViewController {
         let server = ServerCommunicator()
         
         // run simple post request
-        server.postDataToServer(data: JSON(), to: "lol")
+        
+        let info: [String : Any] = [
+            "Hello": "World"
+        ]
+            
+        server.postDataToServer(data: JSON(info), to: "debug")
 
         // Do any additional setup after loading the view.
     }

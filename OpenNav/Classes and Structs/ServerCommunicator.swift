@@ -111,19 +111,13 @@ class ServerCommunicator {
     }
     
     func postDataToServer(data: JSON, to file: String) {
-        let request = POSTRequest(file: "debug")
+        let request = POSTRequest(file: file)
         
-        let infoDictionary: [String : Any] = [
-            "Hello?": "World."
-        ]
-        
-        let infoJSON = JSON(infoDictionary)
+        let infoJSON = data
         
         do {
             let infoData = try infoJSON.rawData()
             
-            Alamofire.upload(infoData, to: request.url)
-            print("Made POST request")
         } catch {
             print("Error on making Data object: \(error)")
         }

@@ -107,9 +107,7 @@ class BuildingInfo {
 
     // save ALL data stored in this class to userDefaults
     func saveData() {
-        let code = UserDefaults.standard.string(forKey: keys.layoutCode)
-        clearUserDefaults()
-        UserDefaults.standard.set(code, forKey: keys.layoutCode)
+        clearLayoutData()
 
         saveInfo()
         saveImages(imageCount: info![dict.floorCount] as! Int)
