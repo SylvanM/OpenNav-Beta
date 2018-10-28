@@ -10,24 +10,21 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    let keys = Keys()
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // create app ID and save it
-        // app ID created on first launch of app, and is used for authentication on the web server
-        let keys = Keys()
-        if UserDefaults.standard.string(forKey: keys.applicationID) == nil {
-            let randomString = generateRandomBase64String(length: 16)
-            UserDefaults.standard.set(randomString, forKey: keys.applicationID)
-            
-            print("Generated app ID: \(randomString)")
+        NotificationCenter.default.addObserver(self, selector: #selector(redTint), name: .redTint, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(blueTint), name: .blueTint, object: nil)
+        
+        if let tint = UserDefaults.standard.object(forKey: keys.tint) as? String, tint == "red" {
+            redTint()
         } else {
-            let appID = UserDefaults.standard.string(forKey: keys.applicationID)
-            print("App ID: \(appID!)")
+            blueTint()
         }
         
         return true
@@ -54,7 +51,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    // MARK: Methods
+    
+    @objc func redTint() {
+        window?.tintColor = UIColor.red
+        UserDefaults.standard.set("red", forKey: keys.tint)
+    }
+    
+    @objc func blueTint() {
+        window?.tintColor = UIColor(red: 0.0, green: 122.0/225.0, blue: 1.0, alpha: 1.0)
+        UserDefaults.standard.set("blue", forKey: keys.tint)
+    }
 }
 

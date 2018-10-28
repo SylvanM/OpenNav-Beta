@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		267A49208CDE261C7897158E /* Pods_OpenNavUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA58F4B41B57CBC0DE2A831D /* Pods_OpenNavUITests.framework */; };
 		5D23C5FDA36106ED845F17DF /* Pods_OpenNav.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78DE2DE8FFBECDFEBA5EB293 /* Pods_OpenNav.framework */; };
-		AE073401217563E9008F3835 /* POSTRequestTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE073400217563E9008F3835 /* POSTRequestTestViewController.swift */; };
+		AE1365DA218323FE00DF1DBA /* UIBarStyle+Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1365D9218323FE00DF1DBA /* UIBarStyle+Customization.swift */; };
+		AE1365DC2183BE5200DF1DBA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1365DB2183BE5100DF1DBA /* RootViewController.swift */; };
 		AE1AA5BF2143FEA200D173D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */; };
 		AE1AA5D42143FEA300D173D6 /* OpenNavTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5D32143FEA300D173D6 /* OpenNavTests.swift */; };
 		AE1AA5DF2143FEA300D173D6 /* OpenNavUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5DE2143FEA300D173D6 /* OpenNavUITests.swift */; };
@@ -26,6 +27,8 @@
 		AE246C4F21657BFA006BAE2B /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE246C4E21657BFA006BAE2B /* Global.swift */; };
 		AE48DCB4215F0D5A00708691 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C22143FEA200D173D6 /* Main.storyboard */; };
 		AE48DCB5215F0D5F00708691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C52143FEA300D173D6 /* Assets.xcassets */; };
+		AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4937E42181460A006FF800 /* AppearanceViewController.swift */; };
+		AE4937E721814B7A006FF800 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4937E621814B7A006FF800 /* Notification+Extension.swift */; };
 		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
 		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
 		AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */; };
@@ -56,7 +59,8 @@
 		78DE2DE8FFBECDFEBA5EB293 /* Pods_OpenNav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenNav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8393C1DFDDEDBD85A586C5 /* Pods-OpenNavUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavUITests/Pods-OpenNavUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9CDAA4A135D5AC0C93E68953 /* Pods-OpenNav.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNav.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNav/Pods-OpenNav.release.xcconfig"; sourceTree = "<group>"; };
-		AE073400217563E9008F3835 /* POSTRequestTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POSTRequestTestViewController.swift; sourceTree = "<group>"; };
+		AE1365D9218323FE00DF1DBA /* UIBarStyle+Customization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarStyle+Customization.swift"; sourceTree = "<group>"; };
+		AE1365DB2183BE5100DF1DBA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AE1AA5BB2143FEA200D173D6 /* OpenNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE1AA5C32143FEA200D173D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 		AE246C4A216524EC006BAE2B /* Attributions */ = {isa = PBXFileReference; lastKnownFileType = text; path = Attributions; sourceTree = "<group>"; };
 		AE246C4C21657399006BAE2B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		AE246C4E21657BFA006BAE2B /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		AE4937E42181460A006FF800 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
+		AE4937E621814B7A006FF800 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
 		AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTableViewController.swift; sourceTree = "<group>"; };
@@ -141,14 +147,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AE0733FF217563A8008F3835 /* Debug */ = {
-			isa = PBXGroup;
-			children = (
-				AE073400217563E9008F3835 /* POSTRequestTestViewController.swift */,
-			);
-			path = Debug;
-			sourceTree = "<group>";
-		};
 		AE1AA5B22143FEA200D173D6 = {
 			isa = PBXGroup;
 			children = (
@@ -174,16 +172,16 @@
 		AE1AA5BD2143FEA200D173D6 /* OpenNav */ = {
 			isa = PBXGroup;
 			children = (
+				AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */,
 				AE93C00A215EE3FA0079C70C /* Encryption */,
 				AE1AA5EC2143FFE000D173D6 /* View Controllers */,
 				AE1AA5F22143FFE000D173D6 /* Helper Files */,
 				AE1AA5F62143FFE000D173D6 /* Classes and Structs */,
-				AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */,
-				AE1AA5C22143FEA200D173D6 /* Main.storyboard */,
-				AE1AA5C52143FEA300D173D6 /* Assets.xcassets */,
-				AE1AA5C72143FEA300D173D6 /* LaunchScreen.storyboard */,
 				AE1AA5CA2143FEA300D173D6 /* Info.plist */,
+				AE1AA5C22143FEA200D173D6 /* Main.storyboard */,
+				AE1AA5C72143FEA300D173D6 /* LaunchScreen.storyboard */,
 				AE246C4A216524EC006BAE2B /* Attributions */,
+				AE1AA5C52143FEA300D173D6 /* Assets.xcassets */,
 			);
 			path = OpenNav;
 			sourceTree = "<group>";
@@ -211,6 +209,7 @@
 			children = (
 				AE1AA5F02143FFE000D173D6 /* MapViewController.swift */,
 				AEC256E42146A911008F4772 /* Settings */,
+				AE1365DB2183BE5100DF1DBA /* RootViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -224,6 +223,8 @@
 				AE246C4E21657BFA006BAE2B /* Global.swift */,
 				AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */,
 				AED981122179FDD700A296F4 /* Helper Functions.swift */,
+				AE4937E621814B7A006FF800 /* Notification+Extension.swift */,
+				AE1365D9218323FE00DF1DBA /* UIBarStyle+Customization.swift */,
 			);
 			path = "Helper Files";
 			sourceTree = "<group>";
@@ -238,6 +239,14 @@
 			path = "Classes and Structs";
 			sourceTree = "<group>";
 		};
+		AE4937E3218145E3006FF800 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				AE4937E42181460A006FF800 /* AppearanceViewController.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
 		AE93C00A215EE3FA0079C70C /* Encryption */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,7 +257,7 @@
 		AEC256E42146A911008F4772 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				AE0733FF217563A8008F3835 /* Debug */,
+				AE4937E3218145E3006FF800 /* Appearance */,
 				AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */,
 				AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */,
 				AE246C4C21657399006BAE2B /* AboutViewController.swift */,
@@ -475,16 +484,19 @@
 			files = (
 				AE1AA6022143FFE000D173D6 /* ServerCommunicator.swift in Sources */,
 				AE1AA5BF2143FEA200D173D6 /* AppDelegate.swift in Sources */,
+				AE1365DC2183BE5200DF1DBA /* RootViewController.swift in Sources */,
 				AE1AA5FE2143FFE000D173D6 /* Data+Encryption.swift in Sources */,
 				AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */,
 				AE1AA6032143FFE000D173D6 /* Navigator.swift in Sources */,
 				AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */,
 				AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */,
 				AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */,
+				AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */,
 				AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */,
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
 				AED981132179FDD700A296F4 /* Helper Functions.swift in Sources */,
-				AE073401217563E9008F3835 /* POSTRequestTestViewController.swift in Sources */,
+				AE4937E721814B7A006FF800 /* Notification+Extension.swift in Sources */,
+				AE1365DA218323FE00DF1DBA /* UIBarStyle+Customization.swift in Sources */,
 				AE246C4F21657BFA006BAE2B /* Global.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
 				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,

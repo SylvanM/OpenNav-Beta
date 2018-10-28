@@ -22,8 +22,12 @@ struct Keys {
     public let infoDict = "layoutInformationDictionary"
     public let layoutCode = "codeInputText"
     
-    public let applicationID = "applicationID"
+    public let darkMode = "darkMode"
+    public let tint = "appTint"
 }
+
+let navdataserviceURL = "https://navdataservice.000webhostapp.com/layouts/"
+let testURL = "http://opennav-webservice.azurewebsites.net/"
 
 struct BuildingInfoDictionaryItemNames {
     public let floorCount = "Images Available"
@@ -35,20 +39,12 @@ struct BuildingInfoDictionaryItemNames {
 func clearLayoutData() {
     let keys = Keys()
     
-    // save items in UserDefaults that we DON'T want to get rid of
-    var appID: String? {
-        if let string = UserDefaults.standard.object(forKey: keys.applicationID) as? String {
-            return string
-        } else {
-            return nil
-        }
-    }
     var layoutCode: String? {
-        if let code = UserDefaults.standard.object(forKey: keys.layoutCode) as? String {
-            return code
-        } else {
+        guard let code = UserDefaults.standard.object(forKey: keys.layoutCode) as? String else {
             return nil
         }
+        
+        return code
     }
     
     // clear all items in UserDefaults
@@ -57,7 +53,6 @@ func clearLayoutData() {
     UserDefaults.standard.synchronize()
     
     // save persisted data
-    UserDefaults.standard.set(appID, forKey: keys.applicationID)
     UserDefaults.standard.set(layoutCode, forKey: keys.layoutCode)
 
     print("Cleared Layout Data")

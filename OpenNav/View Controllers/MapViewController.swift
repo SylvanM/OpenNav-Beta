@@ -17,6 +17,8 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
     // key names for items in the info dictionary
     let dict = BuildingInfoDictionaryItemNames()
+    // get key names for UserDefaults
+    let keys = Keys()
     
     enum ViewType {
         case normal // shows regular images
@@ -30,12 +32,24 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var infoButton: UIBarButtonItem! // button for popup to display info about the school
     @IBOutlet var mapImageView: UIImageView!   // image view for displaying image (kinda self explanatory)
+    @IBOutlet var toolBar: UIToolbar!
 
     // MARK: View Controller
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isToolbarHidden = false // display toolbar
+        
+//        // enable dark mode
+//        NotificationCenter.default.addObserver(self, selector: #selector(enableDarkMode), name: .darkModeEnabled, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(disableDarkMode), name: .darkModeDisabled, object: nil)
+//
+//        switch UserDefaults.standard.bool(forKey: keys.darkMode) {
+//        case true:
+//            enableDarkMode()
+//        case false:
+//            disableDarkMode()
+//        }
     }
 
     // make view able to be zoomable (TODO)
@@ -51,6 +65,15 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
     // this just refreshes the view
     func refresh() {
+        
+        // dark mode
+        switch UserDefaults.standard.bool(forKey: keys.darkMode) {
+        case true:
+            enableDarkMode()
+        case false:
+            disableDarkMode()
+        }
+        
         do {
             
             // make spinning activity indicator in top left of view in place of info button
@@ -217,7 +240,15 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         })
     }
 
-
+    // MARK: Methods
+    
+    func enableDarkMode() {
+        self.mapImageView.backgroundColor = UIColor.darkGray
+    }
+    
+    func disableDarkMode() {
+        self.mapImageView.backgroundColor = UIColor.white
+    }
 
     /*
     // MARK: - Navigation

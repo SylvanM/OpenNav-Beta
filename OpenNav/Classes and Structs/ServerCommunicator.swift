@@ -109,37 +109,9 @@ class ServerCommunicator {
     func verifyURL(urlString: String) -> Bool {
         return true
     }
-    
-    func postDataToServer(data: JSON, to file: String) {
-        let request = POSTRequest(file: file)
-        
-        let infoJSON = data
-        
-        do {
-            let infoData = try infoJSON.rawData()
-            
-        } catch {
-            print("Error on making Data object: \(error)")
-        }
-    }
-    
-    struct POSTRequest {
-        let baseURL = "https://navdataservice.000webhostapp.com/postData/"
-        var fileName: String
-        
-        var urlString: String
-        var url: URL
-        
-        init(file: String) {
-            fileName = file
-            
-            urlString = baseURL + file
-            url = URL(string: urlString)!
-        }
-    }
 
     struct BuildingInfoRequest {
-        let baseURL = "https://navdataservice.000webhostapp.com/layouts/"
+        let baseURL: String = navdataserviceURL
 
         var code: String
         var desiredFileName: String!
@@ -156,5 +128,4 @@ class ServerCommunicator {
             url = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         }
     }
-
 }
