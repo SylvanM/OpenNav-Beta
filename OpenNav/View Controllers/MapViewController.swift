@@ -86,10 +86,11 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
             building = try BuildingInfo()
 
             // put title at top of view with the acronym of the layout
-            if let acro = building.info[dict.acronym] as? String {
+            if let layoutData = building.info[dict.layoutData] as? [String : Any], let acro = layoutData[dict.acronym] as? String {
                 self.navigationItem.title = acro + " Map"
             } else {
-                displayErrorMessage()
+                print("Could not load acronym")
+                self.navigationItem.title = "Map"
             }
 
             switch viewType {
@@ -109,7 +110,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
             self.navigationItem.setLeftBarButton(infoButton, animated: true) // set left bar button item back to info button
         } catch {
             displayErrorMessage(error)
-            print(error)
+            print("Unknown error")
         }
     }
 
@@ -154,8 +155,10 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         let alertController = UIAlertController(title: "Which Floor?", message: "Choose the floor to view", preferredStyle: .actionSheet)
 
         // for ever image available, create a button and corresponding action for the user to press
-        for i in 0..<(self.building.info[dict.floorCount] as! Int) {
-            let viewFloorAction = UIAlertAction(title: self.building.imageNames[i], style: .default, handler: { (_) in
+        let layoutData = self.building.info[dict.layoutData] as? [String : Any]
+        for i in 0..<(layoutData![dict.floorCount] as! Int) {
+            let imageNames = layoutData![dict.imageNames] as! [String]
+            let viewFloorAction = UIAlertAction(title: imageNames[i], style: .default, handler: { (_) in
                 self.selectedImage = i
                 print("Trying to view image \(i)")
                 self.refresh()
@@ -226,12 +229,14 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         var message: String = ""
 
         // make a new line for each piece of info in info dictionary, add it to "message" string
-        for (key, _) in building.info {
-            message += "\(key): \(building.info[key]!)\n"
+        let layoutData = building.info[dict.presentableInfo] as! [String : Any]
+        for (key, _) in layoutData {
+            message += "\(key): \(layoutData[key]!)\n"
         }
 
         // make popup to display message string
-        let alertController = UIAlertController(title: (building.info[dict.name] as! String), message: message, preferredStyle: .alert)
+        let presentableInfo = building.info[dict.presentableInfo] as! [String : Any]
+        let alertController = UIAlertController(title: (presentableInfo[dict.name] as! String), message: message, preferredStyle: .alert)
 
         // present pop-up, listen for user to tap backgroumnd. When user does, dismiss pop up.
         self.present(alertController, animated: true, completion: {

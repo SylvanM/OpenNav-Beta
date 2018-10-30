@@ -59,14 +59,21 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
                 let building = BuildingInfo("dummy")
                 let buildingCode = codeTextInput.text
 
-                server.getBuildingData(forCode: buildingCode!, completion: { (images, names, infoDictionary) in
+                server.getBuildingData(forCode: buildingCode!, completion: { (images, imageNames, infoDictionary) in
                     
                     // assign items in info dictionary to items from downloaded JSON
-                    building.info = infoDictionary.dictionaryObject
-                    building.info[self.dict.floorCount] = images.count
-
+                    let presentableInfo = infoDictionary.dictionaryObject
+                    let layoutData: [String : Any] = [
+                        self.dict.floorCount: images.count,
+                        self.dict.imageNames: imageNames
+                    ]
+                    
+                    building.info = [
+                        self.dict.presentableInfo: presentableInfo as Any,
+                        self.dict.layoutData: layoutData as Any
+                    ]
+                    
                     // save images to building instance
-                    building.imageNames = names
                     building.floorImages = images
                     building.saveData() // save the building to userdefaults to be used by other classes (primarily the Map View)
 

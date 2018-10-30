@@ -17,7 +17,6 @@ class BuildingInfo {
     var floorImages: [UIImage]!
     var mappedImages: [UIImage]!
     var layout: [String]!
-    var imageNames: [String]!
     var info: [String : Any]!
 
     let keys = Keys()
@@ -38,61 +37,50 @@ class BuildingInfo {
     // make instance from data in UserDefaults
     init() throws {
         info = [:]
-
+        self.floorImages = []
         // retrieve info dict from defaults
-        if let dictData = UserDefaults.standard.data(forKey: keys.infoDict) {
-            self.info = NSKeyedUnarchiver.unarchiveObject(with: dictData) as? [String : Any]
-        }
-
-        if let amountOfFloors = info[dict.floorCount] as? Int {
-            info[dict.floorCount] = amountOfFloors
-            floorImages = []
-            self.imageNames = []
-
-            // get image names
-            for i in 0..<amountOfFloors {
-                let key = (keys.imageNameBase + String(i))
-
-                if let name = UserDefaults.standard.string(forKey: key) {
-                    self.imageNames.append(name)
-                } else {
+        let infoDictFileName = "layoutInfo.plist"
+        let filePath = getDocumentsDirectory().appendingPathComponent(infoDictFileName)
+        
+        let dictData = NSDictionary(contentsOf: filePath)
+        self.info = (dictData as Any) as? [String : Any]
+        
+        if let layoutData = info[dict.layoutData] as? [String : Any], let floorCount = layoutData[dict.floorCount] as? Int {
+            for i in 0..<floorCount {
+                let imageFileName = "image\(i).png"
+                
+                // retrieve and decode base64 encoded image data
+                let imageURL = getDocumentsDirectory().appendingPathComponent(imageFileName)
+                
+                do {
+                    let imageData = try Data(contentsOf: imageURL)
+                    let image = UIImage(data: imageData)
+                    self.floorImages.append(image!)
+                } catch {
+                    print("Could not load images")
                     throw DataLoadingError.couldNotLoadData
                 }
             }
-
-            print("Names: \(String(describing: self.imageNames))")
-
-            // get saved images
-            for i in 0..<amountOfFloors {
-                if let floor = UserDefaults.standard.string(forKey: (keys.imageBase + String(i))) {
-                    // retrieve and decode base64 encoded image data
-                    let imageData = Data(base64Encoded: floor)
-                    let image = UIImage(data: imageData!)
-                    self.floorImages.append(image!)
-
-                } else { throw DataLoadingError.couldNotLoadData }
-            }
-
+            
             // these should be the same until the user makes a route
             mappedImages = floorImages
         } else {
-            print("Failed to load amount of floors")
+            print("layout dict not loaded")
             throw DataLoadingError.couldNotLoadData
         }
     }
 
     // save info dictionary to UserDefaults
     func saveInfo() {
-        let defaults = UserDefaults.standard
+        let fileName = "layoutInfo.plist"
+        let filePath = getDocumentsDirectory().appendingPathComponent(fileName)
+        
+        let dict = NSDictionary(dictionary: self.info!)
+        
         do {
-            let infoDictData = try NSKeyedArchiver.archivedData(withRootObject: self.info, requiringSecureCoding: true)
-            defaults.set(infoDictData, forKey: keys.infoDict)
+            try dict.write(to: filePath)
         } catch {
             print("Error on saving info dictionary: \(error)")
-        }
-
-        for i in 0..<imageNames.count {
-            defaults.set(imageNames[i], forKey: (keys.imageNameBase + String(i)))
         }
     }
 
@@ -100,8 +88,16 @@ class BuildingInfo {
     func saveImages(imageCount: Int) {
         for i in 0..<imageCount {
             let imageData = floorImages[i].pngData()
-            let base64String = imageData?.base64EncodedString()
-            UserDefaults.standard.set(base64String, forKey: (keys.imageBase + String(i)))
+        
+            let imageName = "image\(i).png"
+            
+            let filename = getDocumentsDirectory().appendingPathComponent(imageName)
+            
+            do {
+                try imageData?.write(to: filename)
+            } catch {
+                print(error)
+            }
         }
     }
 
@@ -110,7 +106,9 @@ class BuildingInfo {
         clearLayoutData()
 
         saveInfo()
-        saveImages(imageCount: info![dict.floorCount] as! Int)
+        let layoutData = info[dict.layoutData] as! [String : Any]
+        let imageCount = layoutData[dict.floorCount] as! Int
+        saveImages(imageCount: imageCount)
 
         UserDefaults.standard.synchronize()
         // TODO: Save layout string array

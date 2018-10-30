@@ -53,16 +53,15 @@ class ServerCommunicator {
                 self.key = keyBytes
                 self.iv = ivBytes
 
-                print("Making Request: \(request.url)")
                 Alamofire.request(request.url).responseData { (response) in
-                    print("Request completed: \(request.url)")
                     if response.error != nil {
                         // Handle error
                     } else {
                         do {
+                            
                             let keyData = Data(bytes: self.key)
                             let ivData = Data(bytes: self.iv)
-
+                            
                             let dataFromServer = response.data!
                             let decryptedData = try dataFromServer.decrypt(key: keyData, iv: ivData)
 
@@ -82,7 +81,6 @@ class ServerCommunicator {
                             }
 
                             let imageNames: [String] = reversedImageNames.reversed()
-                            
                             // get images
                             var images: [UIImage] = []
 
@@ -96,7 +94,6 @@ class ServerCommunicator {
                             }
 
                             completion(images, imageNames, info)
-                            print("Successfully downloaded json info")
                         } catch {
                             print("Error: \(error)")
                         }

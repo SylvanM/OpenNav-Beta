@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		267A49208CDE261C7897158E /* Pods_OpenNavUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA58F4B41B57CBC0DE2A831D /* Pods_OpenNavUITests.framework */; };
 		5D23C5FDA36106ED845F17DF /* Pods_OpenNav.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78DE2DE8FFBECDFEBA5EB293 /* Pods_OpenNav.framework */; };
-		AE1365DA218323FE00DF1DBA /* UIBarStyle+Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1365D9218323FE00DF1DBA /* UIBarStyle+Customization.swift */; };
+		AE1212872185DEE0009AEEFE /* File Management.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1212862185DEE0009AEEFE /* File Management.swift */; };
 		AE1365DC2183BE5200DF1DBA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1365DB2183BE5100DF1DBA /* RootViewController.swift */; };
 		AE1AA5BF2143FEA200D173D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */; };
 		AE1AA5D42143FEA300D173D6 /* OpenNavTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5D32143FEA300D173D6 /* OpenNavTests.swift */; };
@@ -32,7 +32,6 @@
 		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
 		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
 		AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */; };
-		AED981132179FDD700A296F4 /* Helper Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED981122179FDD700A296F4 /* Helper Functions.swift */; };
 		B385C19C47FC0FFE25758129 /* Pods_OpenNavTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F41548D3818E9E999A06CB /* Pods_OpenNavTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,7 @@
 		78DE2DE8FFBECDFEBA5EB293 /* Pods_OpenNav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenNav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8393C1DFDDEDBD85A586C5 /* Pods-OpenNavUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavUITests/Pods-OpenNavUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9CDAA4A135D5AC0C93E68953 /* Pods-OpenNav.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNav.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNav/Pods-OpenNav.release.xcconfig"; sourceTree = "<group>"; };
-		AE1365D9218323FE00DF1DBA /* UIBarStyle+Customization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarStyle+Customization.swift"; sourceTree = "<group>"; };
+		AE1212862185DEE0009AEEFE /* File Management.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "File Management.swift"; sourceTree = "<group>"; };
 		AE1365DB2183BE5100DF1DBA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AE1AA5BB2143FEA200D173D6 /* OpenNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +88,6 @@
 		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
 		AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTableViewController.swift; sourceTree = "<group>"; };
-		AED981122179FDD700A296F4 /* Helper Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helper Functions.swift"; sourceTree = "<group>"; };
 		B1108DBF75C6AA32A805BE25 /* Pods-OpenNavTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavTests/Pods-OpenNavTests.release.xcconfig"; sourceTree = "<group>"; };
 		B81830BA92EA1FE101878E59 /* Pods-OpenNavUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavUITests/Pods-OpenNavUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C08BCA4147717B8F0D5BC3BE /* Pods-OpenNav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNav.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNav/Pods-OpenNav.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,9 +220,8 @@
 				AE1AA5F52143FFE000D173D6 /* Errors.swift */,
 				AE246C4E21657BFA006BAE2B /* Global.swift */,
 				AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */,
-				AED981122179FDD700A296F4 /* Helper Functions.swift */,
 				AE4937E621814B7A006FF800 /* Notification+Extension.swift */,
-				AE1365D9218323FE00DF1DBA /* UIBarStyle+Customization.swift */,
+				AE1212862185DEE0009AEEFE /* File Management.swift */,
 			);
 			path = "Helper Files";
 			sourceTree = "<group>";
@@ -494,11 +491,10 @@
 				AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */,
 				AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */,
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
-				AED981132179FDD700A296F4 /* Helper Functions.swift in Sources */,
 				AE4937E721814B7A006FF800 /* Notification+Extension.swift in Sources */,
-				AE1365DA218323FE00DF1DBA /* UIBarStyle+Customization.swift in Sources */,
 				AE246C4F21657BFA006BAE2B /* Global.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
+				AE1212872185DEE0009AEEFE /* File Management.swift in Sources */,
 				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,
 				AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */,
 			);

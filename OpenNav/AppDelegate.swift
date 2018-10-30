@@ -64,4 +64,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set("blue", forKey: keys.tint)
     }
 }
-

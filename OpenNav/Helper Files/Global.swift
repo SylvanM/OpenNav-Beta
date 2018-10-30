@@ -30,8 +30,17 @@ let navdataserviceURL = "https://navdataservice.000webhostapp.com/layouts/"
 let testURL = "http://opennav-webservice.azurewebsites.net/"
 
 struct BuildingInfoDictionaryItemNames {
-    public let floorCount = "Images Available"
-    public let acronym = "Acronym"
+    
+    public let layoutData = "layoutData"
+    
+    public let floorCount = "floorCount"
+    public let acronym = "acronym"
+    public let imageNames = "imageNames"
+    
+    
+    public let presentableInfo = "presentableInfo"
+    
+    public let imagesAvailable = "Images Available"
     public let name = "Name"
 }
 
