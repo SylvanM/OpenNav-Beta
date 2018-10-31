@@ -35,6 +35,7 @@
 		AE5EA0F521891FEE00A22307 /* MapView+FloorsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F421891FEE00A22307 /* MapView+FloorsMenu.swift */; };
 		AE5EA0F7218921E500A22307 /* MapView+Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F6218921E500A22307 /* MapView+Routing.swift */; };
 		AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F82189226700A22307 /* MapView+InfoPopup.swift */; };
+		AE5EA0FD21893F4100A22307 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */; };
 		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
 		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
 		AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */; };
@@ -70,7 +71,6 @@
 		AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE1AA5C32143FEA200D173D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE1AA5C52143FEA300D173D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AE1AA5C82143FEA300D173D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE1AA5CA2143FEA300D173D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE1AA5CF2143FEA300D173D6 /* OpenNavTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenNavTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1AA5D32143FEA300D173D6 /* OpenNavTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNavTests.swift; sourceTree = "<group>"; };
@@ -97,6 +97,7 @@
 		AE5EA0F421891FEE00A22307 /* MapView+FloorsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+FloorsMenu.swift"; sourceTree = "<group>"; };
 		AE5EA0F6218921E500A22307 /* MapView+Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Routing.swift"; sourceTree = "<group>"; };
 		AE5EA0F82189226700A22307 /* MapView+InfoPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+InfoPopup.swift"; sourceTree = "<group>"; };
+		AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
 		AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTableViewController.swift; sourceTree = "<group>"; };
@@ -189,8 +190,8 @@
 				AE1AA5F62143FFE000D173D6 /* Classes and Structs */,
 				AE1AA5CA2143FEA300D173D6 /* Info.plist */,
 				AE1AA5C22143FEA200D173D6 /* Main.storyboard */,
-				AE1AA5C72143FEA300D173D6 /* LaunchScreen.storyboard */,
 				AE246C4A216524EC006BAE2B /* Attributions */,
+				AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */,
 				AE1AA5C52143FEA300D173D6 /* Assets.xcassets */,
 			);
 			path = OpenNav;
@@ -413,6 +414,7 @@
 			files = (
 				AE48DCB5215F0D5F00708691 /* Assets.xcassets in Resources */,
 				AE48DCB4215F0D5A00708691 /* Main.storyboard in Resources */,
+				AE5EA0FD21893F4100A22307 /* Launch Screen.storyboard in Resources */,
 				AE246C4B216524EC006BAE2B /* Attributions in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,14 +572,6 @@
 				AE1AA5C32143FEA200D173D6 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AE1AA5C72143FEA300D173D6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE1AA5C82143FEA300D173D6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

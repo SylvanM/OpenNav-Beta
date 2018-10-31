@@ -46,7 +46,6 @@ class BuildingInfo {
         self.info = (dictData as Any) as? [String : Any]
         
         
-        
         if let layoutObject = info?[dict.layoutData], let layoutData = layoutObject as? [String : Any], let floorCount = layoutData[dict.floorCount] as? Int {
             for i in 0..<floorCount {
                 let imageFileName = "image\(i).png"
