@@ -45,7 +45,9 @@ class BuildingInfo {
         let dictData = NSDictionary(contentsOf: filePath)
         self.info = (dictData as Any) as? [String : Any]
         
-        if let layoutData = info[dict.layoutData] as? [String : Any], let floorCount = layoutData[dict.floorCount] as? Int {
+        
+        
+        if let layoutObject = info?[dict.layoutData], let layoutData = layoutObject as? [String : Any], let floorCount = layoutData[dict.floorCount] as? Int {
             for i in 0..<floorCount {
                 let imageFileName = "image\(i).png"
                 
