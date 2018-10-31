@@ -29,6 +29,12 @@
 		AE48DCB5215F0D5F00708691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C52143FEA300D173D6 /* Assets.xcassets */; };
 		AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4937E42181460A006FF800 /* AppearanceViewController.swift */; };
 		AE4937E721814B7A006FF800 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4937E621814B7A006FF800 /* Notification+Extension.swift */; };
+		AE5EA0EF21891E5500A22307 /* MapView+Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0EE21891E5500A22307 /* MapView+Zoom.swift */; };
+		AE5EA0F121891EEC00A22307 /* MapView+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F021891EEC00A22307 /* MapView+Refresh.swift */; };
+		AE5EA0F321891F7300A22307 /* MapView+ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F221891F7300A22307 /* MapView+ErrorMessage.swift */; };
+		AE5EA0F521891FEE00A22307 /* MapView+FloorsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F421891FEE00A22307 /* MapView+FloorsMenu.swift */; };
+		AE5EA0F7218921E500A22307 /* MapView+Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F6218921E500A22307 /* MapView+Routing.swift */; };
+		AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F82189226700A22307 /* MapView+InfoPopup.swift */; };
 		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
 		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
 		AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */; };
@@ -85,6 +91,12 @@
 		AE246C4E21657BFA006BAE2B /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		AE4937E42181460A006FF800 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		AE4937E621814B7A006FF800 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		AE5EA0EE21891E5500A22307 /* MapView+Zoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Zoom.swift"; sourceTree = "<group>"; };
+		AE5EA0F021891EEC00A22307 /* MapView+Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Refresh.swift"; sourceTree = "<group>"; };
+		AE5EA0F221891F7300A22307 /* MapView+ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+ErrorMessage.swift"; sourceTree = "<group>"; };
+		AE5EA0F421891FEE00A22307 /* MapView+FloorsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+FloorsMenu.swift"; sourceTree = "<group>"; };
+		AE5EA0F6218921E500A22307 /* MapView+Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Routing.swift"; sourceTree = "<group>"; };
+		AE5EA0F82189226700A22307 /* MapView+InfoPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+InfoPopup.swift"; sourceTree = "<group>"; };
 		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
 		AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTableViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				AE1AA5F02143FFE000D173D6 /* MapViewController.swift */,
+				AE5EA0ED21891E1D00A22307 /* Map View Extensions */,
 				AEC256E42146A911008F4772 /* Settings */,
 				AE1365DB2183BE5100DF1DBA /* RootViewController.swift */,
 			);
@@ -242,6 +255,19 @@
 				AE4937E42181460A006FF800 /* AppearanceViewController.swift */,
 			);
 			path = Appearance;
+			sourceTree = "<group>";
+		};
+		AE5EA0ED21891E1D00A22307 /* Map View Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AE5EA0EE21891E5500A22307 /* MapView+Zoom.swift */,
+				AE5EA0F021891EEC00A22307 /* MapView+Refresh.swift */,
+				AE5EA0F221891F7300A22307 /* MapView+ErrorMessage.swift */,
+				AE5EA0F421891FEE00A22307 /* MapView+FloorsMenu.swift */,
+				AE5EA0F6218921E500A22307 /* MapView+Routing.swift */,
+				AE5EA0F82189226700A22307 /* MapView+InfoPopup.swift */,
+			);
+			path = "Map View Extensions";
 			sourceTree = "<group>";
 		};
 		AE93C00A215EE3FA0079C70C /* Encryption */ = {
@@ -479,24 +505,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE5EA0F321891F7300A22307 /* MapView+ErrorMessage.swift in Sources */,
 				AE1AA6022143FFE000D173D6 /* ServerCommunicator.swift in Sources */,
 				AE1AA5BF2143FEA200D173D6 /* AppDelegate.swift in Sources */,
 				AE1365DC2183BE5200DF1DBA /* RootViewController.swift in Sources */,
 				AE1AA5FE2143FFE000D173D6 /* Data+Encryption.swift in Sources */,
+				AE5EA0F521891FEE00A22307 /* MapView+FloorsMenu.swift in Sources */,
 				AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */,
 				AE1AA6032143FFE000D173D6 /* Navigator.swift in Sources */,
 				AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */,
 				AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */,
 				AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */,
+				AE5EA0EF21891E5500A22307 /* MapView+Zoom.swift in Sources */,
 				AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */,
 				AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */,
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
 				AE4937E721814B7A006FF800 /* Notification+Extension.swift in Sources */,
 				AE246C4F21657BFA006BAE2B /* Global.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
+				AE5EA0F7218921E500A22307 /* MapView+Routing.swift in Sources */,
 				AE1212872185DEE0009AEEFE /* File Management.swift in Sources */,
 				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,
 				AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */,
+				AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */,
+				AE5EA0F121891EEC00A22307 /* MapView+Refresh.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

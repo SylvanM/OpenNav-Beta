@@ -292,16 +292,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Vo-ah-v41">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="38B-4v-oMl">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Vo-ah-v41">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3Vo-ah-v41" firstAttribute="top" secondItem="38B-4v-oMl" secondAttribute="top" id="1YN-Q2-KEv"/>
+                                    <constraint firstItem="3Vo-ah-v41" firstAttribute="centerX" secondItem="38B-4v-oMl" secondAttribute="centerX" id="An3-Ex-Y8U"/>
+                                    <constraint firstItem="3Vo-ah-v41" firstAttribute="leading" secondItem="38B-4v-oMl" secondAttribute="leading" id="Huv-II-xEU"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Vo-ah-v41" secondAttribute="trailing" id="TbY-Ko-Igp"/>
+                                    <constraint firstItem="3Vo-ah-v41" firstAttribute="centerY" secondItem="38B-4v-oMl" secondAttribute="centerY" id="nEr-9q-Qmr"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Vo-ah-v41" secondAttribute="bottom" id="uuG-YI-ygL"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="Kkx-vD-8CL" id="KTd-VX-uzQ"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="3Vo-ah-v41" firstAttribute="trailing" secondItem="pR6-8M-EzY" secondAttribute="trailing" id="C3S-Bl-fsp"/>
-                            <constraint firstItem="3Vo-ah-v41" firstAttribute="top" secondItem="pR6-8M-EzY" secondAttribute="top" id="PH6-F9-T4Q"/>
-                            <constraint firstItem="3Vo-ah-v41" firstAttribute="leading" secondItem="pR6-8M-EzY" secondAttribute="leading" id="hRv-fB-JoC"/>
-                            <constraint firstItem="3Vo-ah-v41" firstAttribute="bottom" secondItem="pR6-8M-EzY" secondAttribute="bottom" id="wUG-fQ-ffs"/>
+                            <constraint firstItem="38B-4v-oMl" firstAttribute="trailing" secondItem="pR6-8M-EzY" secondAttribute="trailing" id="7Ez-dN-cph"/>
+                            <constraint firstItem="38B-4v-oMl" firstAttribute="bottom" secondItem="pR6-8M-EzY" secondAttribute="bottom" id="Ncy-HI-hIp"/>
+                            <constraint firstItem="38B-4v-oMl" firstAttribute="top" secondItem="pR6-8M-EzY" secondAttribute="top" id="Pw6-et-PaI"/>
+                            <constraint firstItem="38B-4v-oMl" firstAttribute="leading" secondItem="pR6-8M-EzY" secondAttribute="leading" id="mJz-2H-D1k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pR6-8M-EzY"/>
                     </view>
@@ -339,6 +355,7 @@
                     <connections>
                         <outlet property="infoButton" destination="Zea-wI-3pA" id="BZQ-YD-Taf"/>
                         <outlet property="mapImageView" destination="3Vo-ah-v41" id="62q-Cn-EZZ"/>
+                        <outlet property="scrollView" destination="38B-4v-oMl" id="nL9-yb-BGV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjj-sS-DrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
