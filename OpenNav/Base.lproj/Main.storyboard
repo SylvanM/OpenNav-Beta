@@ -221,6 +221,7 @@
                     </tableView>
                     <connections>
                         <outlet property="blueTintButton" destination="36Z-88-z7s" id="teE-lo-eVM"/>
+                        <outlet property="darkModeCell" destination="Oe3-is-gkb" id="YLr-AO-ELN"/>
                         <outlet property="darkModeSwitch" destination="PH0-oF-4xj" id="oOV-8r-tnI"/>
                         <outlet property="redTintButton" destination="ljS-Kt-M3e" id="8VB-fK-qwf"/>
                     </connections>

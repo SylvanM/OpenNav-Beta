@@ -14,7 +14,7 @@ extension MapViewController {
     func refresh() {
         
         // dark mode
-        switch UserDefaults.standard.bool(forKey: keys.darkMode) {
+        switch settings.get(setting: .darkMode) as! Bool {
         case true:
             enableDarkMode()
         case false:

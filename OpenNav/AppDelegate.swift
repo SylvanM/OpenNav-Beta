@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let keys = Keys()
+    let settings = UserSettings()
 
     var window: UIWindow?
 
@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(redTint), name: .redTint, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(blueTint), name: .blueTint, object: nil)
         
-        if let tint = UserDefaults.standard.object(forKey: keys.tint) as? String, tint == "red" {
+        if let tint = settings.get(setting: .tint) as? String, tint == "red" {
             redTint()
         } else {
             blueTint()
@@ -56,11 +56,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc func redTint() {
         window?.tintColor = UIColor.red
-        UserDefaults.standard.set("red", forKey: keys.tint)
+        settings.set("red", for: .tint)
     }
     
     @objc func blueTint() {
         window?.tintColor = UIColor(red: 0.0, green: 122.0/225.0, blue: 1.0, alpha: 1.0)
-        UserDefaults.standard.set("blue", forKey: keys.tint)
+        settings.set("blue", for: .tint)
     }
 }

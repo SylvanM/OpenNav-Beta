@@ -20,10 +20,6 @@ struct Keys {
     public let imageBase = "floorImage"
     public let acronym = "buildingAcro"
     public let infoDict = "layoutInformationDictionary"
-    public let layoutCode = "codeInputText"
-    
-    public let darkMode = "darkMode"
-    public let tint = "appTint"
 }
 
 let navdataserviceURL = "https://navdataservice.000webhostapp.com/layouts/"
@@ -46,23 +42,8 @@ struct BuildingInfoDictionaryItemNames {
 
 // MARK: FUNCTIONS
 func clearLayoutData() {
-    let keys = Keys()
-    
-    var layoutCode: String? {
-        guard let code = UserDefaults.standard.object(forKey: keys.layoutCode) as? String else {
-            return nil
-        }
-        
-        return code
-    }
-    
-    // clear all items in UserDefaults
     let domain = Bundle.main.bundleIdentifier!
     UserDefaults.standard.removePersistentDomain(forName: domain)
     UserDefaults.standard.synchronize()
-    
-    // save persisted data
-    UserDefaults.standard.set(layoutCode, forKey: keys.layoutCode)
-
     print("Cleared Layout Data")
 }

@@ -36,6 +36,7 @@
 		AE5EA0F7218921E500A22307 /* MapView+Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F6218921E500A22307 /* MapView+Routing.swift */; };
 		AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F82189226700A22307 /* MapView+InfoPopup.swift */; };
 		AE5EA0FD21893F4100A22307 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */; };
+		AE5EA0FF2189BB2300A22307 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0FE2189BB2300A22307 /* UserSettings.swift */; };
 		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
 		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
 		AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */; };
@@ -98,6 +99,7 @@
 		AE5EA0F6218921E500A22307 /* MapView+Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Routing.swift"; sourceTree = "<group>"; };
 		AE5EA0F82189226700A22307 /* MapView+InfoPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+InfoPopup.swift"; sourceTree = "<group>"; };
 		AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		AE5EA0FE2189BB2300A22307 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
 		AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTableViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				AE1AA5F02143FFE000D173D6 /* MapViewController.swift */,
 				AE5EA0ED21891E1D00A22307 /* Map View Extensions */,
+				AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */,
 				AEC256E42146A911008F4772 /* Settings */,
 				AE1365DB2183BE5100DF1DBA /* RootViewController.swift */,
 			);
@@ -246,6 +249,7 @@
 				AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */,
 				AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */,
 				AE1AA5F92143FFE000D173D6 /* Navigator.swift */,
+				AE5EA0FE2189BB2300A22307 /* UserSettings.swift */,
 			);
 			path = "Classes and Structs";
 			sourceTree = "<group>";
@@ -282,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				AE4937E3218145E3006FF800 /* Appearance */,
-				AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */,
 				AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */,
 				AE246C4C21657399006BAE2B /* AboutViewController.swift */,
 				AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */,
@@ -530,6 +533,7 @@
 				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,
 				AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */,
 				AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */,
+				AE5EA0FF2189BB2300A22307 /* UserSettings.swift in Sources */,
 				AE5EA0F121891EEC00A22307 /* MapView+Refresh.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,25 +10,26 @@ import UIKit
 
 class AppearanceViewController: UITableViewController {
     
-    let keys = Keys()
+    let settings = UserSettings()
 
     // MARK: Properties
     
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var blueTintButton: UITableViewCell!
     @IBOutlet weak var redTintButton: UITableViewCell!
+    @IBOutlet weak var darkModeCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "Appearance"
         
-        darkModeSwitch.isOn = UserDefaults.standard.bool(forKey: keys.darkMode)
+        darkModeSwitch.isOn = settings.get(setting: .darkMode) as! Bool
         
         blueTintButton.accessoryType = .none
         redTintButton.accessoryType = .none
         
-        if let tint = UserDefaults.standard.object(forKey: keys.tint) as? String, tint == "red" {
+        if let tint = settings.get(setting: .tint) as? String, tint == "red" {
             redTintButton.accessoryType = .checkmark
         } else {
             blueTintButton.accessoryType = .checkmark
@@ -43,10 +44,6 @@ class AppearanceViewController: UITableViewController {
         switch darkMode {
         case true:
             NotificationCenter.default.post(Notification(name: .darkModeEnabled))
-            
-            // do default tint
-            redTintButton.accessoryType = .none
-            blueTintButton.accessoryType = .checkmark
         case false:
             NotificationCenter.default.post(Notification(name: .darkModeDisabled))
         }
@@ -59,18 +56,26 @@ class AppearanceViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = tableView.cellForRow(at: indexPath)
         
-        if !darkModeSwitch.isOn {
+        if selectedCell != darkModeCell {
             blueTintButton.accessoryType = .none
             redTintButton.accessoryType = .none
             
             selectedCell?.accessoryType = .checkmark
             
-            if selectedCell == blueTintButton {
+            switch selectedCell {
+            case blueTintButton:
                 NotificationCenter.default.post(Notification(name: .blueTint))
-            } else {
+            case redTintButton:
                 NotificationCenter.default.post(Notification(name: .redTint))
+            case .none:
+                // this case should never be true
+                print("None selected")
+            case .some(_):
+                // this case should never be true
+                print("Multiple selected")
             }
         }
+        
     }
     
 }

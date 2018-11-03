@@ -18,7 +18,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     // key names for items in the info dictionary
     let dict = BuildingInfoDictionaryItemNames()
     // get key names for UserDefaults
-    let keys = Keys()
+    let settings = UserSettings()
     
     enum ViewType {
         case normal // shows regular images

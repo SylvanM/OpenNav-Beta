@@ -104,14 +104,9 @@ class BuildingInfo {
 
     // save ALL data stored in this class to userDefaults
     func saveData() {
-        clearLayoutData()
-
         saveInfo()
         let layoutData = info[dict.layoutData] as! [String : Any]
         let imageCount = layoutData[dict.floorCount] as! Int
         saveImages(imageCount: imageCount)
-
-        UserDefaults.standard.synchronize()
-        // TODO: Save layout string array
     }
 }

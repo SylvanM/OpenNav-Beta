@@ -10,7 +10,7 @@ import UIKit
 
 class RootViewController: UINavigationController {
     
-    let keys = Keys()
+    let settings = UserSettings()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +21,9 @@ class RootViewController: UINavigationController {
         NotificationCenter.default.addObserver(self, selector: #selector(saveDarkMode), name: .darkModeEnabled, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(saveLightMode), name: .darkModeDisabled, object: nil)
 
-        print("Dark mode: \(UserDefaults.standard.bool(forKey: keys.darkMode))")
+        print("Dark mode: \(settings.get(setting: .darkMode))")
         // Do any additional setup after loading the view.
-        switch UserDefaults.standard.bool(forKey: keys.darkMode) {
+        switch settings.get(setting: .darkMode) as! Bool {
         case true:
             setDarkMode()
             print("Setting light mode")
@@ -35,12 +35,12 @@ class RootViewController: UINavigationController {
     
     @objc func saveDarkMode() {
         setDarkMode()
-        UserDefaults.standard.set(true, forKey: keys.darkMode)
+        settings.set(true, for: .darkMode)
     }
     
     @objc func saveLightMode() {
         setLightMode()
-        UserDefaults.standard.set(false, forKey: keys.darkMode)
+        settings.set(false, for: .darkMode)
     }
     
     func setLightMode() {

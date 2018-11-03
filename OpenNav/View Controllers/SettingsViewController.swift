@@ -18,7 +18,7 @@ import UIKit
 class SettingsViewController: UITableViewController, UITextFieldDelegate {
 
     let server = ServerCommunicator()
-    let keys = Keys()
+    let settings = UserSettings()
     let dict = BuildingInfoDictionaryItemNames()
 
     // MARK: Properties
@@ -31,10 +31,20 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         self.navigationItem.title = "Settings"
 
         // this keeps the text in the "code input" field consistent even when the app is closed. This is just for looks. Removing this code will not affect the functionality of the app
-        if let prevInput = UserDefaults.standard.object(forKey: "codeInputText") as? String {
+        if let prevInput = settings.get(setting: .layoutCode) as? String {
             codeTextInput.text = prevInput
         }
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let setting = UserSettings()
+        switch setting.get(setting: .darkMode) as! Bool {
+        case true:
+            break
+        case false:
+            break
+        }
     }
 
     // MARK: Actions
@@ -42,7 +52,7 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
     // called when "go" button is pressed on the keyboard for the code input field
     @IBAction func userEnteredCode(_ sender: Any) {
         if codeTextInput.text != nil {  // detect if there is in fact text
-            UserDefaults.standard.set(codeTextInput.text, forKey: keys.layoutCode) // save text so it will be there when user reloads the view
+            settings.set(codeTextInput.text as Any, for: .layoutCode) // save text so it will be there when user reloads the view
 
             // dismiss keyboard
             view.endEditing(true)
@@ -96,4 +106,8 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
             // no text entered
         }
     }
+    
+    // MARK TableView
+    
+    
 }
