@@ -25,11 +25,11 @@ class RootViewController: UINavigationController {
         // Do any additional setup after loading the view.
         switch settings.get(setting: .darkMode) as! Bool {
         case true:
-            setDarkMode()
-            print("Setting light mode")
-        case false:
-            setLightMode()
+            saveDarkMode()
             print("Setting dark mode")
+        case false:
+            saveLightMode()
+            print("Setting light mode")
         }
     }
     
@@ -51,8 +51,6 @@ class RootViewController: UINavigationController {
     func setDarkMode() {
         navigationBar.barStyle = .blackTranslucent
         toolbar.barStyle = .blackTranslucent
-        
-        NotificationCenter.default.post(Notification(name: .blueTint))
     }
 
 }
