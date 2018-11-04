@@ -31,6 +31,8 @@ class RootViewController: UINavigationController {
             saveLightMode()
             print("Setting light mode")
         }
+        
+        
     }
     
     @objc func saveDarkMode() {
