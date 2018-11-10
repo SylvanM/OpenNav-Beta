@@ -23,33 +23,26 @@ class ServerCommunicator {
         let request = BuildingInfoRequest(code: forCode, fileName: "encryption.json")
 
         if verifyURL(urlString: request.url) {
-            print("Making Request: \(request.url)")
             Alamofire.request(request.url).responseJSON { (response) in
-                print("Request completed: \(request.url)")
-                print("Making JSON ->")
                 let json = JSON(response.result.value!)
-                print(" -> JSON successfully created")
 
                 let keyBytes = json["key"].stringValue.bytes
                 let ivBytes = json["iv"].stringValue.bytes
-
-                print("Key: \(json["key"].stringValue)")
-                print("IV: \(json["iv"].stringValue)")
 
                 completion(keyBytes, ivBytes)
             }
         }
     }
 
-    func getBuildingData(forCode: String, completion: @escaping ([UIImage], [String], JSON) -> ()) {
-        let request = BuildingInfoRequest(code: forCode, fileName: "data.json")
+    func getBuildingData(for code: String, completion: @escaping ([UIImage], [String], JSON) -> ()) {
+        let request = BuildingInfoRequest(code: code, fileName: "data.json")
 
 
         if verifyURL(urlString: request.url) {
-            let group = DispatchGroup()
-            group.enter()
+//            let group = DispatchGroup()
+//            group.enter()
 
-            getDecryptionInfo(forCode: forCode, completion: { (keyBytes, ivBytes) in
+            getDecryptionInfo(forCode: code, completion: { (keyBytes, ivBytes) in
                 self.key = keyBytes
                 self.iv = ivBytes
 
@@ -58,6 +51,8 @@ class ServerCommunicator {
                         // Handle error
                     } else {
                         do {
+                            
+                            
                             
                             let keyData = Data(bytes: self.key)
                             let ivData = Data(bytes: self.iv)
@@ -73,33 +68,46 @@ class ServerCommunicator {
                             let info = jsonData["info"]
 
                             // get image names
-
                             var reversedImageNames: [String] = []
-
-                            for (key, _) in jsonData["floors"] {
-                                reversedImageNames.append(key)
-                            }
-
-                            let imageNames: [String] = reversedImageNames.reversed()
                             // get images
                             var images: [UIImage] = []
-
-                            for floor in 0..<floorCount {
-                                let base64StringForImage = jsonData["floors"][imageNames[floor]].stringValue
-                                let dataFromEncodedString = Data(base64Encoded: base64StringForImage, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
-                                
-                                let imageFromDecodedData = UIImage(data: dataFromEncodedString)!
-
-                                images.append(imageFromDecodedData)
+                            
+                            var collectedFloorCount: Int! {
+                                didSet {
+                                    if collectedFloorCount == floorCount {
+                                        let imageNames: [String] = reversedImageNames.reversed()
+                                        completion(images, imageNames, info)
+                                    }
+                                }
                             }
-
-                            completion(images, imageNames, info)
+                            
+                            for floorName in jsonData["floors"] {
+                                reversedImageNames.append(floorName.0)
+                                
+                                self.getImage(code: code, name: floorName.0) { image in
+                                    images.append(image)
+                                    collectedFloorCount += 1
+                                }
+                            }
+   
                         } catch {
                             print("Error: \(error)")
                         }
                     }
                 }
             })
+        }
+    }
+    
+    func getImage(code: String, name: String, completion: @escaping (UIImage) -> ()) {
+        let urlString = navdataserviceURL + code + "/" + name
+        let url = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        
+        Alamofire.request(url).responseData() { response in
+            let data = response.data!
+            let image = UIImage(data: data)!
+            
+            completion(image)
         }
     }
     
