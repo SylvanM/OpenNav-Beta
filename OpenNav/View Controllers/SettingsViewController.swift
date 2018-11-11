@@ -59,7 +59,7 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
             codeTextInput.resignFirstResponder()
             codeTextInput.endEditing(true)
             
-            getLayouts()
+            getLayouts(code: codeTextInput.text!)
         } else {
             // no text entered
         }

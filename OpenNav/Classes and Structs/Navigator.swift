@@ -11,6 +11,7 @@ import UIKit
 
 enum NavigationError: Error {
     case noSuchRoomInBuilding
+    case layoutNotRoutable
 }
 
 class Navigator {

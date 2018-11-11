@@ -32,6 +32,8 @@ struct BuildingInfoDictionaryItemNames {
     public let floorCount = "floorCount"
     public let acronym = "acronym"
     public let imageNames = "imageNames"
+    public let navMatrix = "nav_matrix"
+    public let correctionMatrix = "correction_matrix"
     
     
     public let presentableInfo = "presentableInfo"

@@ -338,7 +338,6 @@
                         <barButtonItem title="Route" image="route" id="VPd-o8-1ro">
                             <connections>
                                 <action selector="routeButtonPressed:" destination="Kkx-vD-8CL" id="zuY-2I-7dV"/>
-                                <segue destination="Ogi-Ek-0s2" kind="presentation" id="V90-cG-cbw"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>

@@ -65,7 +65,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
     // makes popup for user to enter destination and starting point for a path through the layout
     @IBAction func routeButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "pushNavView", sender: self)
+        promptForRoute()
     }
 
     @IBAction func infoButtonPressed(_ sender: Any) {
@@ -85,43 +85,5 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     }
     
     // MARK: Storyboard
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is NavigationViewController {
-            var start: Int!
-            var end: Int!
-            
-            let ac = UIAlertController(title: "Choose start and end", message: "Enter the room numbers for the start and end location", preferredStyle: .alert)
-            
-            ac.addTextField { (textField) in
-                textField.placeholder = "Start"
-            }
-            ac.addTextField { (textField) in
-                textField.placeholder = "End"
-            }
-            
-            let goAction = UIAlertAction(title: "Go", style: .default) { _ in
-                let startTextField = ac.textFields![0]
-                let endTextField = ac.textFields![1]
-                
-                if let startInt = Int(startTextField.text!), let endInt = Int(endTextField.text!) {
-                    start = startInt
-                    end = endInt
-                }
-            }
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-            
-            ac.addAction(goAction)
-            ac.addAction(cancelAction)
-            
-            self.present(ac, animated: true)
-            
-            let destVC = segue.destination as! NavigationViewController
-            
-            destVC.start = start
-            destVC.end = end
-        }
-    }
     
 }

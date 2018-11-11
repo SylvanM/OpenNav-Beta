@@ -38,6 +38,7 @@
 		AE5EA0FD21893F4100A22307 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */; };
 		AE5EA0FF2189BB2300A22307 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0FE2189BB2300A22307 /* UserSettings.swift */; };
 		AE6E8980219777BB006E370B /* Settings+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E897F219777BB006E370B /* Settings+Server.swift */; };
+		AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E898121989AD4006E370B /* MapView+Route.swift */; };
 		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
 		AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */; };
 		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
@@ -104,6 +105,7 @@
 		AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AE5EA0FE2189BB2300A22307 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		AE6E897F219777BB006E370B /* Settings+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+Server.swift"; sourceTree = "<group>"; };
+		AE6E898121989AD4006E370B /* MapView+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Route.swift"; sourceTree = "<group>"; };
 		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Prompt.swift"; sourceTree = "<group>"; };
 		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				AE5EA0F421891FEE00A22307 /* MapView+FloorsMenu.swift */,
 				AE5EA0F82189226700A22307 /* MapView+InfoPopup.swift */,
 				AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */,
+				AE6E898121989AD4006E370B /* MapView+Route.swift */,
 			);
 			path = "Map View Extensions";
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,
 				AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */,
 				AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */,
+				AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */,
 				AE5EA0FF2189BB2300A22307 /* UserSettings.swift in Sources */,
 				AE5EA0F121891EEC00A22307 /* MapView+Refresh.swift in Sources */,
 			);

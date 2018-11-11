@@ -13,32 +13,33 @@ extension MapViewController {
     
     // displays an error message with an error as input. This will be a popup for the user.
     func displayErrorMessage(_ error: Error = DataLoadingError.couldNotLoadData) {
+        var alertController = UIAlertController(title: "Something went wrong", message: "Not sure what.", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        
+        var title: String!
+        var message: String!
+        
         switch error {
         case DataLoadingError.couldNotLoadData: // display 'could not load data' error in popup
-            let alertController = UIAlertController(title: "No map available", message: "Please make sure you have configured your building info in Settings", preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertController.addAction(confirmAction)
-            
-            present(alertController, animated: true, completion: nil)
-            
-            print(error)
+            title = "Map not available"
+            message = "Please set up a map in settings"
         case NavigationError.noSuchRoomInBuilding: // display 'no such room' error in popup
-            let alertController = UIAlertController(title: "No such room", message: "Make sure the start and destination are rooms within the building!", preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertController.addAction(confirmAction)
-            
-            present(alertController, animated: true, completion: nil)
-            
-            print(error)
+            title = "No such room"
+            message = "Please choose a start and destination that actually exist"
+        case NavigationError.layoutNotRoutable:
+            title = "Layout not routable"
+            message = "This layout cannot find you the fastest path"
         default: // display misc error in popup
-            let alertController = UIAlertController(title: "Something went wrong :P", message: "That's out fault. Sorry.", preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertController.addAction(confirmAction)
-            
-            present(alertController, animated: true, completion: nil)
-            
-            print(error)
+            title = "Something went wrong"
+            message = "And we have no idea what that something is"
         }
+        
+        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(confirmAction)
+        
+        present(alertController, animated: true, completion: nil)
+        print(error)
     }
     
     

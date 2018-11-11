@@ -22,7 +22,7 @@ class ServerCommunicator {
     func getDecryptionInfo(forCode: String, completion: @escaping ([UInt8], [UInt8]) -> ()) {
         let request = BuildingInfoRequest(code: forCode, fileName: "encryption.json")
 
-        if verifyURL(urlString: request.url) {
+        if verifyURL(url: request.url) {
             Alamofire.request(request.url).responseJSON { (response) in
                 let json = JSON(response.result.value!)
 
@@ -38,7 +38,7 @@ class ServerCommunicator {
         let request = BuildingInfoRequest(code: code, fileName: "data.json")
 
 
-        if verifyURL(urlString: request.url) {
+        if verifyURL(url: request.url) {
 //            let group = DispatchGroup()
 //            group.enter()
 
@@ -52,10 +52,11 @@ class ServerCommunicator {
                     } else {
                         do {
                             
-                            
-                            
                             let keyData = Data(bytes: self.key)
                             let ivData = Data(bytes: self.iv)
+                            
+                            print("key: \(String(describing: String(data: keyData, encoding: .utf8)))")
+                            print("iv: \(String(describing: String(data: ivData, encoding: .utf8)))")
                             
                             let dataFromServer = response.data!
                             let decryptedData = try dataFromServer.decrypt(key: keyData, iv: ivData)
@@ -82,16 +83,23 @@ class ServerCommunicator {
                             }
                             
                             for floorName in jsonData["floors"] {
-                                reversedImageNames.append(floorName.0)
+                                reversedImageNames.append(floorName.1.stringValue)
                                 
-                                self.getImage(code: code, name: floorName.0) { image in
+                                print("Floor from JSON: \(floorName.1.stringValue)")
+                                
+                                self.getImage(code: code, name: floorName.1.stringValue, decryptionInfo: (keyData, ivData)) { image in
                                     images.append(image)
-                                    collectedFloorCount += 1
+                                    
+                                    if collectedFloorCount == nil {
+                                        collectedFloorCount = 1
+                                    } else {
+                                        collectedFloorCount += 1
+                                    }
                                 }
                             }
    
                         } catch {
-                            print("Error: \(error)")
+                            print(error)
                         }
                     }
                 }
@@ -99,19 +107,28 @@ class ServerCommunicator {
         }
     }
     
-    func getImage(code: String, name: String, completion: @escaping (UIImage) -> ()) {
-        let urlString = navdataserviceURL + code + "/" + name
-        let url = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+    func getImage(code: String, name: String, decryptionInfo: (Data, Data), completion: @escaping (UIImage) -> ()) {
+        
+        let urlString = navdataserviceURL + code + "/" + name + ".png"
+        
+        let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        
+        print("Image URL: \(url)")
         
         Alamofire.request(url).responseData() { response in
-            let data = response.data!
-            let image = UIImage(data: data)!
-            
-            completion(image)
+            let encryptedData = response.data!
+            do {
+                let data = try encryptedData.decrypt(key: decryptionInfo.0, iv: decryptionInfo.1)
+                let image = UIImage(data: data)!
+                
+                completion(image)
+            } catch {
+                print("Error on decryption of image: \(error)")
+            }
         }
     }
     
-    func verifyURL(urlString: String) -> Bool {
+    func verifyURL(url: String) -> Bool {
         return true
     }
 

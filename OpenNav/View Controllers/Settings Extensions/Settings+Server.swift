@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension SettingsViewController {
+    
     func getLayouts(code: String) {
         do {
             // make pop-up to let user know that layouts are being downloaded
@@ -21,10 +22,11 @@ extension SettingsViewController {
             // this is like making an empty string and adding stuff to it later on, then returning the final string
             let building = BuildingInfo("dummy")
             
-            server.getBuildingData(forCode: code, completion: { (images, imageNames, infoDictionary) in
+            server.getBuildingData(for: code, completion: { (images, imageNames, infoDictionary) in
                 
                 // assign items in info dictionary to items from downloaded JSON
                 let presentableInfo = infoDictionary.dictionaryObject
+                
                 let layoutData: [String : Any] = [
                     self.dict.floorCount: images.count,
                     self.dict.imageNames: imageNames
@@ -55,4 +57,5 @@ extension SettingsViewController {
         //                present(ac, animated: true, completion: nil)
         //            }
     }
+    
 }
