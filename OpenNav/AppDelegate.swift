@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(hex, forKey: "appID")
             
             server.uploadKey(for: hex, key: "test_key")
+            
+            print("id: ", UserDefaults.standard.string(forKey: "appID")!)
         }
         
         return true
