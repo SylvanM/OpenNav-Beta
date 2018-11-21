@@ -39,10 +39,10 @@
 		AE5EA0FF2189BB2300A22307 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0FE2189BB2300A22307 /* UserSettings.swift */; };
 		AE6E8980219777BB006E370B /* Settings+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E897F219777BB006E370B /* Settings+Server.swift */; };
 		AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E898121989AD4006E370B /* MapView+Route.swift */; };
-		AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */; };
 		AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */; };
 		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
-		AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */; };
+		AED21FD8219CC13E00AD3713 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED21FD7219CC13E00AD3713 /* DebugViewController.swift */; };
+		AED21FDB219CC1D500AD3713 /* Debug+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED21FDA219CC1D500AD3713 /* Debug+Server.swift */; };
 		AEF04AAA218E8D340029C1CD /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */; };
 		B385C19C47FC0FFE25758129 /* Pods_OpenNavTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F41548D3818E9E999A06CB /* Pods_OpenNavTests.framework */; };
 /* End PBXBuildFile section */
@@ -106,10 +106,10 @@
 		AE5EA0FE2189BB2300A22307 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		AE6E897F219777BB006E370B /* Settings+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+Server.swift"; sourceTree = "<group>"; };
 		AE6E898121989AD4006E370B /* MapView+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Route.swift"; sourceTree = "<group>"; };
-		AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Prompt.swift"; sourceTree = "<group>"; };
 		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
-		AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTableViewController.swift; sourceTree = "<group>"; };
+		AED21FD7219CC13E00AD3713 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
+		AED21FDA219CC1D500AD3713 /* Debug+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debug+Server.swift"; sourceTree = "<group>"; };
 		AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		B1108DBF75C6AA32A805BE25 /* Pods-OpenNavTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavTests/Pods-OpenNavTests.release.xcconfig"; sourceTree = "<group>"; };
 		B81830BA92EA1FE101878E59 /* Pods-OpenNavUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavUITests/Pods-OpenNavUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -298,11 +298,19 @@
 			isa = PBXGroup;
 			children = (
 				AE4937E3218145E3006FF800 /* Appearance */,
-				AEC256E72146AF3B008F4772 /* AdvancedTableViewController.swift */,
 				AE246C4C21657399006BAE2B /* AboutViewController.swift */,
-				AE74DABF2149E06600A4DD0A /* GeneralSettingsViewController.swift */,
+				AED21FD7219CC13E00AD3713 /* DebugViewController.swift */,
+				AED21FD9219CC1C400AD3713 /* Debug Extensions */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		AED21FD9219CC1C400AD3713 /* Debug Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AED21FDA219CC1D500AD3713 /* Debug+Server.swift */,
+			);
+			path = "Debug Extensions";
 			sourceTree = "<group>";
 		};
 		AEECF3BD218E7F6C006BC116 /* DarkModeIcon */ = {
@@ -539,19 +547,19 @@
 				AE1365DC2183BE5200DF1DBA /* RootViewController.swift in Sources */,
 				AE1AA5FE2143FFE000D173D6 /* Data+Encryption.swift in Sources */,
 				AE5EA0F521891FEE00A22307 /* MapView+FloorsMenu.swift in Sources */,
-				AE74DAC02149E06600A4DD0A /* GeneralSettingsViewController.swift in Sources */,
 				AE1AA6032143FFE000D173D6 /* Navigator.swift in Sources */,
 				AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */,
 				AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */,
 				AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */,
 				AE5EA0EF21891E5500A22307 /* MapView+Zoom.swift in Sources */,
 				AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */,
-				AEC256E82146AF3B008F4772 /* AdvancedTableViewController.swift in Sources */,
 				AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */,
+				AED21FDB219CC1D500AD3713 /* Debug+Server.swift in Sources */,
 				AE6E8980219777BB006E370B /* Settings+Server.swift in Sources */,
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
 				AE4937E721814B7A006FF800 /* Notification+Extension.swift in Sources */,
 				AE246C4F21657BFA006BAE2B /* Global.swift in Sources */,
+				AED21FD8219CC13E00AD3713 /* DebugViewController.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
 				AE1212872185DEE0009AEEFE /* File Management.swift in Sources */,
 				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,

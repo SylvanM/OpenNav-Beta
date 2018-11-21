@@ -15,7 +15,7 @@
 
 import UIKit
 
-class SettingsViewController: UITableViewController, UITextFieldDelegate {
+class SettingsViewController: UITableViewController {
 
     let server = ServerCommunicator()
     let settings = UserSettings()
