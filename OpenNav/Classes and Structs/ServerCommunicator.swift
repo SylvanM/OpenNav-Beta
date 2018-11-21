@@ -131,6 +131,15 @@ class ServerCommunicator {
     func verifyURL(url: String) -> Bool {
         return true
     }
+    
+    func uploadKey(for appID: String, key: String) {
+        let urlString = "http://navdataservice.000webhostapp.com/database.php?f=addUser&id=" + appID + "&key=" + key
+        let url = URL(string: urlString)!
+        
+        print("upload url: ", urlString)
+        
+        Alamofire.request(url)
+    }
 
     struct BuildingInfoRequest {
         let baseURL: String = navdataserviceURL

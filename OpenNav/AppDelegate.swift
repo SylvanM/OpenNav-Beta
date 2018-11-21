@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CryptoSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let settings = UserSettings()
+    let server = ServerCommunicator()
 
     var window: UIWindow?
 
@@ -25,6 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             redTint()
         } else {
             blueTint()
+        }
+        
+        // generate and upload app ID
+        if UserDefaults.standard.string(forKey: "appID") == nil {
+            let baseIntA = Int(arc4random() % 65535)
+            let baseIntB = Int(arc4random() % 65535)
+            let baseIntC = Int(arc4random() % 65535)
+            let hex = String(format: "%02x%02x%02x", baseIntA, baseIntB, baseIntC)
+            UserDefaults.standard.set(hex, forKey: "appID")
+            
+            server.uploadKey(for: hex, key: "test_key")
         }
         
         return true
