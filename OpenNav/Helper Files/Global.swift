@@ -36,6 +36,7 @@ struct BuildingInfoDictionaryItemNames {
     public let navMatrix = "nav_matrix"
     public let correctionMatrix = "correction_matrix"
     
+    public let presentedInfo = "presentable_info"
 }
 
 // MARK: FUNCTIONS

@@ -15,8 +15,8 @@ extension MapViewController {
         
         // make a new line for each piece of info in info dictionary, add it to "message" string
         
-        for (key, _) in building.info {
-            message += "\(key): \(building.info[key]!)\n"
+        for (key, value) in building.info[dict.presentedInfo] as! [String : Any] {
+            message += "\(key): \(value)\n"
         }
         
         // make popup to display message string

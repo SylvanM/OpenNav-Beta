@@ -70,6 +70,7 @@ class ServerCommunicator {
                             var info = jsonData["info"].dictionaryObject
                             
                             info?[dict.floorCount] = floorCount as Any
+                            info?[dict.presentedInfo] = jsonData["info"].dictionaryObject
                             
                             let navMatrixObject = jsonData["nav_matrix"].arrayValue.map { $0.arrayObject! }
                             let correctionMatrixObject = jsonData["correction_matrix"].arrayValue.map { $0.arrayObject! }
