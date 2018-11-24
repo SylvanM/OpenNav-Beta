@@ -37,6 +37,7 @@
 		AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F82189226700A22307 /* MapView+InfoPopup.swift */; };
 		AE5EA0FD21893F4100A22307 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */; };
 		AE5EA0FF2189BB2300A22307 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0FE2189BB2300A22307 /* UserSettings.swift */; };
+		AE5FF6B621A78EE600446393 /* ServerComm+Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5FF6B521A78EE600446393 /* ServerComm+Database.swift */; };
 		AE6E8980219777BB006E370B /* Settings+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E897F219777BB006E370B /* Settings+Server.swift */; };
 		AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E898121989AD4006E370B /* MapView+Route.swift */; };
 		AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */; };
@@ -77,7 +78,6 @@
 		AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE1AA5C32143FEA200D173D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE1AA5C52143FEA300D173D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AE1AA5CA2143FEA300D173D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE1AA5CF2143FEA300D173D6 /* OpenNavTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenNavTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1AA5D32143FEA300D173D6 /* OpenNavTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenNavTests.swift; sourceTree = "<group>"; };
 		AE1AA5D52143FEA300D173D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +104,8 @@
 		AE5EA0F82189226700A22307 /* MapView+InfoPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+InfoPopup.swift"; sourceTree = "<group>"; };
 		AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AE5EA0FE2189BB2300A22307 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		AE5FF6B521A78EE600446393 /* ServerComm+Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerComm+Database.swift"; sourceTree = "<group>"; };
+		AE5FF6B721A83FD200446393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		AE6E897F219777BB006E370B /* Settings+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+Server.swift"; sourceTree = "<group>"; };
 		AE6E898121989AD4006E370B /* MapView+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Route.swift"; sourceTree = "<group>"; };
 		AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Prompt.swift"; sourceTree = "<group>"; };
@@ -197,7 +199,7 @@
 				AE1AA5EC2143FFE000D173D6 /* View Controllers */,
 				AE1AA5F22143FFE000D173D6 /* Helper Files */,
 				AE1AA5F62143FFE000D173D6 /* Classes and Structs */,
-				AE1AA5CA2143FEA300D173D6 /* Info.plist */,
+				AE5FF6B821A83FD200446393 /* Info.plist */,
 				AE246C4A216524EC006BAE2B /* Attributions */,
 				AE1AA5C22143FEA200D173D6 /* Main.storyboard */,
 				AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */,
@@ -258,6 +260,7 @@
 			children = (
 				AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */,
 				AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */,
+				AE5FF6B421A78E8900446393 /* ServerCommunicator Extensions */,
 				AE1AA5F92143FFE000D173D6 /* Navigator.swift */,
 				AE5EA0FE2189BB2300A22307 /* UserSettings.swift */,
 			);
@@ -284,6 +287,14 @@
 				AE6E898121989AD4006E370B /* MapView+Route.swift */,
 			);
 			path = "Map View Extensions";
+			sourceTree = "<group>";
+		};
+		AE5FF6B421A78E8900446393 /* ServerCommunicator Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AE5FF6B521A78EE600446393 /* ServerComm+Database.swift */,
+			);
+			path = "ServerCommunicator Extensions";
 			sourceTree = "<group>";
 		};
 		AE6E897E219776DD006E370B /* Settings Extensions */ = {
@@ -567,6 +578,7 @@
 				AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */,
 				AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */,
 				AE5EA0FF2189BB2300A22307 /* UserSettings.swift in Sources */,
+				AE5FF6B621A78EE600446393 /* ServerComm+Database.swift in Sources */,
 				AE5EA0F121891EEC00A22307 /* MapView+Refresh.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,6 +631,15 @@
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
+		};
+		AE5FF6B821A83FD200446393 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE5FF6B721A83FD200446393 /* Base */,
+			);
+			name = Info.plist;
+			path = OpenNav;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXVariantGroup section */
 
@@ -744,9 +765,10 @@
 			baseConfigurationReference = C08BCA4147717B8F0D5BC3BE /* Pods-OpenNav.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JDSTZ7K2MV;
-				INFOPLIST_FILE = OpenNav/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/OpenNavUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -764,9 +786,10 @@
 			baseConfigurationReference = 9CDAA4A135D5AC0C93E68953 /* Pods-OpenNav.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JDSTZ7K2MV;
-				INFOPLIST_FILE = OpenNav/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/OpenNavUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

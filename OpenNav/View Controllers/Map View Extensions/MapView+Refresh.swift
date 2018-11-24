@@ -33,7 +33,7 @@ extension MapViewController {
             building = try BuildingInfo()
             
             // put title at top of view with the acronym of the layout
-            if let layoutData = building.info[dict.layoutData] as? [String : Any], let acro = layoutData[dict.acronym] as? String {
+            if let acro = building.info[dict.acronym] as? String {
                 self.navigationItem.title = acro + " Map"
             } else {
                 print("Could not load acronym")
@@ -46,7 +46,7 @@ extension MapViewController {
                 mapImageView.image = building.floorImages[selectedImage] // This line can result in crash sometimes
                 // When the previous layout has less images and the layout switches,
                 // if the selected image was of a higher index than the highest of the current layout,
-            // we will get the "Index out of range" error and then crash
+                // we will get the "Index out of range" error and then crash
             case .route: // if map view type, display nmarked images
                 //                mapImageView.image = building.mappedImages.first
                 mapImageView.image = building.mappedImages[selectedImage] // This line can result in crash sometimes <#same reason as above#>

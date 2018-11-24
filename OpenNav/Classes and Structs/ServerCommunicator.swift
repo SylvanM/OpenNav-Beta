@@ -34,7 +34,7 @@ class ServerCommunicator {
         }
     }
 
-    func getBuildingData(for code: String, completion: @escaping ([UIImage], [String], JSON) -> ()) {
+    func getBuildingData(for code: String, completion: @escaping ([UIImage], [String : Any]) -> ()) {
         let request = BuildingInfoRequest(code: code, fileName: "data.json")
 
 
@@ -51,6 +51,7 @@ class ServerCommunicator {
                         // Handle error
                     } else {
                         do {
+                            let dict = BuildingInfoDictionaryItemNames()
                             
                             let keyData = Data(bytes: self.key)
                             let ivData = Data(bytes: self.iv)
@@ -66,7 +67,18 @@ class ServerCommunicator {
                             // get basic info
                             let floorCount = jsonData["floors"].count
 
-                            let info = jsonData["info"]
+                            var info = jsonData["info"].dictionaryObject
+                            
+                            info?[dict.floorCount] = floorCount as Any
+                            
+                            let navMatrixObject = jsonData["nav_matrix"].arrayValue.map { $0.arrayObject! }
+                            let correctionMatrixObject = jsonData["correction_matrix"].arrayValue.map { $0.arrayObject! }
+                            
+                            let navMatrix = navMatrixObject as! [[Int]]
+                            let correctionMatrix = correctionMatrixObject as! [[Int]]
+                            
+                            info![dict.navMatrix] = navMatrix
+                            info![dict.correctionMatrix] = correctionMatrix
 
                             // get image names
                             var reversedImageNames: [String] = []
@@ -77,7 +89,8 @@ class ServerCommunicator {
                                 didSet {
                                     if collectedFloorCount == floorCount {
                                         let imageNames: [String] = reversedImageNames.reversed()
-                                        completion(images, imageNames, info)
+                                        info?[dict.imageNames] = imageNames
+                                        completion(images, info!)
                                     }
                                 }
                             }
@@ -133,12 +146,28 @@ class ServerCommunicator {
     }
     
     func uploadKey(for appID: String, key: String) {
-        let urlString = "http://navdataservice.000webhostapp.com/database.php?f=addUser&id=" + appID + "&key=" + key
-        let url = URL(string: urlString)!
+        let addUserArguments: [String : String] = [
+            "id" : appID,
+            "key" : key,
+        ]
         
-        print("upload url: ", urlString)
+        let testUserArguments: [String : String] = [
+            "user" : appID
+        ]
         
-        Alamofire.request(url)
+        let addRequest = DatabaseRequest(function: .addUser, arguments: addUserArguments)
+        let testRequest = DatabaseRequest(function: .testUser, arguments: testUserArguments)
+        
+        Alamofire.request(testRequest.url()).responseString() { response in
+            if let responseString = String(data: response.data!, encoding: .utf8) {
+                if responseString == "0" {
+                    Alamofire.request(addRequest.url())
+                    print("adding appID to server")
+                } else {
+                    print("appID already on server")
+                }
+            }
+        }
     }
 
     struct BuildingInfoRequest {

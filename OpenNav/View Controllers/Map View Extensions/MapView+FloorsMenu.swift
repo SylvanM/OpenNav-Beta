@@ -15,9 +15,9 @@ extension MapViewController {
         let alertController = UIAlertController(title: "Which Floor?", message: "Choose the floor to view", preferredStyle: .actionSheet)
         
         // for ever image available, create a button and corresponding action for the user to press
-        let layoutData = self.building.info[dict.layoutData] as? [String : Any]
-        for i in 0..<(layoutData![dict.floorCount] as! Int) {
-            let imageNames = layoutData![dict.imageNames] as! [String]
+        
+        for i in 0..<(building.info[dict.floorCount] as! Int) {
+            let imageNames = building.info![dict.imageNames] as! [String]
             let viewFloorAction = UIAlertAction(title: imageNames[i], style: .default, handler: { (_) in
                 self.selectedImage = i
                 print("Trying to view image \(i)")
@@ -33,7 +33,7 @@ extension MapViewController {
             self.refresh()
         })
         
-        // self explanatory
+        // prepare alert
         let cancelAction = UIAlertAction(title: "Nevermind", style: .cancel, handler: nil)
         
         alertController.addAction(clearRouteAction)

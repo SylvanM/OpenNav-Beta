@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Load user settings
         NotificationCenter.default.addObserver(self, selector: #selector(redTint), name: .redTint, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(blueTint), name: .blueTint, object: nil)
         
@@ -29,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             blueTint()
         }
         
-        // generate and upload app ID
+        // generate and upload app ID on launch
         if UserDefaults.standard.string(forKey: "appID") == nil {
             let baseIntA = Int(arc4random() % 65535)
             let baseIntB = Int(arc4random() % 65535)
@@ -37,10 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let hex = String(format: "%02x%02x%02x", baseIntA, baseIntB, baseIntC)
             UserDefaults.standard.set(hex, forKey: "appID")
             
-            server.uploadKey(for: hex, key: "test_key")
+            
             
             print("id: ", UserDefaults.standard.string(forKey: "appID")!)
         }
+        
+        // upload generated appID and key
+        server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: "test_key")
         
         return true
     }
@@ -69,11 +73,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: Methods
     
+    // change app tint to red
     @objc func redTint() {
         window?.tintColor = UIColor.red
         settings.set("red", for: .tint)
     }
     
+    // change tint to blue (default)
     @objc func blueTint() {
         window?.tintColor = UIColor(red: 0.0, green: 122.0/225.0, blue: 1.0, alpha: 1.0)
         settings.set("blue", for: .tint)

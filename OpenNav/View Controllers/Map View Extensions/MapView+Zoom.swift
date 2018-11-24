@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 extension MapViewController {
+   
+    // Allow user to zoom into view in Map View
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return self.mapImageView
     }
-    
     
 }

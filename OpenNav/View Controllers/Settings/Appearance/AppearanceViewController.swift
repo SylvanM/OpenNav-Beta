@@ -24,7 +24,9 @@ class AppearanceViewController: UITableViewController {
         
         self.navigationItem.title = "Appearance"
         
-        darkModeSwitch.isOn = settings.get(setting: .darkMode) as! Bool
+        darkModeSwitch.isOn = settings.get(setting: .darkMode) as! Bool // set state of switch to whatever the current setting is
+        
+        // apply a little checkmark to the selected tint
         
         blueTintButton.accessoryType = .none
         redTintButton.accessoryType = .none
@@ -45,7 +47,7 @@ class AppearanceViewController: UITableViewController {
         case true:
             NotificationCenter.default.post(Notification(name: .darkModeEnabled))
             
-            print(UIApplication.shared.setAlternateIconName("AppIcon-DarkMode", completionHandler: { (error) in
+            print(UIApplication.shared.setAlternateIconName("DarkIcon", completionHandler: { (error) in
                 print("Error on changing to dark icon:", error as Any)
                 print("Current app name:", UIApplication.shared.alternateIconName as Any)
             }))
@@ -58,7 +60,6 @@ class AppearanceViewController: UITableViewController {
                 print("Current app name:", UIApplication.shared.alternateIconName as Any)
             }
         }
-        
     }
     
     // MARK: Table View

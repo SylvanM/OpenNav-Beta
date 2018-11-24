@@ -30,7 +30,7 @@ class UserSettings {
                             Setting.darkMode.rawValue: false,
                             Setting.tint.rawValue: "blue",
                             Setting.layoutCode.rawValue: ""
-                ] as [String : Any]
+            ] as [String : Any]
         }
     }
     

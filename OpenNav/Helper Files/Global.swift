@@ -23,23 +23,19 @@ struct Keys {
 }
 
 let navdataserviceURL = "https://navdataservice.000webhostapp.com/layouts/"
-let testURL = "http://opennav-webservice.azurewebsites.net/"
+let databaseUrl =       "http://navdataservice.000webhostapp.com/database.php?"
 
 struct BuildingInfoDictionaryItemNames {
-    
-    public let layoutData = "layoutData"
     
     public let floorCount = "floorCount"
     public let acronym = "acronym"
     public let imageNames = "imageNames"
+    public let imagesAvailable = "Images Available"
+    public let name = "Name"
+    
     public let navMatrix = "nav_matrix"
     public let correctionMatrix = "correction_matrix"
     
-    
-    public let presentableInfo = "presentableInfo"
-    
-    public let imagesAvailable = "Images Available"
-    public let name = "Name"
 }
 
 // MARK: FUNCTIONS

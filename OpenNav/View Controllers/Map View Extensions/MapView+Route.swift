@@ -14,15 +14,18 @@ extension MapViewController {
     func promptForRoute() {
         let dict = BuildingInfoDictionaryItemNames()
         
-        if let info = building.info[dict.presentableInfo] as? [String : Any], let navMatrix = info[dict.navMatrix], let correctionMatrix = info[dict.correctionMatrix] {
+        if let navMatrix = building.info[dict.navMatrix] as? [[Int]], let correctionMatrix = building.info[dict.correctionMatrix] as? [[Int]] {
             let alertController = UIAlertController(title: "Choose Path", message: "Choose a start room and end location", preferredStyle: .alert)
             
             let goHandler: ((UIAlertAction) -> Void)? = { _ in
                 // this code will execute when the user presses go
+                print("routable!")
             }
             
             let goAction = UIAlertAction(title: "Go", style: .default, handler: goHandler)
             alertController.addAction(goAction)
+            
+            self.present(alertController, animated: true)
         } else {
             displayErrorMessage(NavigationError.layoutNotRoutable)
         }

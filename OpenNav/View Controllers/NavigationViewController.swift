@@ -24,6 +24,7 @@ class NavigationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // detect user settings for theme, set respective theme
     override func viewWillAppear(_ animated: Bool) {
         switch settings.get(setting: .darkMode) as! Bool {
         case true:

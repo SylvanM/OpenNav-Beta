@@ -35,6 +35,7 @@ extension MapViewController {
             message = "And we have no idea what that something is"
         }
         
+        // display the alert
         alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(confirmAction)
         

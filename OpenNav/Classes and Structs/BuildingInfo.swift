@@ -23,7 +23,7 @@ class BuildingInfo {
     let dict = BuildingInfoDictionaryItemNames()
 
     // make a blank class instance
-    init(_ dummy: Any) {
+    init(_ blank: Any) {
         info = [:]
 
         info[dict.floorCount] = 0
@@ -32,6 +32,12 @@ class BuildingInfo {
 
         floorImages = []
         layout = []
+    }
+    
+    // make dummy instance with preloaded data
+    init(images: [UIImage], info: [String : Any]) {
+        self.floorImages = images
+        self.info = info
     }
 
     // make instance from data in UserDefaults
@@ -45,8 +51,7 @@ class BuildingInfo {
         let dictData = NSDictionary(contentsOf: filePath)
         self.info = (dictData as Any) as? [String : Any]
         
-        
-        if let layoutObject = info?[dict.layoutData], let layoutData = layoutObject as? [String : Any], let floorCount = layoutData[dict.floorCount] as? Int {
+        if let object = info, let floors = object[dict.floorCount], let floorCount = floors as? Int {
             for i in 0..<floorCount {
                 let imageFileName = "image\(i).png"
                 
@@ -86,8 +91,8 @@ class BuildingInfo {
     }
 
     // encode images to base64 data and save to UserDefaults
-    func saveImages(imageCount: Int) {
-        for i in 0..<imageCount {
+    func saveImages() {
+        for i in 0..<floorImages.count {
             let imageData = floorImages[i].pngData()
         
             let imageName = "image\(i).png"
@@ -105,8 +110,8 @@ class BuildingInfo {
     // save ALL data stored in this class to userDefaults
     func saveData() {
         saveInfo()
-        let layoutData = info[dict.layoutData] as! [String : Any]
-        let imageCount = layoutData[dict.floorCount] as! Int
-        saveImages(imageCount: imageCount)
+        print("Saving data --")
+        print(info)
+        saveImages()
     }
 }
