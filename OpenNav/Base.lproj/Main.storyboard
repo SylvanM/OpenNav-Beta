@@ -242,6 +242,40 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="TwX-Vx-ZKq">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" id="bkG-4f-4IA">
+                                        <rect key="frame" x="0.0" y="259" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bkG-4f-4IA" id="B8w-G1-KEB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Zoom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0I-UZ-CnA">
+                                                    <rect key="frame" x="16" y="11.5" width="96" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nil, nil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmF-xf-KdK">
+                                                    <rect key="frame" x="315.5" y="11.5" width="43.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="P0I-UZ-CnA" firstAttribute="top" secondItem="B8w-G1-KEB" secondAttribute="topMargin" constant="0.5" id="I8w-sl-8JV"/>
+                                                <constraint firstItem="rmF-xf-KdK" firstAttribute="trailing" secondItem="B8w-G1-KEB" secondAttribute="trailingMargin" id="Nw3-aq-7Ee"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="rmF-xf-KdK" secondAttribute="bottom" constant="0.5" id="Txk-Qt-CFq"/>
+                                                <constraint firstItem="P0I-UZ-CnA" firstAttribute="leading" secondItem="B8w-G1-KEB" secondAttribute="leadingMargin" id="Zd7-wb-2Bb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="P0I-UZ-CnA" secondAttribute="bottom" constant="0.5" id="fpw-cL-7XA"/>
+                                                <constraint firstItem="rmF-xf-KdK" firstAttribute="top" secondItem="B8w-G1-KEB" secondAttribute="topMargin" constant="0.5" id="iL8-NS-sYK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="pdI-3M-smc" id="tFb-R1-U05"/>
@@ -252,6 +286,7 @@
                         <outlet property="blueTintButton" destination="36Z-88-z7s" id="teE-lo-eVM"/>
                         <outlet property="darkModeCell" destination="Oe3-is-gkb" id="YLr-AO-ELN"/>
                         <outlet property="darkModeSwitch" destination="PH0-oF-4xj" id="oOV-8r-tnI"/>
+                        <outlet property="imageZoomCell" destination="bkG-4f-4IA" id="z25-fH-Jy0"/>
                         <outlet property="redTintButton" destination="ljS-Kt-M3e" id="8VB-fK-qwf"/>
                     </connections>
                 </tableViewController>

@@ -44,6 +44,14 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         refresh() // refresh view
+        
+        // update zoom limits
+        if let minZoom = settings.get(setting: .minZoom) as? Int, let maxZoom = settings.get(setting: .maxZoom) as? Int {
+            scrollView.minimumZoomScale = CGFloat(minZoom)
+            scrollView.maximumZoomScale = CGFloat(maxZoom)
+        } else {
+            print("something went wrong")
+        }
     }
     
     

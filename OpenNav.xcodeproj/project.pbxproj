@@ -42,6 +42,9 @@
 		AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E898121989AD4006E370B /* MapView+Route.swift */; };
 		AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */; };
 		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
+		AE95EAEB21B4B2F900717225 /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAEA21B4B2F900717225 /* RSA.swift */; };
+		AE95EAEE21B4B51A00717225 /* RSA+Key Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAED21B4B51A00717225 /* RSA+Key Generation.swift */; };
+		AE95EAF021B4B55100717225 /* RSA+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAEF21B4B55100717225 /* RSA+Crypto.swift */; };
 		AED21FD8219CC13E00AD3713 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED21FD7219CC13E00AD3713 /* DebugViewController.swift */; };
 		AED21FDB219CC1D500AD3713 /* Debug+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED21FDA219CC1D500AD3713 /* Debug+Server.swift */; };
 		AEF04AAA218E8D340029C1CD /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */; };
@@ -110,6 +113,9 @@
 		AE6E898121989AD4006E370B /* MapView+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Route.swift"; sourceTree = "<group>"; };
 		AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Prompt.swift"; sourceTree = "<group>"; };
 		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
+		AE95EAEA21B4B2F900717225 /* RSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSA.swift; sourceTree = "<group>"; };
+		AE95EAED21B4B51A00717225 /* RSA+Key Generation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Key Generation.swift"; sourceTree = "<group>"; };
+		AE95EAEF21B4B55100717225 /* RSA+Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Crypto.swift"; sourceTree = "<group>"; };
 		AED21FD7219CC13E00AD3713 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		AED21FDA219CC1D500AD3713 /* Debug+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debug+Server.swift"; sourceTree = "<group>"; };
 		AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +205,7 @@
 				AE1AA5EC2143FFE000D173D6 /* View Controllers */,
 				AE1AA5F22143FFE000D173D6 /* Helper Files */,
 				AE1AA5F62143FFE000D173D6 /* Classes and Structs */,
+				AE95EAE921B4B2DE00717225 /* RSA */,
 				AE5FF6B821A83FD200446393 /* Info.plist */,
 				AE246C4A216524EC006BAE2B /* Attributions */,
 				AE1AA5C22143FEA200D173D6 /* Main.storyboard */,
@@ -303,6 +310,24 @@
 				AE6E897F219777BB006E370B /* Settings+Server.swift */,
 			);
 			path = "Settings Extensions";
+			sourceTree = "<group>";
+		};
+		AE95EAE921B4B2DE00717225 /* RSA */ = {
+			isa = PBXGroup;
+			children = (
+				AE95EAEA21B4B2F900717225 /* RSA.swift */,
+				AE95EAEC21B4B50600717225 /* RSA Extensions */,
+			);
+			path = RSA;
+			sourceTree = "<group>";
+		};
+		AE95EAEC21B4B50600717225 /* RSA Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AE95EAED21B4B51A00717225 /* RSA+Key Generation.swift */,
+				AE95EAEF21B4B55100717225 /* RSA+Crypto.swift */,
+			);
+			path = "RSA Extensions";
 			sourceTree = "<group>";
 		};
 		AEC256E42146A911008F4772 /* Settings */ = {
@@ -570,14 +595,17 @@
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
 				AE4937E721814B7A006FF800 /* Notification+Extension.swift in Sources */,
 				AE246C4F21657BFA006BAE2B /* Global.swift in Sources */,
+				AE95EAEB21B4B2F900717225 /* RSA.swift in Sources */,
 				AED21FD8219CC13E00AD3713 /* DebugViewController.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
 				AE1212872185DEE0009AEEFE /* File Management.swift in Sources */,
 				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,
+				AE95EAEE21B4B51A00717225 /* RSA+Key Generation.swift in Sources */,
 				AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */,
 				AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */,
 				AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */,
 				AE5EA0FF2189BB2300A22307 /* UserSettings.swift in Sources */,
+				AE95EAF021B4B55100717225 /* RSA+Crypto.swift in Sources */,
 				AE5FF6B621A78EE600446393 /* ServerComm+Database.swift in Sources */,
 				AE5EA0F121891EEC00A22307 /* MapView+Refresh.swift in Sources */,
 			);
@@ -809,6 +837,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JDSTZ7K2MV;
 				INFOPLIST_FILE = OpenNavTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -830,6 +859,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JDSTZ7K2MV;
 				INFOPLIST_FILE = OpenNavTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

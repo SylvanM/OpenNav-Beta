@@ -25,9 +25,9 @@ extension SettingsViewController {
                 
                 print("Building info: ", building.info)
                 
-                alertController.dismiss(animated: true, completion: nil)
+                alertController.dismiss(animated: true)
                 
-                _ = self.navigationController?.popViewController(animated: true) // jump back to root view controller
+                self.dismiss()
             })
             
         }
@@ -40,6 +40,10 @@ extension SettingsViewController {
         //
         //                present(ac, animated: true, completion: nil)
         //            }
+    }
+    
+    func dismiss() {
+        _ = self.navigationController?.popViewController(animated: true) // jump back to root view controller
     }
     
 }

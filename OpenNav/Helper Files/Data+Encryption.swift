@@ -12,7 +12,7 @@ import CryptoSwift
 extension Data {
     // Crypto routines to encrypt or decrypt any data
 
-    // MARK: AES-GCM
+    // MARK: AES-CBC
 
     func encrypt(key: Data, iv: Data) throws -> Data {
         do {

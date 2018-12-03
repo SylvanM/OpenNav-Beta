@@ -22,6 +22,29 @@ class OpenNavTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        do {
+            let rsa = try RSA()
+            
+            let plaintext = "secret"
+            let plainData = plaintext.data(using: .utf8)
+            
+            let encryptedData = rsa.encrypt(plainData!)
+            
+            let decryptedData = rsa.decrypt(encryptedData)
+            
+            let decryptedText = String(data: decryptedData, encoding: .utf8)
+            
+            if decryptedText == plaintext {
+                print("Crypto successful")
+                print("Decrypted: \(String(describing: decryptedText))")
+            } else {
+                print("Decryption failed")
+                print("Decrypted: \(String(describing: decryptedText))")
+            }
+        } catch {
+            print(error)
+        }
     }
 
     func testPerformanceExample() {

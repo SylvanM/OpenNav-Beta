@@ -31,10 +31,10 @@ class DebugViewController: UIViewController {
     
     @IBAction func contactServer(_ sender: Any) {
         if let url = URL(string: textField.text!) {
-        activityIndicator.startAnimating()
-        contactServer(url: url)
-    } else {
-        outputTextView.text = "no input"
+            activityIndicator.startAnimating()
+            contactServer(url: url)
+        } else {
+            outputTextView.text = "no input"
         }
     }
     

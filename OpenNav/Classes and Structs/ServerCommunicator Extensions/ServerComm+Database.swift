@@ -21,7 +21,7 @@ extension ServerCommunicator {
         }
         
         func url() -> URL {
-            var baseURL = "http://navdataservice.000webhostapp.com/database.php?f="
+            var baseURL = databaseUrl
             baseURL += function.rawValue
             
             for (arg, value) in arguments {

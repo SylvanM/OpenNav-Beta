@@ -29,12 +29,17 @@ class UserSettings {
             self.dict = [
                             Setting.darkMode.rawValue: false,
                             Setting.tint.rawValue: "blue",
-                            Setting.layoutCode.rawValue: ""
+                            Setting.layoutCode.rawValue: "",
+                            Setting.maxZoom.rawValue: 1,
+                            Setting.minZoom.rawValue: 10
             ] as [String : Any]
         }
     }
     
     func get(setting: Setting) -> Any {
+        // reload data
+        _ = UserSettings()
+        
         return self.dict[setting.rawValue] as Any
     }
     
@@ -43,6 +48,7 @@ class UserSettings {
     }
     
     func saveSettings() {
+        
         let dictData = NSDictionary(dictionary: self.dict)
         
         do {
@@ -56,6 +62,8 @@ class UserSettings {
         case darkMode = "darkMode"
         case tint = "appTint"
         case layoutCode = "codeInputText"
+        case maxZoom = "maxZoom"
+        case minZoom = "minZoom"
     }
     
 }

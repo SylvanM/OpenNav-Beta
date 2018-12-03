@@ -38,8 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let hex = String(format: "%02x%02x%02x", baseIntA, baseIntB, baseIntC)
             UserDefaults.standard.set(hex, forKey: "appID")
             
-            
-            
             print("id: ", UserDefaults.standard.string(forKey: "appID")!)
         }
         

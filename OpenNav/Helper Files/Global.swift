@@ -22,8 +22,9 @@ struct Keys {
     public let infoDict = "layoutInformationDictionary"
 }
 
-let navdataserviceURL = "https://navdataservice.000webhostapp.com/layouts/"
-let databaseUrl =       "http://navdataservice.000webhostapp.com/database.php?"
+let domain = "https://navdataservice.000webhostapp.com/"
+let navdataserviceURL = domain + "layouts/"
+let databaseUrl =       domain + "database.php?f="
 
 struct BuildingInfoDictionaryItemNames {
     

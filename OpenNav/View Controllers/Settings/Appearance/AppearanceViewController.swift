@@ -18,6 +18,7 @@ class AppearanceViewController: UITableViewController {
     @IBOutlet weak var blueTintButton: UITableViewCell!
     @IBOutlet weak var redTintButton: UITableViewCell!
     @IBOutlet weak var darkModeCell: UITableViewCell!
+    @IBOutlet weak var imageZoomCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,8 @@ class AppearanceViewController: UITableViewController {
     }
     
     // MARK: Actions
+    
+    
     
     @IBAction func toggleDarkMode(_ sender: Any) {
         let darkMode = darkModeSwitch.isOn
@@ -68,7 +71,7 @@ class AppearanceViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = tableView.cellForRow(at: indexPath)
         
-        if selectedCell != darkModeCell {
+        if selectedCell != darkModeCell && selectedCell != imageZoomCell {
             blueTintButton.accessoryType = .none
             redTintButton.accessoryType = .none
             
@@ -86,6 +89,30 @@ class AppearanceViewController: UITableViewController {
                 // this case should never be true
                 print("Multiple selected")
             }
+        } else if selectedCell == imageZoomCell {
+            let ac = UIAlertController(title: "Choose new zoom limits", message: "Choose a mazimum and minimum zoom value", preferredStyle: .alert)
+            
+            ac.addTextField(configurationHandler: { (textField) in
+                textField.placeholder = "Minimum zoom"
+            })
+            
+            ac.addTextField(configurationHandler: { (textField) in
+                textField.placeholder = "Maximum zoom"
+            })
+            
+            let confirmAction = UIAlertAction(title: "Okay", style: .default) { _ in
+                if let min = Int((ac.textFields?[0].text)!), let max = Int((ac.textFields?[1].text)!) {
+                    self.settings.set(min, for: .minZoom)
+                    self.settings.set(max, for: .maxZoom)
+                }
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            
+            ac.addAction(confirmAction)
+            ac.addAction(cancelAction)
+            
+            self.present(ac, animated: true)
         }
         
     }
