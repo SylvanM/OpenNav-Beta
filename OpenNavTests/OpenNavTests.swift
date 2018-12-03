@@ -38,6 +38,8 @@ class OpenNavTests: XCTestCase {
             if decryptedText == plaintext {
                 print("Crypto successful")
                 print("Decrypted: \(String(describing: decryptedText))")
+                
+                print("public key: ", rsa.publicKey.export()!)
             } else {
                 print("Decryption failed")
                 print("Decrypted: \(String(describing: decryptedText))")

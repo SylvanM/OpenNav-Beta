@@ -43,8 +43,9 @@
 		AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */; };
 		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
 		AE95EAEB21B4B2F900717225 /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAEA21B4B2F900717225 /* RSA.swift */; };
-		AE95EAEE21B4B51A00717225 /* RSA+Key Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAED21B4B51A00717225 /* RSA+Key Generation.swift */; };
+		AE95EAEE21B4B51A00717225 /* RSA+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAED21B4B51A00717225 /* RSA+Keys.swift */; };
 		AE95EAF021B4B55100717225 /* RSA+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAEF21B4B55100717225 /* RSA+Crypto.swift */; };
+		AE95EAF421B4C9AF00717225 /* SecKey+Export.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAF321B4C9AF00717225 /* SecKey+Export.swift */; };
 		AED21FD8219CC13E00AD3713 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED21FD7219CC13E00AD3713 /* DebugViewController.swift */; };
 		AED21FDB219CC1D500AD3713 /* Debug+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED21FDA219CC1D500AD3713 /* Debug+Server.swift */; };
 		AEF04AAA218E8D340029C1CD /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */; };
@@ -114,8 +115,9 @@
 		AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Prompt.swift"; sourceTree = "<group>"; };
 		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
 		AE95EAEA21B4B2F900717225 /* RSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSA.swift; sourceTree = "<group>"; };
-		AE95EAED21B4B51A00717225 /* RSA+Key Generation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Key Generation.swift"; sourceTree = "<group>"; };
+		AE95EAED21B4B51A00717225 /* RSA+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Keys.swift"; sourceTree = "<group>"; };
 		AE95EAEF21B4B55100717225 /* RSA+Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Crypto.swift"; sourceTree = "<group>"; };
+		AE95EAF321B4C9AF00717225 /* SecKey+Export.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecKey+Export.swift"; sourceTree = "<group>"; };
 		AED21FD7219CC13E00AD3713 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		AED21FDA219CC1D500AD3713 /* Debug+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debug+Server.swift"; sourceTree = "<group>"; };
 		AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				AE95EAEA21B4B2F900717225 /* RSA.swift */,
+				AE95EAF321B4C9AF00717225 /* SecKey+Export.swift */,
 				AE95EAEC21B4B50600717225 /* RSA Extensions */,
 			);
 			path = RSA;
@@ -324,7 +327,7 @@
 		AE95EAEC21B4B50600717225 /* RSA Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AE95EAED21B4B51A00717225 /* RSA+Key Generation.swift */,
+				AE95EAED21B4B51A00717225 /* RSA+Keys.swift */,
 				AE95EAEF21B4B55100717225 /* RSA+Crypto.swift */,
 			);
 			path = "RSA Extensions";
@@ -587,6 +590,7 @@
 				AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */,
 				AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */,
 				AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */,
+				AE95EAF421B4C9AF00717225 /* SecKey+Export.swift in Sources */,
 				AE5EA0EF21891E5500A22307 /* MapView+Zoom.swift in Sources */,
 				AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */,
 				AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */,
@@ -600,7 +604,7 @@
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
 				AE1212872185DEE0009AEEFE /* File Management.swift in Sources */,
 				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,
-				AE95EAEE21B4B51A00717225 /* RSA+Key Generation.swift in Sources */,
+				AE95EAEE21B4B51A00717225 /* RSA+Keys.swift in Sources */,
 				AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */,
 				AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */,
 				AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */,
