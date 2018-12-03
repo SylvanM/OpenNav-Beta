@@ -10,3 +10,5 @@ The layouts are stored on the web service navdataservice.000webhostapp.com and a
 To ensure that the layouts are securely transfered to your device, on first launch of the app, a pair of RSA keys are generated, as well as a hex string unique to your device. The public key and hex id are uploaded a database of users so the server can encrypt information to your device.
 
 **NOTE:** This app is a work in progress. Until the app is published, assume the information on the web service **will not be secure**.
+
+See the Wiki for documentation
