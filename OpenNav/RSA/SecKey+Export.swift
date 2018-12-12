@@ -13,7 +13,7 @@ extension SecKey {
     
     func export() -> String? {
         
-        var error:Unmanaged<CFError>?
+        var error: Unmanaged<CFError>?
         
         if let cfdata = SecKeyCopyExternalRepresentation(self, &error) {
             let data: Data = cfdata as Data

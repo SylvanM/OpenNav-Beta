@@ -22,8 +22,8 @@ class ServerCommunicator {
     func getDecryptionInfo(forCode: String, completion: @escaping ([UInt8], [UInt8]) -> ()) {
         let request = BuildingInfoRequest(code: forCode, fileName: "encryption.json")
 
-        if verifyURL(url: request.url) {
-            Alamofire.request(request.url).responseJSON { (response) in
+        if verifyURL(url: request.url().absoluteString) {
+            Alamofire.request(request.url()).responseJSON { (response) in
                 let json = JSON(response.result.value!)
 
                 let keyBytes = json["key"].stringValue.bytes
@@ -38,7 +38,7 @@ class ServerCommunicator {
         let request = BuildingInfoRequest(code: code, fileName: "data.json")
 
 
-        if verifyURL(url: request.url) {
+        if verifyURL(url: request.url().absoluteString) {
 //            let group = DispatchGroup()
 //            group.enter()
 
@@ -46,7 +46,7 @@ class ServerCommunicator {
                 self.key = keyBytes
                 self.iv = ivBytes
 
-                Alamofire.request(request.url).responseData { (response) in
+                Alamofire.request(request.url()).responseData { (response) in
                     if response.error != nil {
                         // Handle error
                     } else {
@@ -171,14 +171,19 @@ class ServerCommunicator {
         }
     }
 
-    struct BuildingInfoRequest {
+    struct BuildingInfoRequest: Request {
+        func url() -> URL {
+            let url = URL(string: urlVal)
+            return url!
+        }
+        
         let baseURL: String = navdataserviceURL
 
         var code: String
         var desiredFileName: String!
 
         var urlString: String
-        var url: String
+        var urlVal: String
 
         init(code: String, fileName: String) {
             self.code = code
@@ -186,7 +191,7 @@ class ServerCommunicator {
 
             urlString = baseURL + code + "/" + fileName
 
-            url = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+            urlVal = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         }
     }
 }

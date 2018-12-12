@@ -10,7 +10,7 @@ import Foundation
 
 extension RSA {
     
-    class func generateKeys() throws -> (SecKey, SecKey) {
+    class func generateKeys() throws -> (SecKey?, SecKey?) {
         
         let tag = "com.OpenNav.keys.deviceKeys".data(using: .utf8)
         
@@ -29,10 +29,37 @@ extension RSA {
             throw error!.takeRetainedValue() as Error
         }
         
+//        let status = SecItemAdd(attributes as CFDictionary, nil)
+//        guard status == errSecSuccess else { throw RSAError.couldNotSaveKey }
+        
         let publicKey = SecKeyCopyPublicKey(privateKey)!
         
         return (publicKey, privateKey)
         
+    }
+    
+    class func generateFromBundle() throws -> RSA {
+        
+        let tag = "com.OpenNav.keys.deviceKeys".data(using: .utf8)
+        
+        let getQuery: [String : Any] = [
+            kSecAttrKeyType as String:            kSecAttrKeyTypeRSA,
+            kSecAttrKeySizeInBits as String:      2048,
+            kSecPrivateKeyAttrs as String: [
+                kSecAttrIsPermanent as String:    true,
+                kSecAttrApplicationTag as String: tag as Any
+            ]
+        ]
+        
+        var item: CFTypeRef?
+        let status = SecItemCopyMatching(getQuery as CFDictionary, &item)
+        guard status == errSecSuccess else { throw RSAError.couldNotLoadKey }
+        let key = item as! SecKey
+        
+        let privateKey = key
+        let publicKey = SecKeyCopyPublicKey(privateKey)!
+        
+        return RSA((publicKey, privateKey))
     }
     
 }

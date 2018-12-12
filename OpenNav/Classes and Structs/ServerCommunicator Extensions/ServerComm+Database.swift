@@ -11,7 +11,7 @@ import Alamofire
 
 extension ServerCommunicator {
     
-    struct DatabaseRequest {
+    struct DatabaseRequest: Request {
         var function: DatabaseAction
         var arguments: [String : String]
         
@@ -29,6 +29,8 @@ extension ServerCommunicator {
             }
             
             let url = URL(string: baseURL)!
+            
+            print("URL: ", baseURL)
             
             return url
         }

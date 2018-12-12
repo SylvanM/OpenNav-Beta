@@ -23,30 +23,43 @@ class OpenNavTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
+        
+        
+        let responded = self.expectation(description: "responded")
+
         do {
+//            let rsa = try RSA.generateFromBundle()
             let rsa = try RSA()
             
-            let plaintext = "secret"
-            let plainData = plaintext.data(using: .utf8)
-            
-            let encryptedData = rsa.encrypt(plainData!)
-            
-            let decryptedData = rsa.decrypt(encryptedData)
-            
-            let decryptedText = String(data: decryptedData, encoding: .utf8)
-            
-            if decryptedText == plaintext {
-                print("Crypto successful")
-                print("Decrypted: \(String(describing: decryptedText))")
+            let server = ServerCommunicator()
+
+            let arguments: [String : String] = [
+                "plaintext": "hhhhhhhhhh",
+                "key": (rsa.publicKey?.export())!
+            ]
+
+            let request = ServerCommunicator.CryptoRequest(arguments: arguments)
+
+            server.test(request) { (data) in
                 
-                print("public key: ", rsa.publicKey.export()!)
-            } else {
-                print("Decryption failed")
-                print("Decrypted: \(String(describing: decryptedText))")
+                let encrypted = String(data: data, encoding: .ascii)
+                print(encrypted)
+
+                let decrypted = rsa.decrypt(data)
+                let decryptedText = String(data: decrypted, encoding: .utf8)
+                print("decrypted: ", decryptedText)
+
+                responded.fulfill()
             }
+            
         } catch {
             print(error)
+            responded.fulfill()
+            self.recordFailure(withDescription: "Could not find keys", inFile: "OpenNavTests.swift", atLine: 36, expected: true)
         }
+        
+        self.wait(for: [responded], timeout: 30)
+        
     }
 
     func testPerformanceExample() {

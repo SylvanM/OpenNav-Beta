@@ -14,22 +14,22 @@ extension RSA {
         var error: Unmanaged<CFError>?
         
         let cfdata = data as NSData as CFData
-        let encryptedCFData = SecKeyCreateEncryptedData(publicKey, algorithm, cfdata, &error)
+        let encryptedCFData = SecKeyCreateEncryptedData(publicKey!, algorithm, cfdata, &error)
         
         print("encryption error: ", error as Any)
         
         return encryptedCFData as! NSData as Data
     }
     
-    func decrypt( _ data: Data) -> Data {
+    func decrypt(_ data: Data) -> Data {
         var error: Unmanaged<CFError>?
         
         let cfdata = data as NSData as CFData
-        let decryptedCFData = SecKeyCreateDecryptedData(privateKey, algorithm, cfdata, &error)
+        let decryptedCFData = SecKeyCreateDecryptedData(privateKey!, algorithm, cfdata, &error)
         
         print("decryption error: ", error as Any)
         
-        let decryptedData = decryptedCFData as! NSData as Data
+        let decryptedData = decryptedCFData! as Data
         return decryptedData
     }
     
