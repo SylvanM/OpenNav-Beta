@@ -40,5 +40,6 @@ extension ServerCommunicator {
         case addUser = "addUser"
         case removeUser = "removeUser"
         case testUser = "testUser"
+        case updateUser = "updateUser"
     }
 }

@@ -156,8 +156,15 @@ class ServerCommunicator {
             "user" : appID
         ]
         
+        let updateUserArguments: [String : String] = [
+            "user": appID,
+            "key" : key
+        ]
+        
         let addRequest = DatabaseRequest(function: .addUser, arguments: addUserArguments)
         let testRequest = DatabaseRequest(function: .testUser, arguments: testUserArguments)
+        
+        let updateRequest = DatabaseRequest(function: .updateUser, arguments: updateUserArguments)
         
         Alamofire.request(testRequest.url()).responseString() { response in
             if let responseString = String(data: response.data!, encoding: .utf8) {
@@ -165,7 +172,8 @@ class ServerCommunicator {
                     Alamofire.request(addRequest.url())
                     print("adding appID to server")
                 } else {
-                    print("appID already on server")
+                    Alamofire.request(updateRequest.url())
+                    print("updating user key")
                 }
             }
         }

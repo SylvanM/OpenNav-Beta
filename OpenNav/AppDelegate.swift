@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let settings = UserSettings()
     let server = ServerCommunicator()
+    let keychain = KeychainHelper()
 
     var window: UIWindow?
 
@@ -41,8 +42,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("id: ", UserDefaults.standard.string(forKey: "appID")!)
         }
         
+        if let key = keychain.getKey() {
+            server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: key.export()!)
+        } else {
+            do {
+                // no key saved, make new key
+                let rsa = try RSA()
+                
+                // save keys
+                keychain.saveKey(rsa.privateKey!) // save private key
+                server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: (rsa.publicKey?.export())!)
+            } catch {
+                print(error)
+            }
+        }
+        
         // upload generated appID and key
-        server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: "test_key")
+        server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: ((keychain.getKey()?.publicKey.export()!)!))
         
         return true
     }

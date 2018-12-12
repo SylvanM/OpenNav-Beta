@@ -48,6 +48,8 @@
 		AE95EAEE21B4B51A00717225 /* RSA+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAED21B4B51A00717225 /* RSA+Keys.swift */; };
 		AE95EAF021B4B55100717225 /* RSA+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAEF21B4B55100717225 /* RSA+Crypto.swift */; };
 		AE95EAF421B4C9AF00717225 /* SecKey+Export.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAF321B4C9AF00717225 /* SecKey+Export.swift */; };
+		AE96F42E21C1B616000D1A6D /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96F42D21C1B616000D1A6D /* KeychainHelper.swift */; };
+		AE96F43021C1BE22000D1A6D /* SecKey+PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96F42F21C1BE22000D1A6D /* SecKey+PublicKey.swift */; };
 		AED21FD8219CC13E00AD3713 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED21FD7219CC13E00AD3713 /* DebugViewController.swift */; };
 		AED21FDB219CC1D500AD3713 /* Debug+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED21FDA219CC1D500AD3713 /* Debug+Server.swift */; };
 		AEF04AAA218E8D340029C1CD /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */; };
@@ -124,6 +126,8 @@
 		AE95EAED21B4B51A00717225 /* RSA+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Keys.swift"; sourceTree = "<group>"; };
 		AE95EAEF21B4B55100717225 /* RSA+Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Crypto.swift"; sourceTree = "<group>"; };
 		AE95EAF321B4C9AF00717225 /* SecKey+Export.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecKey+Export.swift"; sourceTree = "<group>"; };
+		AE96F42D21C1B616000D1A6D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		AE96F42F21C1BE22000D1A6D /* SecKey+PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecKey+PublicKey.swift"; sourceTree = "<group>"; };
 		AED21FD7219CC13E00AD3713 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		AED21FDA219CC1D500AD3713 /* Debug+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debug+Server.swift"; sourceTree = "<group>"; };
 		AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 		AE1AA5F22143FFE000D173D6 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
+				AE96F42C21C1B5F0000D1A6D /* Keychain Helper */,
 				AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */,
 				AE1AA5F42143FFE000D173D6 /* Encryption.swift */,
 				AE1AA5F52143FFE000D173D6 /* Errors.swift */,
@@ -331,6 +336,7 @@
 				AE95EAEA21B4B2F900717225 /* RSA.swift */,
 				AE95EAF321B4C9AF00717225 /* SecKey+Export.swift */,
 				AE95EAEC21B4B50600717225 /* RSA Extensions */,
+				AE96F42F21C1BE22000D1A6D /* SecKey+PublicKey.swift */,
 			);
 			path = RSA;
 			sourceTree = "<group>";
@@ -343,6 +349,14 @@
 				AEFD0D1C21B881CA00C42D87 /* RSA+Errors.swift */,
 			);
 			path = "RSA Extensions";
+			sourceTree = "<group>";
+		};
+		AE96F42C21C1B5F0000D1A6D /* Keychain Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AE96F42D21C1B616000D1A6D /* KeychainHelper.swift */,
+			);
+			path = "Keychain Helper";
 			sourceTree = "<group>";
 		};
 		AEC256E42146A911008F4772 /* Settings */ = {
@@ -603,6 +617,7 @@
 				AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */,
 				AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */,
 				AE95EAF421B4C9AF00717225 /* SecKey+Export.swift in Sources */,
+				AE96F43021C1BE22000D1A6D /* SecKey+PublicKey.swift in Sources */,
 				AE5EA0EF21891E5500A22307 /* MapView+Zoom.swift in Sources */,
 				AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */,
 				AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */,
@@ -614,6 +629,7 @@
 				AE246C4F21657BFA006BAE2B /* Global.swift in Sources */,
 				AE95EAEB21B4B2F900717225 /* RSA.swift in Sources */,
 				AED21FD8219CC13E00AD3713 /* DebugViewController.swift in Sources */,
+				AE96F42E21C1B616000D1A6D /* KeychainHelper.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
 				AE1212872185DEE0009AEEFE /* File Management.swift in Sources */,
 				AE1A65C021BF2CFB005CFA42 /* Request.swift in Sources */,

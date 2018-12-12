@@ -39,27 +39,13 @@ extension RSA {
     }
     
     class func generateFromBundle() throws -> RSA {
+        let keychain = KeychainHelper()
         
-        let tag = "com.OpenNav.keys.deviceKeys".data(using: .utf8)
+        if let privateKey = keychain.getKey(), let publicKey = SecKeyCopyPublicKey(privateKey) {
+            return RSA((publicKey, privateKey))
+        }
         
-        let getQuery: [String : Any] = [
-            kSecAttrKeyType as String:            kSecAttrKeyTypeRSA,
-            kSecAttrKeySizeInBits as String:      2048,
-            kSecPrivateKeyAttrs as String: [
-                kSecAttrIsPermanent as String:    true,
-                kSecAttrApplicationTag as String: tag as Any
-            ]
-        ]
-        
-        var item: CFTypeRef?
-        let status = SecItemCopyMatching(getQuery as CFDictionary, &item)
-        guard status == errSecSuccess else { throw RSAError.couldNotLoadKey }
-        let key = item as! SecKey
-        
-        let privateKey = key
-        let publicKey = SecKeyCopyPublicKey(privateKey)!
-        
-        return RSA((publicKey, privateKey))
+        throw RSAError.couldNotLoadKey
     }
     
 }

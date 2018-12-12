@@ -29,7 +29,7 @@ class OpenNavTests: XCTestCase {
 
         do {
 //            let rsa = try RSA.generateFromBundle()
-            let rsa = try RSA()
+            let rsa = try RSA.generateFromBundle()
             
             let server = ServerCommunicator()
 
