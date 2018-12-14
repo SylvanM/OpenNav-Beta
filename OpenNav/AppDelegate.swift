@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         if let key = keychain.getKey() {
-            server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: key.export()!)
+            server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: key.publicKey.export()!)
         } else {
             do {
                 // no key saved, make new key
@@ -56,9 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error)
             }
         }
-        
-        // upload generated appID and key
-        server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: ((keychain.getKey()?.publicKey.export()!)!))
         
         return true
     }

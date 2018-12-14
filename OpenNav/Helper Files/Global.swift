@@ -24,7 +24,8 @@ struct Keys {
 
 let domain = "https://navdataservice.000webhostapp.com/"
 let navdataserviceURL = domain + "layouts/"
-let databaseUrl =       domain + "database.php?f="
+let userDatabaseUrl =       domain + "users.php?f="
+let layoutsDatabaseURL = navdataserviceURL + "layouts.php?f="
 
 struct BuildingInfoDictionaryItemNames {
     

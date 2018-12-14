@@ -21,7 +21,7 @@ extension ServerCommunicator {
         }
         
         func url() -> URL {
-            var baseURL = databaseUrl
+            var baseURL = userDatabaseUrl
             baseURL += function.rawValue
             
             for (arg, value) in arguments {
