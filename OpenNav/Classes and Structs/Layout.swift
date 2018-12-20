@@ -14,12 +14,17 @@ enum NavigationError: Error {
     case layoutNotRoutable
 }
 
-class Navigator {
-    func makePath(start: Int, end: Int, layout: [String], maps: [UIImage]) throws -> [UIImage] {
-        let markedImages = [UIImage]()
-
+class Layout {
+    
+    var nodes: [[[Node]]]
+    
+    func makePath(start: Int, end: Int, layout: [[[Node]]], maps: [UIImage]) throws -> Path {
         // Make the path, and place those blue dot things on the images of the floors. Return the new image array.
 
-        return markedImages
+        return 
+    }
+    
+    func getNode(at index: Index) -> Node {
+        
     }
 }
