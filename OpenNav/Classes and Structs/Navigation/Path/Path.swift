@@ -11,6 +11,7 @@ import Foundation
 class Path {
     
     var nodes: [[[PathNode]]]
+    var layout: Layout
     
     init(_ nodes: [[[PathNode]]]) {
         self.nodes = nodes

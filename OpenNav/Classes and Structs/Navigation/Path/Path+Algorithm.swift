@@ -10,7 +10,7 @@ import Foundation
 
 extension Path {
     
-    class func navigate(from begin: Index, to end: Index) -> Path {
+    class func navigate(_ layout: Navigator, from begin: Index, to end: Index) -> Path {
         
     }
     

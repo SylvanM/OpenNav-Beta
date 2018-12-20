@@ -24,7 +24,7 @@
 		AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F52143FFE000D173D6 /* Errors.swift */; };
 		AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */; };
 		AE1AA6022143FFE000D173D6 /* ServerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */; };
-		AE1AA6032143FFE000D173D6 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F92143FFE000D173D6 /* Layout.swift */; };
+		AE1AA6032143FFE000D173D6 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F92143FFE000D173D6 /* Navigator.swift */; };
 		AE246C4B216524EC006BAE2B /* Attributions in Resources */ = {isa = PBXBuildFile; fileRef = AE246C4A216524EC006BAE2B /* Attributions */; };
 		AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE246C4C21657399006BAE2B /* AboutViewController.swift */; };
 		AE246C4F21657BFA006BAE2B /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE246C4E21657BFA006BAE2B /* Global.swift */; };
@@ -107,7 +107,7 @@
 		AE1AA5F52143FFE000D173D6 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingInfo.swift; sourceTree = "<group>"; };
 		AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommunicator.swift; sourceTree = "<group>"; };
-		AE1AA5F92143FFE000D173D6 /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		AE1AA5F92143FFE000D173D6 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		AE246C4A216524EC006BAE2B /* Attributions */ = {isa = PBXFileReference; lastKnownFileType = text; path = Attributions; sourceTree = "<group>"; };
 		AE246C4C21657399006BAE2B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		AE246C4E21657BFA006BAE2B /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 				AEE2B65121CB0E4C00102344 /* Server Communicator */,
 				AEE2B64E21CAFE5D00102344 /* Navigation */,
 				AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */,
-				AE1AA5F92143FFE000D173D6 /* Layout.swift */,
+				AE1AA5F92143FFE000D173D6 /* Navigator.swift */,
 				AE5EA0FE2189BB2300A22307 /* UserSettings.swift */,
 			);
 			path = "Classes and Structs";
@@ -649,7 +649,7 @@
 				AE1365DC2183BE5200DF1DBA /* RootViewController.swift in Sources */,
 				AE1AA5FE2143FFE000D173D6 /* Data+Encryption.swift in Sources */,
 				AE5EA0F521891FEE00A22307 /* MapView+FloorsMenu.swift in Sources */,
-				AE1AA6032143FFE000D173D6 /* Layout.swift in Sources */,
+				AE1AA6032143FFE000D173D6 /* Navigator.swift in Sources */,
 				AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */,
 				AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */,
 				AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */,
