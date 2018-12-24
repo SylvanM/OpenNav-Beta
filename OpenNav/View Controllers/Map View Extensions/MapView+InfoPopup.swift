@@ -12,16 +12,16 @@ import UIKit
 extension MapViewController {
     func displayInfo() {
         var message: String = ""
-        
+        var title = "No Info Available"
         // make a new line for each piece of info in info dictionary, add it to "message" string
-        
-        for (key, value) in building.info[dict.presentedInfo] as! [String : Any] {
-            message += "\(key): \(value)\n"
+        if let info = building.info {
+            title = info["name"] as! String
+            for (key, value) in info {
+                message += "\(key): \(value)\n"
+            }
         }
-        
         // make popup to display message string
-
-        let alertController = UIAlertController(title: (building.info[dict.name] as! String), message: message, preferredStyle: .alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         // present pop-up, listen for user to tap backgroumnd. When user does, dismiss pop up.
         self.present(alertController, animated: true, completion: {

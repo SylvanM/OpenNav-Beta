@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 import UIKit
 
 /*
@@ -14,104 +15,95 @@ import UIKit
  */
 
 class BuildingInfo {
-    var floorImages: [UIImage]!
-    var mappedImages: [UIImage]!
-    var layout: [String]!
-    var info: [String : Any]!
-
+    var floorImages: [String : UIImage]?
+    var mappedImages: [String : UIImage]?
+    var layout: [[[String]]]?
+    var info: [String : Any]?
+    
+    // used to retrieve data from files
+    var retrievalDict: [String : String]?
+    
     let keys = Keys()
     let dict = BuildingInfoDictionaryItemNames()
 
     // make a blank class instance
-    init(_ blank: Any) {
-        info = [:]
-
-        info[dict.floorCount] = 0
-        info[dict.acronym] = ""
-        info[dict.name] = ""
-
-        floorImages = []
-        layout = []
-    }
     
-    // make dummy instance with preloaded data
-    init(images: [UIImage], info: [String : Any]) {
-        self.floorImages = images
-        self.info = info
+    init(_ jsonDictionary: [String : JSON?]) {
+        
+        print("JSON: ", jsonDictionary)
+        
+        // set up layout
+        if let layoutJson = jsonDictionary["layout"] {
+            self.layout = layoutJson?.arrayObject as? [[[String]]]
+        }
+        
+        // set up images
+        if let imageJson = jsonDictionary["images"] {
+            if let images = imageJson?.dictionaryObject as? [String : String] {
+                for (name, encodedImage) in images {
+                    let decodedData = Data(base64Encoded: encodedImage)
+                    let image = UIImage(data: decodedData!)
+                    self.floorImages?[name] = image
+                }
+                self.mappedImages = floorImages
+            }
+        }
+        
+        if let infoJson = jsonDictionary["info"] {
+            self.info = infoJson?.dictionaryObject
+        }
     }
 
     // make instance from data in UserDefaults
     init() throws {
-        info = [:]
-        self.floorImages = []
-        // retrieve info dict from defaults
-        let infoDictFileName = "layoutInfo.plist"
-        let filePath = getDocumentsDirectory().appendingPathComponent(infoDictFileName)
+        let path = getDocumentsDirectory().appendingPathComponent("layout.plist")
+        let nsdict = NSDictionary(contentsOf: path)
         
-        let dictData = NSDictionary(contentsOf: filePath)
-        self.info = (dictData as Any) as? [String : Any]
-        
-        if let object = info, let floors = object[dict.floorCount], let floorCount = floors as? Int {
-            for i in 0..<floorCount {
-                let imageFileName = "image\(i).png"
-                
-                // retrieve and decode base64 encoded image data
-                let imageURL = getDocumentsDirectory().appendingPathComponent(imageFileName)
-                
-                do {
-                    let imageData = try Data(contentsOf: imageURL)
-                    let image = UIImage(data: imageData)
-                    self.floorImages.append(image!)
-                } catch {
-                    print("Could not load images")
-                    throw DataLoadingError.couldNotLoadData
-                }
-            }
+        if let dict = nsdict as? [String : Any] {
+            // convert dict to [String : JSON]
+            let json: [String : JSON] = [
+                "images": JSON(dict["images"] as Any),
+                "info": JSON(dict["info"]!),
+                "layout": JSON(dict["layout"]!)
+            ]
             
-            // these should be the same until the user makes a route
-            mappedImages = floorImages
+            let recoveredObject = BuildingInfo(json)
+        
+            self.floorImages = recoveredObject.floorImages
+            self.mappedImages = recoveredObject.mappedImages
+            self.layout = recoveredObject.layout
+            self.info = recoveredObject.info
         } else {
-            print("layout dict not loaded")
             throw DataLoadingError.couldNotLoadData
-        }
-    }
-
-    // save info dictionary to UserDefaults
-    func saveInfo() {
-        let fileName = "layoutInfo.plist"
-        let filePath = getDocumentsDirectory().appendingPathComponent(fileName)
-        
-        let dict = NSDictionary(dictionary: self.info!)
-        
-        do {
-            try dict.write(to: filePath)
-        } catch {
-            print("Error on saving info dictionary: \(error)")
-        }
-    }
-
-    // encode images to base64 data and save to UserDefaults
-    func saveImages() {
-        for i in 0..<floorImages.count {
-            let imageData = floorImages[i].pngData()
-        
-            let imageName = "image\(i).png"
-            
-            let filename = getDocumentsDirectory().appendingPathComponent(imageName)
-            
-            do {
-                try imageData?.write(to: filename)
-            } catch {
-                print(error)
-            }
         }
     }
 
     // save ALL data stored in this class to userDefaults
     func saveData() {
-        saveInfo()
-        print("Saving data --")
-        print(info)
-        saveImages()
+        print("Saving layout...")
+        
+        var allLayoutDict: [String : Any] = [
+            "info": self.info as Any,
+            "layout": self.layout as Any
+        ]
+        
+        if let images = self.floorImages {
+            allLayoutDict["images"] = images
+        }
+        
+        print("General layout: ", allLayoutDict)
+        
+        let dictionary = NSDictionary(dictionary: allLayoutDict)
+        print("Converted dictionary: ", dictionary)
+        
+        let filename = getDocumentsDirectory().appendingPathComponent("layout.plist")
+        print("Saving to file: ", filename)
+        do {
+            try dictionary.write(to: filename)
+            print("Saved!")
+        } catch {
+            print("ERROR on saving layout: ", error)
+        }
+        
     }
 }

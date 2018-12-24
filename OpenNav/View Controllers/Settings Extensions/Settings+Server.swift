@@ -18,15 +18,10 @@ extension SettingsViewController {
             
             self.present(alertController, animated: true, completion: nil)
             
-            server.getBuildingData(for: code, completion: { (images, infoDictionary) in
-                let building = BuildingInfo(images: images, info: infoDictionary)
-                
-                building.saveData() // save the building to userdefaults to be used by other classes (primarily the Map View)
-                
-                print("Building info: ", building.info)
-                
-                alertController.dismiss(animated: true)
-                
+            server.getLayout(code: code, completion: { (layout) in
+                let building = BuildingInfo(layout)
+                building.saveData()
+                alertController.dismiss(animated: true, completion: nil)
                 self.dismiss()
             })
             

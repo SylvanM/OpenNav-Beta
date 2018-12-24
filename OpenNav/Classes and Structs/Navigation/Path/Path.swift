@@ -2,23 +2,26 @@
 //  Path.swift
 //  OpenNav
 //
-//  Created by Sylvan Martin on 12/19/18.
+//  Created by Sylvan Martin on 12/21/18.
 //  Copyright © 2018 Sylvan Martin. All rights reserved.
 //
 
 import Foundation
 
-class Path {
+struct Path {
     
-    var nodes: [[[PathNode]]]
-    var layout: Layout
-    
-    init(_ nodes: [[[PathNode]]]) {
-        self.nodes = nodes
+    // returns floor
+    subscript(_ index: Int) -> [[PathNode]] {
+        get {
+            return nodes[index]
+        }
     }
     
-    struct PathNode {
-        
+    var nodes: [[[PathNode]]]
+    
+    struct PathNode: Node {
+        var neighbors: (Node?, Node?, Node?, Node?, Node?, Node?)
+        var index: Index
         var value: PathNodeValue
         
         enum PathNodeValue {
@@ -31,5 +34,4 @@ class Path {
             case blank
         }
     }
-    
 }

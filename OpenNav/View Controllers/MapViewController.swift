@@ -28,7 +28,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
     // MARK: Properties
     var building: BuildingInfo!      // layout to display
-    var selectedImage: Int = 0       // index of image to display
+    var selectedImage: String!       // name of image to display
     var viewType: ViewType = .normal // determines the view
     
     @IBOutlet var infoButton:   UIBarButtonItem! // button for popup to display info about the school

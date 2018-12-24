@@ -14,7 +14,7 @@ extension MapViewController {
     func promptForRoute() {
         let dict = BuildingInfoDictionaryItemNames()
         
-        if let navMatrix = building.info[dict.navMatrix] as? [[Int]], let correctionMatrix = building.info[dict.correctionMatrix] as? [[Int]] {
+        if let layout = building.layout {
             let alertController = UIAlertController(title: "Choose Path", message: "Choose a start room and end location", preferredStyle: .alert)
             
             let goHandler: ((UIAlertAction) -> Void)? = { _ in

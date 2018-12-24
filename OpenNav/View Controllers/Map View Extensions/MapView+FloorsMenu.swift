@@ -16,15 +16,17 @@ extension MapViewController {
         
         // for ever image available, create a button and corresponding action for the user to press
         
-        for i in 0..<(building.info[dict.floorCount] as! Int) {
-            let imageNames = building.info![dict.imageNames] as! [String]
-            let viewFloorAction = UIAlertAction(title: imageNames[i], style: .default, handler: { (_) in
-                self.selectedImage = i
-                print("Trying to view image \(i)")
-                self.refresh()
-            })
+        if let images = building.floorImages {
             
-            alertController.addAction(viewFloorAction)
+            for (name, image) in images {
+                let viewFloorAction = UIAlertAction(title: name, style: .default, handler: { (_) in
+                    self.selectedImage = name
+                    print("Trying to view image \(name)")
+                    self.refresh()
+                })
+                
+                alertController.addAction(viewFloorAction)
+            }
         }
         
         // make an action/button to let the user dismiss the "route" image overlay

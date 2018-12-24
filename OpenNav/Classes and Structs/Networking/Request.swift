@@ -2,12 +2,13 @@
 //  Request.swift
 //  OpenNav
 //
-//  Created by Sylvan Martin on 12/10/18.
+//  Created by Sylvan Martin on 12/22/18.
 //  Copyright © 2018 Sylvan Martin. All rights reserved.
 //
 
 import Foundation
 
 protocol Request {
-    func url() -> URL
+    var arguments: [String : String] { get set }
+    var url: URL { get }
 }

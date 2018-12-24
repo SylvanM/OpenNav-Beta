@@ -33,23 +33,25 @@ extension MapViewController {
             building = try BuildingInfo()
             
             // put title at top of view with the acronym of the layout
-            if let acro = building.info[dict.acronym] as? String {
-                self.navigationItem.title = acro + " Map"
-            } else {
-                print("Could not load acronym")
-                self.navigationItem.title = "Map"
+            if let info = building.info {
+                if let acro = info[dict.acronym] as? String {
+                    self.navigationItem.title = acro + " Map"
+                } else {
+                    print("Could not load acronym")
+                    self.navigationItem.title = "Map"
+                }
             }
             
             switch viewType {
             case .normal: // if normal view type, display regular images
                 //                mapImageView.image = building.floorImages.first
-                mapImageView.image = building.floorImages[selectedImage] // This line can result in crash sometimes
+                mapImageView.image = building.floorImages?[selectedImage] // This line can result in crash sometimes
                 // When the previous layout has less images and the layout switches,
                 // if the selected image was of a higher index than the highest of the current layout,
                 // we will get the "Index out of range" error and then crash
             case .route: // if map view type, display nmarked images
                 //                mapImageView.image = building.mappedImages.first
-                mapImageView.image = building.mappedImages[selectedImage] // This line can result in crash sometimes <#same reason as above#>
+                mapImageView.image = building.mappedImages?[selectedImage] // This line can result in crash sometimes <#same reason as above#>
             }
             
             activityIndicator.stopAnimating()
@@ -57,7 +59,7 @@ extension MapViewController {
             self.navigationItem.setLeftBarButton(infoButton, animated: true) // set left bar button item back to info button
         } catch {
             displayErrorMessage(error)
-            print("Unknown error")
+            print("Error on loading view")
         }
     }
     
