@@ -84,5 +84,27 @@ class ServerCommunicator {
         }
         
     }
+    
+    func testCode(_ code: String, completion: @escaping (Bool) -> ()) {
+        // generate test url
+        let urlString = layoutsURLString + "testCode&code=\(code)"
+        let url = URL(string: urlString)!
+        
+        print("Layout test url: ", url)
+        
+        Alamofire.request(url).responseString() { response in
+            
+            let responseData = response.data!
+            let responseString = String(data: responseData, encoding: .utf8)
+            
+            print("Response from layout test request: ", responseString ?? "No response")
+            
+            if responseString == "1" {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
 
 }

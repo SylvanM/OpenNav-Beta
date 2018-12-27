@@ -13,17 +13,32 @@ extension SettingsViewController {
     
     func getLayouts(code: String) {
         do {
+            // make alert to show that the layout doesn't exist
+            let errorController = UIAlertController(title: "No layout found", message: "Sorry, there is no layout for the code: \"\(code)\"", preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+            errorController.addAction(okayAction)
+            
             // make pop-up to let user know that layouts are being downloaded
             let alertController = UIAlertController(title: "Downloading Layouts", message: "This may take a couple seconds", preferredStyle: .alert)
             
-            self.present(alertController, animated: true, completion: nil)
-            
-            server.getLayout(code: code, completion: { (layout) in
-                let building = BuildingInfo(layout)
-                building.saveData()
-                alertController.dismiss(animated: true, completion: nil)
-                self.dismiss()
+            // test the code
+            server.testCode(code, completion: { layoutExists in
+                switch layoutExists {
+                case true:
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    self.server.getLayout(code: code, completion: { (layout) in
+                        let building = BuildingInfo(layout)
+                        building.saveData()
+                        alertController.dismiss(animated: true, completion: nil)
+                        self.dismiss()
+                    })
+                case false:
+                    self.present(errorController, animated: true, completion: nil)
+                }
             })
+            
+            
             
         }
         // No errors are actuall thrown in the "do" block, so there isn't any point for this catch block

@@ -17,8 +17,9 @@ import UIKit
 class BuildingInfo {
     var floorImages: [String : UIImage]?
     var mappedImages: [String : UIImage]?
-    var layout: [[[String]]]?
+    var stringLayout: [[[String]]]?
     var info: [String : Any]?
+    var layout: Layout?
     
     // used to retrieve data from files
     var retrievalDict: [String : String]?
@@ -34,7 +35,10 @@ class BuildingInfo {
         
         // set up layout
         if let layoutJson = jsonDictionary["layout"] {
-            self.layout = layoutJson?.arrayObject as? [[[String]]]
+            let stringLayout = layoutJson?.arrayObject as? [[[String]]]
+            self.stringLayout = stringLayout
+            
+            self.layout = Layout(stringLayout!)
         }
         
         // set up images
