@@ -24,6 +24,8 @@ class Layout {
         self.nodes = [[[]]]
         self.originalInput = layout
         
+        print("Generating nodes from: ", layout)
+        
         for i in 0..<layout.count {
             let floor = layout[i]
             var floorNodes: [[MapNode]] = [[]]

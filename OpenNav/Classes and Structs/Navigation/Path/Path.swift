@@ -20,7 +20,7 @@ struct Path {
     var nodes: [[[PathNode]]]
     
     struct PathNode: Node {
-        var neighbors: (Node?, Node?, Node?, Node?, Node?, Node?)
+        var neighbors: [String : Node?]
         var index: Index
         var value: PathNodeValue
         

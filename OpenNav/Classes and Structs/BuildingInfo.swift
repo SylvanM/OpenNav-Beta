@@ -59,10 +59,9 @@ class BuildingInfo {
             }
         
             stringArray.removeFirst()
-            print("String array: ", stringArray)
             
             self.stringLayout = stringArray
-            self.layout = Layout(stringArray)
+            self.layout = Layout(stringArray, correction: [])
         }
         
         // set up images
@@ -98,7 +97,6 @@ class BuildingInfo {
             
             var jsonDict = recoveredJson.dictionary!
             let layout = jsonDict["layout"]
-            print("Recovered layout: ", layout?.arrayValue.first!)
             jsonDict["layout"] = layout?.arrayValue.first!
             let loadedLayout = BuildingInfo(jsonDict)
 
@@ -118,8 +116,6 @@ class BuildingInfo {
     // save ALL data stored in this class to userDefaults
     func saveData() {
         var dictionary: [String : JSON] = [:]
-        
-        print("Layout being saved: ", self.stringLayout)
         
         // convert each part of the layout to a JSON object to be saved
         
