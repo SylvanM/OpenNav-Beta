@@ -29,21 +29,28 @@ class BuildingInfo {
 
     // make a blank class instance
     
-    init(_ jsonDictionary: [String : JSON?]) {
+    init(_ jsonDictionary: [String : JSON]) {
+        
+//        print("Initializing layout from: ", jsonDictionary)
         
         // set up layout
         if let layoutJson = jsonDictionary["layout"] {
+//            print("Layout JSON: ", layoutJson)
             
             var stringArray: [[[String]]] = [[[]]]
-            let layout = layoutJson?.arrayValue.first!
-            for i in 0...layout!.count {
-                print("Layout: ", layout)
-                let floor = layoutJson?.arrayValue[i]
+            let layout = layoutJson.arrayValue
+//            print("Layout to parse: ", layout)
+            
+            for i in 0..<layout.count {
+                
+                let floor = layout[i]
+//                print("Floor \(i): ", floor)
                 var floorStringValues: [[String]] = [[]]
                 
-                for j in 0..<floor!.count {
-                    let row = floor!.arrayValue[j]
+                for j in 0..<floor.count {
+                    let row = floor.arrayValue[j]
                     let rowStringValues = row.arrayValue.map { $0.stringValue }
+//                    print("Row: ", row)
                     
                     floorStringValues.append(rowStringValues)
                 }
@@ -61,7 +68,7 @@ class BuildingInfo {
         // set up images
         if let imageJson = jsonDictionary["images"] {
             print("image json exists")
-            if let images = imageJson?.dictionaryObject as? [String : String] {
+            if let images = imageJson.dictionaryObject as? [String : String] {
                 print("Images are converted")
                 for (name, encodedImage) in images {
                     let decodedData = Data(base64Encoded: encodedImage)
@@ -74,18 +81,26 @@ class BuildingInfo {
         }
         
         if let infoJson = jsonDictionary["info"] {
-            self.info = infoJson?.dictionaryObject
+            self.info = infoJson.dictionaryObject
         }
     }
 
     // make instance from data in UserDefaults
     init() throws {
+        
         let url = getDocumentsDirectory().appendingPathComponent("layout")
+        
         do {
             let recoveredData = try Data(contentsOf: url)
             let recoveredString = String(data: recoveredData, encoding: .utf8)!
             let recoveredJson   = JSON(parseJSON: recoveredString)
-            let loadedLayout = BuildingInfo(recoveredJson.dictionary!)
+//            print("Recovered Json: ", recoveredJson)
+            
+            var jsonDict = recoveredJson.dictionary!
+            let layout = jsonDict["layout"]
+            print("Recovered layout: ", layout?.arrayValue.first!)
+            jsonDict["layout"] = layout?.arrayValue.first!
+            let loadedLayout = BuildingInfo(jsonDict)
 
             // set all self values
             self.floorImages = loadedLayout.floorImages
@@ -103,6 +118,8 @@ class BuildingInfo {
     // save ALL data stored in this class to userDefaults
     func saveData() {
         var dictionary: [String : JSON] = [:]
+        
+        print("Layout being saved: ", self.stringLayout)
         
         // convert each part of the layout to a JSON object to be saved
         
@@ -127,6 +144,7 @@ class BuildingInfo {
         if let layout = self.layout {
             let jsonArray = JSON(arrayLiteral: self.stringLayout!)
             dictionary["layout"] = jsonArray
+            print("Saving: ", jsonArray)
         }
         
         // save it
@@ -134,6 +152,7 @@ class BuildingInfo {
         let fullJson   = JSON(dictionary)
         let jsonString = fullJson.description
         let stringData = jsonString.data(using: .utf8)
+        
         do {
             try stringData?.write(to: file)
             print("Saved layout!")
