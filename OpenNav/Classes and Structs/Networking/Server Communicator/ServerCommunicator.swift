@@ -23,8 +23,8 @@ class ServerCommunicator {
         case code404
     }
 
-    func getLayout(code: String, completion: @escaping ([String : JSON?]) -> ()) {
-        var layout: [String : JSON?] = [:] // object to return when requests are done
+    func getLayout(code: String, completion: @escaping ([String : JSON]) -> ()) {
+        var layout: [String : JSON] = [:] // object to return when requests are done
         let request = LayoutRequest(code, id: UserDefaults.standard.string(forKey: "appID")!)
         
         let targetResponseNumber = LayoutRequest.LayoutFunction.allCases.count - 1 // amount of responses that must be recieved for the request to be complete
@@ -33,6 +33,7 @@ class ServerCommunicator {
             didSet {
                 if responseWatcher == targetResponseNumber {
                     completion(layout)
+                    print("Running completion with: ", layout)
                 }
             }
         }
@@ -64,6 +65,7 @@ class ServerCommunicator {
                     var decryptedResponse: Data = response.data!
                     var json: JSON?
                     do { // decrypt the data
+                        
 //                        decryptedResponse = (try response.data?.decrypt(key: cryptokey, iv: cryptoiv))!
                         // this is commented out because right now there is no encryption involved. Once there is, this line will be uncommented.
                         
@@ -71,6 +73,7 @@ class ServerCommunicator {
                     } catch {
                         print(error)
                     }
+                    
                     
                     if let recievedJson = json {
                         layout[key] = recievedJson
