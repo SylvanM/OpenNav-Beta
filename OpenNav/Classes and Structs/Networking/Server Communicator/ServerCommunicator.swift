@@ -27,7 +27,7 @@ class ServerCommunicator {
         var layout: [String : JSON?] = [:] // object to return when requests are done
         let request = LayoutRequest(code, id: UserDefaults.standard.string(forKey: "appID")!)
         
-        let targetResponseNumber = LayoutRequest.LayoutFunction.allCases.count - 1// amount of responses that must be recieved for the request to be complete
+        let targetResponseNumber = LayoutRequest.LayoutFunction.allCases.count - 1 // amount of responses that must be recieved for the request to be complete
         var responseWatcher: Int = 0 {
             // once a response is in, this value will increment. When it gets to the target number, it calls completion
             didSet {

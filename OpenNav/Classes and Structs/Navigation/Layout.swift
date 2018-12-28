@@ -17,8 +17,10 @@ enum NavigationError: Error {
 class Layout {
     
     var nodes: [[[MapNode]]]?
+    var originalInput: [[[String]]] // eventually this needs to be replaced with a computed value, that converts the layout BACK to a string array
     
     init(_ layout: [[[String]]]) {
+        self.originalInput = layout
         var tempNodeArray: [[[MapNode?]?]?]
         tempNodeArray = [[[MapNode?]?]?](repeating: nil, count: layout.count)
         

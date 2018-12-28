@@ -24,7 +24,6 @@
 		AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F02143FFE000D173D6 /* MapViewController.swift */; };
 		AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */; };
 		AE1AA5FE2143FFE000D173D6 /* Data+Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */; };
-		AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F42143FFE000D173D6 /* Encryption.swift */; };
 		AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F52143FFE000D173D6 /* Errors.swift */; };
 		AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */; };
 		AE1AA6022143FFE000D173D6 /* ServerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */; };
@@ -107,7 +106,6 @@
 		AE1AA5F02143FFE000D173D6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Encryption.swift"; sourceTree = "<group>"; };
-		AE1AA5F42143FFE000D173D6 /* Encryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
 		AE1AA5F52143FFE000D173D6 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingInfo.swift; sourceTree = "<group>"; };
 		AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommunicator.swift; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 			children = (
 				AE96F42C21C1B5F0000D1A6D /* Keychain Helper */,
 				AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */,
-				AE1AA5F42143FFE000D173D6 /* Encryption.swift */,
 				AE1AA5F52143FFE000D173D6 /* Errors.swift */,
 				AE246C4E21657BFA006BAE2B /* Global.swift */,
 				AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */,
@@ -661,7 +658,6 @@
 				AE5EA0F521891FEE00A22307 /* MapView+FloorsMenu.swift in Sources */,
 				AE1AA6032143FFE000D173D6 /* Layout.swift in Sources */,
 				AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */,
-				AE1AA5FF2143FFE000D173D6 /* Encryption.swift in Sources */,
 				AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */,
 				AE12083421CF292700B6C50F /* Key Upload.swift in Sources */,
 				AE95EAF421B4C9AF00717225 /* SecKey+Export.swift in Sources */,
