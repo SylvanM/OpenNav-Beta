@@ -9,7 +9,7 @@
 import Foundation
 
 struct MapNode: Node {
-    var neighbors: (Node?, Node?, Node?, Node?, Node?, Node?)
+    var neighbors: [String : Node?]
     var index: Index
     
     var value: MapNodeValue
@@ -27,7 +27,7 @@ struct MapNode: Node {
         default:
             value = .notWalkable
         }
-        
+        self.neighbors = [:]
         self.index = index
     }
     

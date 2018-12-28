@@ -11,8 +11,7 @@ import Foundation
 protocol Node {
     
     var index: Index { get set }
-    var neighbors: (Node?, Node?, Node?, Node?, Node?, Node?) { get set }
+    var neighbors: [String : Node?] { get set }
     // in order:
     // left, in front, right, behind, below, above
-    
 }
