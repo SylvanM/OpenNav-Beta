@@ -42,6 +42,7 @@
 		AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F82189226700A22307 /* MapView+InfoPopup.swift */; };
 		AE5EA0FD21893F4100A22307 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */; };
 		AE5EA0FF2189BB2300A22307 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0FE2189BB2300A22307 /* UserSettings.swift */; };
+		AE6726E321D692DA00EB2CEC /* String+Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6726E221D692DA00EB2CEC /* String+Node.swift */; };
 		AE6E8980219777BB006E370B /* Settings+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E897F219777BB006E370B /* Settings+Server.swift */; };
 		AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E898121989AD4006E370B /* MapView+Route.swift */; };
 		AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */; };
@@ -123,6 +124,7 @@
 		AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AE5EA0FE2189BB2300A22307 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		AE5FF6B721A83FD200446393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		AE6726E221D692DA00EB2CEC /* String+Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Node.swift"; sourceTree = "<group>"; };
 		AE6E897F219777BB006E370B /* Settings+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+Server.swift"; sourceTree = "<group>"; };
 		AE6E898121989AD4006E370B /* MapView+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Route.swift"; sourceTree = "<group>"; };
 		AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Prompt.swift"; sourceTree = "<group>"; };
@@ -393,10 +395,12 @@
 		AEE2B64E21CAFE5D00102344 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				AEE2B65921CB119600102344 /* Index.swift */,
 				AE1AA5F92143FFE000D173D6 /* Layout.swift */,
 				AEE2B65421CB10E700102344 /* Path */,
 				AE0F102821CD7E08009D0348 /* Node Protocol.swift */,
 				AE0F102A21CD7F24009D0348 /* MapNode.swift */,
+				AE6726E221D692DA00EB2CEC /* String+Node.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -413,7 +417,6 @@
 		AEE2B65421CB10E700102344 /* Path */ = {
 			isa = PBXGroup;
 			children = (
-				AEE2B65921CB119600102344 /* Index.swift */,
 				AE0F102C21CD826B009D0348 /* Path.swift */,
 			);
 			path = Path;
@@ -679,6 +682,7 @@
 				AE96F42E21C1B616000D1A6D /* KeychainHelper.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
 				AE1212872185DEE0009AEEFE /* File Management.swift in Sources */,
+				AE6726E321D692DA00EB2CEC /* String+Node.swift in Sources */,
 				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,
 				AE95EAEE21B4B51A00717225 /* RSA+Keys.swift in Sources */,
 				AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */,

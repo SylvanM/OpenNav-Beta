@@ -31,11 +31,31 @@ class BuildingInfo {
     
     init(_ jsonDictionary: [String : JSON?]) {
         
-        print("JSON: ", jsonDictionary)
-        
         // set up layout
         if let layoutJson = jsonDictionary["layout"] {
             
+            var stringArray: [[[String]]] = [[[]]]
+            let layout = layoutJson?.arrayValue.first!
+            for i in 0...layout!.count {
+                print("Layout: ", layout)
+                let floor = layoutJson?.arrayValue[i]
+                var floorStringValues: [[String]] = [[]]
+                
+                for j in 0..<floor!.count {
+                    let row = floor!.arrayValue[j]
+                    let rowStringValues = row.arrayValue.map { $0.stringValue }
+                    
+                    floorStringValues.append(rowStringValues)
+                }
+                floorStringValues.removeFirst()
+                stringArray.append(floorStringValues)
+            }
+        
+            stringArray.removeFirst()
+            print("String array: ", stringArray)
+            
+            self.stringLayout = stringArray
+            self.layout = Layout(stringArray)
         }
         
         // set up images
@@ -66,8 +86,6 @@ class BuildingInfo {
             let recoveredString = String(data: recoveredData, encoding: .utf8)!
             let recoveredJson   = JSON(parseJSON: recoveredString)
             let loadedLayout = BuildingInfo(recoveredJson.dictionary!)
-            
-            print("Recovered JSON: ", recoveredJson)
 
             // set all self values
             self.floorImages = loadedLayout.floorImages
@@ -109,7 +127,6 @@ class BuildingInfo {
         if let layout = self.layout {
             let jsonArray = JSON(arrayLiteral: self.stringLayout!)
             dictionary["layout"] = jsonArray
-            print("layout json array: ", jsonArray)
         }
         
         // save it
@@ -117,8 +134,6 @@ class BuildingInfo {
         let fullJson   = JSON(dictionary)
         let jsonString = fullJson.description
         let stringData = jsonString.data(using: .utf8)
-        print("json string: ", jsonString)
-        
         do {
             try stringData?.write(to: file)
             print("Saved layout!")
