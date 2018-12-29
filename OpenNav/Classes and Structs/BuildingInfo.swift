@@ -19,6 +19,7 @@ class BuildingInfo {
     var mappedImages: [String : UIImage]?
     var stringLayout: [[[String]]]?
     var info: [String : Any]?
+    var rooms: [String : Index]?
     var layout: Layout?
     
     // used to retrieve data from files
@@ -29,16 +30,33 @@ class BuildingInfo {
 
     // make a blank class instance
     
-    init(_ jsonDictionary: [String : JSON]) {
+    init(_ jsonDictionary: [String : JSON?]) {
         
-//        print("Initializing layout from: ", jsonDictionary)
+        if let temp = jsonDictionary["rooms"], let rooms = temp?.dictionary {
+            // room dict exists
+            self.rooms = [:]
+
+            // create an index for each json array in rooms
+            for (name, jsonArray) in rooms {
+                // 1d string array containing the info for making an index for one room
+                var roomInfoArray: [Int] = []
+                if let array = jsonArray.array {
+                    roomInfoArray = array.map { $0.intValue }
+                }
+                // create index from roomInfoArray
+                let index = Index(floor: roomInfoArray[0], x: roomInfoArray[1], y: roomInfoArray[2])
+
+                self.rooms?[name] = index
+            }
+        } else {
+            print("rooms doesn't exist")
+        }
         
         // set up layout
-        if let layoutJson = jsonDictionary["layout"] {
+        if let layoutJson = jsonDictionary["layout"], let layout = layoutJson?.arrayValue {
 //            print("Layout JSON: ", layoutJson)
             
             var stringArray: [[[String]]] = [[[]]]
-            let layout = layoutJson.arrayValue
 //            print("Layout to parse: ", layout)
             
             for i in 0..<layout.count {
@@ -65,7 +83,7 @@ class BuildingInfo {
         }
         
         // set up images
-        if let imageJson = jsonDictionary["images"] {
+        if let temp = jsonDictionary["images"], let imageJson = temp {
             print("image json exists")
             if let images = imageJson.dictionaryObject as? [String : String] {
                 print("Images are converted")
@@ -77,9 +95,11 @@ class BuildingInfo {
                 }
                 self.mappedImages = floorImages
             }
+        } else {
+            print("Image json doesn't exist")
         }
         
-        if let infoJson = jsonDictionary["info"] {
+        if let temp = jsonDictionary["info"], let infoJson = temp {
             self.info = infoJson.dictionaryObject
         }
     }
@@ -106,6 +126,7 @@ class BuildingInfo {
             self.stringLayout = loadedLayout.stringLayout
             self.layout = loadedLayout.layout
             self.info = loadedLayout.info
+            self.rooms = loadedLayout.rooms
         } catch {
             print("error on loading data: ", error)
             throw DataLoadingError.couldNotLoadData
@@ -137,9 +158,22 @@ class BuildingInfo {
         }
         
         // convert layout
-        if let layout = self.layout {
-            let jsonArray = JSON(arrayLiteral: self.stringLayout!)
+        if let layout = self.stringLayout {
+            let jsonArray = JSON(arrayLiteral: layout)
             dictionary["layout"] = jsonArray
+        }
+        
+        // convert rooms
+        if let rooms = self.rooms {
+            var roomJson: JSON = JSON()
+            
+            for (name, index) in rooms {
+                let roomInfoArray = [index.floor, index.x, index.y]
+                let roomInfoJson  = JSON(roomInfoArray)
+                roomJson[name]    = roomInfoJson
+            }
+            
+            dictionary["rooms"] = roomJson
         }
         
         // save it
