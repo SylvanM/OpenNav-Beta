@@ -24,10 +24,10 @@ extension ServerCommunicator {
             if let responseString = String(data: response.data!, encoding: .utf8) {
                 if responseString == "0" {
                     Alamofire.request(addRequest.url)
-                    print("adding appID to server")
+                    print("adding appID to server: ", addRequest.url)
                 } else {
                     Alamofire.request(updateRequest.url)
-                    print("updating user key")
+                    print("updating user key: ", updateRequest.url)
                 }
             }
         }
