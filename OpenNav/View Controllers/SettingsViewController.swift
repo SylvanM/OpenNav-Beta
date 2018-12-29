@@ -65,7 +65,4 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-    // MARK: TableView
-    
-    
 }
