@@ -33,7 +33,6 @@ class ServerCommunicator {
             didSet {
                 if responseWatcher == targetResponseNumber {
                     completion(layout)
-                    print("Running completion with: ", layout)
                 }
             }
         }
@@ -41,7 +40,6 @@ class ServerCommunicator {
         print("Crypto request url: ", request.urls["crypto"])
         Alamofire.request(request.urls["crypto"]!).responseJSON { (response) in
             // crypto information has been retrieved, now we can collect the rest of the information
-            print("Crypto request made")
             var cryptokey: Data // encryption key
             var cryptoiv:  Data // encryption iv
             
@@ -50,8 +48,6 @@ class ServerCommunicator {
                 let keyString = cryptoJson["key"].stringValue
                 let ivString  = cryptoJson["iv"].stringValue
                 
-                print("Crypto: ", keyString, " ", ivString)
-                
                 cryptokey = Data(bytes: keyString.bytes)
                 cryptoiv = Data(bytes: ivString.bytes)
             } catch {
@@ -59,48 +55,34 @@ class ServerCommunicator {
                 print("Error on downloading crypto info: ", error)
             }
             
+            let decryption: (Bool, Data?, Data?) = (false, nil, nil) // this is the encryption instruction to give to the downloadLayoutItem function. For now, it is nil because all data is decrypted
+            
             for (key, url) in request.urls where key != "crypto" {
-                // call the other requests
-                Alamofire.request(url).responseJSON(completionHandler: { response in
-                    var decryptedResponse: Data = response.data!
-                    var json: JSON?
-                    
-                    do { // decrypt the data
-                        
-//                        decryptedResponse = (try response.data?.decrypt(key: cryptokey, iv: cryptoiv))!
-                        // this is commented out because right now there is no encryption involved. Once there is, this line will be uncommented.
-                        
-                        json = try JSON(data: decryptedResponse)
-                    } catch {
-                        print(error)
-                    }
-                    
-                    
+                // call the other requests, we have the decryption info!
+                
+                self.downloadLayoutItem(url: url, withDecryption: decryption) { json in
                     if let recievedJson = json {
                         layout[key] = recievedJson
                     } else {
                         layout[key] = nil
                     }
                     responseWatcher += 1 // let the watcher know that another item has been recieved and downlaoded
-                })
+                }
             }
             
         }
         
     }
     
+    // test to see if the layout exists. Whether it exists is stored in a bool. A completion is run with the bool as an argument
     func testCode(_ code: String, completion: @escaping (Bool) -> ()) {
         // generate test url
         let urlString = layoutsURLString + "testCode&code=\(code)"
         let url = URL(string: urlString)!
         
         Alamofire.request(url).responseString() { response in
-            print("code test url: ", url)
-            
             let responseData = response.data!
             let responseString = String(data: responseData, encoding: .utf8)
-            
-            print("Response from layout test request: ", responseString ?? "No response")
             
             if responseString == "1" {
                 completion(true)
@@ -108,6 +90,43 @@ class ServerCommunicator {
                 completion(false)
             }
         }
+    }
+    
+    // download a specific aspect of the layout
+    func downloadLayoutItem(url: URL, withDecryption shouldDecrypt: (Bool, Data?, Data?), completion: @escaping (JSON?) -> ()) {
+        
+        Alamofire.request(url).responseData() { response in
+            
+            let responseData = response.data! // data returned from server, potentially encrypted
+            var json: JSON?
+            
+            var jsonData: Data? // data to make json out of
+            
+            if shouldDecrypt.0 {
+                do {
+                    // decrypt the response data, make THAT the thing to construct the json out of
+                    jsonData = try responseData.decrypt(key: shouldDecrypt.1!, iv: shouldDecrypt.2!)
+                } catch {
+                    print("Error on decryption: ", error)
+                }
+            } else {
+                // response data is in plaintext, it's fine to set as the jsonData
+                jsonData = responseData
+            }
+            
+            // construct data from jsonData
+            do {
+                if let data = jsonData {
+                    json = try JSON(data: data)
+                }
+            } catch {
+                print("Error on constructing json from response data: ", error)
+            }
+            
+            // run completion
+            completion(json)
+        }
+        
     }
 
 }
