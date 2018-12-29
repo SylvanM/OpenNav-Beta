@@ -94,9 +94,8 @@ class ServerCommunicator {
         let urlString = layoutsURLString + "testCode&code=\(code)"
         let url = URL(string: urlString)!
         
-        print("Layout test url: ", url)
-        
         Alamofire.request(url).responseString() { response in
+            print("code test url: ", url)
             
             let responseData = response.data!
             let responseString = String(data: responseData, encoding: .utf8)
