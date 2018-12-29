@@ -18,7 +18,7 @@ extension MapViewController {
         
         if let images = building.floorImages {
             
-            for (name, image) in images {
+            for (name, _) in images {
                 let viewFloorAction = UIAlertAction(title: name, style: .default, handler: { (_) in
                     self.selectedImage = name
                     print("Trying to view image \(name)")

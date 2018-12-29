@@ -31,7 +31,6 @@ extension MapViewController {
             
             // make new building from UserDefaults
             building = try BuildingInfo()
-            
             // put title at top of view with the acronym of the layout
             if let info = building.info {
                 if let acro = info[dict.acronym] as? String {
