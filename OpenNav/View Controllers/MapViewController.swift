@@ -50,7 +50,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
             scrollView.minimumZoomScale = CGFloat(minZoom)
             scrollView.maximumZoomScale = CGFloat(maxZoom)
         } else {
-            print("something went wrong")
+            print("Could not collect user zoom settings")
         }
     }
     
