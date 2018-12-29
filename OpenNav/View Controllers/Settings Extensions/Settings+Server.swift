@@ -27,7 +27,7 @@ extension SettingsViewController {
                 case true:
                     self.present(alertController, animated: true, completion: nil)
                     
-                    self.server.getLayout(code: code, completion: { (layout) in
+                    self.server.getLayout(code: code, completion: { layout in
                         let building = BuildingInfo(layout)
                         building.saveData()
                         alertController.dismiss(animated: true, completion: nil)
