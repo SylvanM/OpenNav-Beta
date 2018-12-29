@@ -64,6 +64,7 @@ class ServerCommunicator {
                 Alamofire.request(url).responseJSON(completionHandler: { response in
                     var decryptedResponse: Data = response.data!
                     var json: JSON?
+                    
                     do { // decrypt the data
                         
 //                        decryptedResponse = (try response.data?.decrypt(key: cryptokey, iv: cryptoiv))!

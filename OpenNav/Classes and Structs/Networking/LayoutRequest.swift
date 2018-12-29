@@ -20,6 +20,10 @@ struct LayoutRequest {
             }
             let url = URL(string: urlString)!
             tempDict[function.rawValue] = url
+            
+            if function == .getImages {
+                print(url)
+            }
         }
         return tempDict
     }

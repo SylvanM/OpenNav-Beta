@@ -28,8 +28,6 @@ extension SettingsViewController {
                     self.present(alertController, animated: true, completion: nil)
                     
                     self.server.getLayout(code: code, completion: { (layout) in
-//                        print("Completion recieved: ", layout)
-                        
                         let building = BuildingInfo(layout)
                         building.saveData()
                         alertController.dismiss(animated: true, completion: nil)
