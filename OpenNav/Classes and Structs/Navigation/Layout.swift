@@ -82,7 +82,7 @@ class Layout {
         
     }
     
-    func makePath(start: Node, end: Node) throws -> Path? {
+    func makePath(start: Index, end: Index) throws -> Path? {
         // Make the path, and place those blue dot things on the images of the floors. Return the new image array.
         return nil
     }
