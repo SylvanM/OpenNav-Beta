@@ -23,8 +23,8 @@ class ServerCommunicator {
         case code404
     }
 
-    func getLayout(code: String, completion: @escaping ([String : JSON]) -> ()) {
-        var layout: [String : JSON] = [:] // object to return when requests are done
+    func getLayout(code: String, completion: @escaping ([String : JSON?]) -> ()) {
+        var layout: [String : JSON?] = [:] // object to return when requests are done
         let request = LayoutRequest(code, id: UserDefaults.standard.string(forKey: "appID")!)
         
         let targetResponseNumber = LayoutRequest.LayoutFunction.allCases.count - 1 // amount of responses that must be recieved for the request to be complete
@@ -122,6 +122,8 @@ class ServerCommunicator {
             } catch {
                 print("Error on constructing json from response data: ", error)
             }
+            
+            print("Downloaded JSON: ", json)
             
             // run completion
             completion(json)
