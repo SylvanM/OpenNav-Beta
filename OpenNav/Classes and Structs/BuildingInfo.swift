@@ -140,7 +140,6 @@ class BuildingInfo {
         if let layout = self.layout {
             let jsonArray = JSON(arrayLiteral: self.stringLayout!)
             dictionary["layout"] = jsonArray
-            print("Saving: ", jsonArray)
         }
         
         // save it

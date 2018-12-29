@@ -24,8 +24,6 @@ class Layout {
         self.nodes = [[[]]]
         self.originalInput = layout
         
-        print("Generating nodes from: ", layout)
-        
         for i in 0..<layout.count {
             let floor = layout[i]
             var floorNodes: [[MapNode]] = [[]]
@@ -45,8 +43,6 @@ class Layout {
             self.nodes!.append(floorNodes)
         }
         self.nodes!.removeFirst()
-        
-        print("Nodes: ", self.nodes)
       
         // loops through the nodes and sets the neighbors
         
@@ -82,8 +78,6 @@ class Layout {
             }
             //corrections will be set up as floor,row,col,correct enter direction
             //1 = right, 2 = behind, 3 = left, 4 = left
-            let thing = self.nodes
-            self.nodes = thing
         }
         
     }
