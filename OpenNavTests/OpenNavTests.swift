@@ -22,43 +22,15 @@ class OpenNavTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+       
+        let picker = UIPickerView()
+        picker.tag = 1
+        let picker2 = UIPickerView()
         
-        
-        
-        let responded = self.expectation(description: "responded")
-
-        do {
-//            let rsa = try RSA.generateFromBundle()
-            let rsa = try RSA.generateFromBundle()
-            
-            let server = ServerCommunicator()
-
-            let arguments: [String : String] = [
-                "plaintext": "hhhhhhhhhh",
-                "key": (rsa.publicKey?.export())!
-            ]
-
-            let request = ServerCommunicator.CryptoRequest(arguments: arguments)
-
-            server.test(request) { (data) in
-                
-                let encrypted = String(data: data, encoding: .ascii)
-                print(encrypted)
-
-                let decrypted = rsa.decrypt(data)
-                let decryptedText = String(data: decrypted, encoding: .utf8)
-                print("decrypted: ", decryptedText)
-
-                responded.fulfill()
-            }
-            
-        } catch {
-            print(error)
-            responded.fulfill()
-            self.recordFailure(withDescription: "Could not find keys", inFile: "OpenNavTests.swift", atLine: 36, expected: true)
-        }
-        
-        self.wait(for: [responded], timeout: 30)
+        print("Tag1: ", picker.tag)
+        print("Tag2: ", picker2.tag)
+        print("Label: ", picker.accessibilityAttributedLabel)
+        print("Debug Description", picker.debugDescription)
         
     }
 
