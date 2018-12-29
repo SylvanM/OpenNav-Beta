@@ -20,10 +20,6 @@ struct LayoutRequest {
             }
             let url = URL(string: urlString)!
             tempDict[function.rawValue] = url
-            
-            if function == .getImages {
-                print(url)
-            }
         }
         return tempDict
     }
@@ -40,6 +36,7 @@ struct LayoutRequest {
         case getLayout = "layout"
         case getInfo   = "info"
         case getCrypto = "crypto"
+        case getRooms  = "rooms"
     }
     
 }
