@@ -50,18 +50,9 @@
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>AppIcon</string>
-			</array>
-			<key>UIPrerenderedIcon</key>
-			<false/>
-		</dict>
 		<key>CFBundleAlternateIcons</key>
 		<dict>
-			<key>AppIcon-DarkMode</key>
+			<key>DarkIcon</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
@@ -70,6 +61,15 @@
 				<key>UIPrerenderedIcon</key>
 				<false/>
 			</dict>
+		</dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>AppIcon</string>
+			</array>
+			<key>UIPrerenderedIcon</key>
+			<false/>
 		</dict>
 	</dict>
 </dict>

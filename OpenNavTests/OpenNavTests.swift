@@ -22,15 +22,8 @@ class OpenNavTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-       
-        let picker = UIPickerView()
-        picker.tag = 1
-        let picker2 = UIPickerView()
+
         
-        print("Tag1: ", picker.tag)
-        print("Tag2: ", picker2.tag)
-        print("Label: ", picker.accessibilityAttributedLabel)
-        print("Debug Description", picker.debugDescription)
         
     }
 

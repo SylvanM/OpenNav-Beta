@@ -50,7 +50,7 @@ class AppearanceViewController: UITableViewController {
         case true:
             NotificationCenter.default.post(Notification(name: .darkModeEnabled))
             
-            print(UIApplication.shared.setAlternateIconName("DarkIcon", completionHandler: { (error) in
+            print(UIApplication.shared.setAlternateIconName("AlternateIcon", completionHandler: { (error) in
                 print("Error on changing to dark icon:", error as Any)
                 print("Current app name:", UIApplication.shared.alternateIconName as Any)
             }))

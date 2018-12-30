@@ -35,6 +35,7 @@
 		AE48DCB5215F0D5F00708691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C52143FEA300D173D6 /* Assets.xcassets */; };
 		AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4937E42181460A006FF800 /* AppearanceViewController.swift */; };
 		AE4937E721814B7A006FF800 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4937E621814B7A006FF800 /* Notification+Extension.swift */; };
+		AE58DD2E21D87CB5008AAF7F /* AdvancedSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE58DD2D21D87CB5008AAF7F /* AdvancedSettingsViewController.swift */; };
 		AE5EA0EF21891E5500A22307 /* MapView+Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0EE21891E5500A22307 /* MapView+Zoom.swift */; };
 		AE5EA0F121891EEC00A22307 /* MapView+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F021891EEC00A22307 /* MapView+Refresh.swift */; };
 		AE5EA0F321891F7300A22307 /* MapView+ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F221891F7300A22307 /* MapView+ErrorMessage.swift */; };
@@ -54,8 +55,6 @@
 		AE96F42E21C1B616000D1A6D /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96F42D21C1B616000D1A6D /* KeychainHelper.swift */; };
 		AE96F43021C1BE22000D1A6D /* SecKey+PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96F42F21C1BE22000D1A6D /* SecKey+PublicKey.swift */; };
 		AEB0090821CF2C570056C3B7 /* LayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB0090721CF2C560056C3B7 /* LayoutRequest.swift */; };
-		AED21FD8219CC13E00AD3713 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED21FD7219CC13E00AD3713 /* DebugViewController.swift */; };
-		AED21FDB219CC1D500AD3713 /* Debug+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED21FDA219CC1D500AD3713 /* Debug+Server.swift */; };
 		AEE2B65A21CB119600102344 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE2B65921CB119600102344 /* Index.swift */; };
 		AEF04AAA218E8D340029C1CD /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */; };
 		AEFD0D1D21B881CA00C42D87 /* RSA+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFD0D1C21B881CA00C42D87 /* RSA+Errors.swift */; };
@@ -116,6 +115,7 @@
 		AE246C4E21657BFA006BAE2B /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		AE4937E42181460A006FF800 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		AE4937E621814B7A006FF800 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		AE58DD2D21D87CB5008AAF7F /* AdvancedSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettingsViewController.swift; sourceTree = "<group>"; };
 		AE5EA0EE21891E5500A22307 /* MapView+Zoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Zoom.swift"; sourceTree = "<group>"; };
 		AE5EA0F021891EEC00A22307 /* MapView+Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Refresh.swift"; sourceTree = "<group>"; };
 		AE5EA0F221891F7300A22307 /* MapView+ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+ErrorMessage.swift"; sourceTree = "<group>"; };
@@ -136,9 +136,8 @@
 		AE96F42D21C1B616000D1A6D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		AE96F42F21C1BE22000D1A6D /* SecKey+PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecKey+PublicKey.swift"; sourceTree = "<group>"; };
 		AEB0090721CF2C560056C3B7 /* LayoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutRequest.swift; sourceTree = "<group>"; };
-		AED21FD7219CC13E00AD3713 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
-		AED21FDA219CC1D500AD3713 /* Debug+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debug+Server.swift"; sourceTree = "<group>"; };
 		AEE2B65921CB119600102344 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
+		AEEDC48D21D935D800D79852 /* OpenNav-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "OpenNav-Bridging-Header.h"; path = "OpenNav/OpenNav-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		AEFD0D1C21B881CA00C42D87 /* RSA+Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Errors.swift"; sourceTree = "<group>"; };
 		B1108DBF75C6AA32A805BE25 /* Pods-OpenNavTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavTests/Pods-OpenNavTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +241,7 @@
 		AE1AA5BD2143FEA200D173D6 /* OpenNav */ = {
 			isa = PBXGroup;
 			children = (
+				AEEDC48D21D935D800D79852 /* OpenNav-Bridging-Header.h */,
 				AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */,
 				AE1AA5EC2143FFE000D173D6 /* View Controllers */,
 				AE1AA5F22143FFE000D173D6 /* Helper Files */,
@@ -251,6 +251,7 @@
 				AE246C4A216524EC006BAE2B /* Attributions */,
 				AE1AA5C22143FEA200D173D6 /* Main.storyboard */,
 				AE5EA0FC21893F4100A22307 /* Launch Screen.storyboard */,
+				AE58DD2F21D8864E008AAF7F /* App Icons */,
 				AEECF3BD218E7F6C006BC116 /* DarkModeIcon */,
 				AE1AA5C52143FEA300D173D6 /* Assets.xcassets */,
 			);
@@ -307,6 +308,7 @@
 		AE1AA5F62143FFE000D173D6 /* Classes and Structs */ = {
 			isa = PBXGroup;
 			children = (
+				AE58DD2721D8790F008AAF7F /* Image Processing */,
 				AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */,
 				AE12083221CF28F500B6C50F /* Networking */,
 				AE12082E21CF285400B6C50F /* User Settings */,
@@ -328,6 +330,28 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AE58DD2721D8790F008AAF7F /* Image Processing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Image Processing";
+			sourceTree = "<group>";
+		};
+		AE58DD2821D87C26008AAF7F /* Advanced */ = {
+			isa = PBXGroup;
+			children = (
+				AE58DD2D21D87CB5008AAF7F /* AdvancedSettingsViewController.swift */,
+			);
+			path = Advanced;
+			sourceTree = "<group>";
+		};
+		AE58DD2F21D8864E008AAF7F /* App Icons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "App Icons";
 			sourceTree = "<group>";
 		};
 		AE5EA0ED21891E1D00A22307 /* Map View Extensions */ = {
@@ -385,20 +409,11 @@
 		AEC256E42146A911008F4772 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				AE58DD2821D87C26008AAF7F /* Advanced */,
 				AE4937E3218145E3006FF800 /* Appearance */,
 				AE246C4C21657399006BAE2B /* AboutViewController.swift */,
-				AED21FD7219CC13E00AD3713 /* DebugViewController.swift */,
-				AED21FD9219CC1C400AD3713 /* Debug Extensions */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		AED21FD9219CC1C400AD3713 /* Debug Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				AED21FDA219CC1D500AD3713 /* Debug+Server.swift */,
-			);
-			path = "Debug Extensions";
 			sourceTree = "<group>";
 		};
 		AEE2B64E21CAFE5D00102344 /* Navigation */ = {
@@ -519,6 +534,7 @@
 				TargetAttributes = {
 					AE1AA5BA2143FEA200D173D6 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 					};
 					AE1AA5CE2143FEA300D173D6 = {
 						CreatedOnToolsVersion = 10.0;
@@ -686,7 +702,6 @@
 				AE12082D21CF270D00B6C50F /* Request.swift in Sources */,
 				AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */,
 				AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */,
-				AED21FDB219CC1D500AD3713 /* Debug+Server.swift in Sources */,
 				AE6E8980219777BB006E370B /* Settings+Server.swift in Sources */,
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
 				AE4937E721814B7A006FF800 /* Notification+Extension.swift in Sources */,
@@ -694,7 +709,6 @@
 				AE12083021CF289A00B6C50F /* UserRequest.swift in Sources */,
 				AE246C4F21657BFA006BAE2B /* Global.swift in Sources */,
 				AE95EAEB21B4B2F900717225 /* RSA.swift in Sources */,
-				AED21FD8219CC13E00AD3713 /* DebugViewController.swift in Sources */,
 				AE96F42E21C1B616000D1A6D /* KeychainHelper.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
 				AE1212872185DEE0009AEEFE /* File Management.swift in Sources */,
@@ -706,6 +720,7 @@
 				AEFD0D1D21B881CA00C42D87 /* RSA+Errors.swift in Sources */,
 				AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */,
 				AE5EA0FF2189BB2300A22307 /* UserSettings.swift in Sources */,
+				AE58DD2E21D87CB5008AAF7F /* AdvancedSettingsViewController.swift in Sources */,
 				AE95EAF021B4B55100717225 /* RSA+Crypto.swift in Sources */,
 				AE5EA0F121891EEC00A22307 /* MapView+Refresh.swift in Sources */,
 			);
@@ -894,6 +909,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JDSTZ7K2MV;
 				INFOPLIST_FILE = "$(SRCROOT)/OpenNavUITests/Info.plist";
@@ -904,6 +920,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SM.OpenNav;
 				PRODUCT_MODULE_NAME = OpenNav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenNav/OpenNav-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -915,6 +933,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JDSTZ7K2MV;
 				INFOPLIST_FILE = "$(SRCROOT)/OpenNavUITests/Info.plist";
@@ -925,6 +944,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SM.OpenNav;
 				PRODUCT_MODULE_NAME = OpenNav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenNav/OpenNav-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
