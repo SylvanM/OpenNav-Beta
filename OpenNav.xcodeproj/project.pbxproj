@@ -308,8 +308,8 @@
 		AE1AA5F62143FFE000D173D6 /* Classes and Structs */ = {
 			isa = PBXGroup;
 			children = (
-				AE58DD2721D8790F008AAF7F /* Image Processing */,
 				AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */,
+				AE58DD2721D8790F008AAF7F /* Image Processing */,
 				AE12083221CF28F500B6C50F /* Networking */,
 				AE12082E21CF285400B6C50F /* User Settings */,
 				AEE2B64E21CAFE5D00102344 /* Navigation */,
