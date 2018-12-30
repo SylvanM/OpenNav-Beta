@@ -38,36 +38,47 @@ class ServerCommunicator {
         }
         
         print("Crypto request url: ", request.urls["crypto"])
-        Alamofire.request(request.urls["crypto"]!).responseJSON { (response) in
+        
+        Alamofire.request(request.urls["crypto"]!).responseData { (response) in
             // crypto information has been retrieved, now we can collect the rest of the information
-            var cryptokey: Data // encryption key
+            let encryptedData = response.data!
+            var decryptedData: Data
+            
+            // ok now collect the data
+            var cryptokey: Data // encryption key, this will be set when teh crypto response is decrypted
             var cryptoiv:  Data // encryption iv
             
+            // must decrypt response with private key
+            
             do {
-                let cryptoJson = try JSON(data: response.data!)
-                let keyString = cryptoJson["key"].stringValue
-                let ivString  = cryptoJson["iv"].stringValue
+                let rsa = try RSA.generateFromBundle() // get saved RSA keys
                 
-                cryptokey = Data(bytes: keyString.bytes)
-                cryptoiv = Data(bytes: ivString.bytes)
-            } catch {
-                // invalid response?
-                print("Error on downloading crypto info: ", error)
-            }
-            
-            let decryption: (Bool, Data?, Data?) = (false, nil, nil) // this is the encryption instruction to give to the downloadLayoutItem function. For now, it is nil because all data is decrypted
-            
-            for (key, url) in request.urls where key != "crypto" {
-                // call the other requests, we have the decryption info!
+                decryptedData = rsa.decrypt(encryptedData) // decrypt data from web service with saved rsa
                 
-                self.downloadLayoutItem(url: url, withDecryption: decryption) { json in
-                    if let recievedJson = json {
-                        layout[key] = recievedJson
-                    } else {
-                        layout[key] = nil
+                let cryptoJson = try JSON(data: decryptedData) // construct json from decrypted json
+                let keyString  = cryptoJson["key"].stringValue
+                let ivString   = cryptoJson["iv"].stringValue
+                
+                cryptokey = Data(bytes: keyString.bytes) // make Data instances from collected strings
+                cryptoiv  = Data(bytes: ivString.bytes)  // same here
+
+                let decryption: (Bool, Data?, Data?) = (true, cryptokey, cryptoiv) // this is the encryption instruction to give to the downloadLayoutItem function. For now, it is nil because all data is decrypted
+                
+                for (key, url) in request.urls where key != "crypto" {
+                    // call the other requests, we have the decryption info!
+                    
+                    self.downloadLayoutItem(url: url, withDecryption: decryption) { json in
+                        if let recievedJson = json {
+                            layout[key] = recievedJson
+                        } else {
+                            layout[key] = nil
+                        }
+                        responseWatcher += 1 // let the watcher know that another item has been recieved and downlaoded
                     }
-                    responseWatcher += 1 // let the watcher know that another item has been recieved and downlaoded
                 }
+                
+            } catch {
+                print("Error: ", error)
             }
             
         }
