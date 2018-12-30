@@ -11,7 +11,7 @@ import Security
 
 extension SecKey {
     
-    func export() -> String? {
+    var stringRepresentation: String? {
         
         var error: Unmanaged<CFError>?
         
