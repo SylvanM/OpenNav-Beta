@@ -13,10 +13,11 @@ extension MapViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     private struct Holder {
         static var _displayChoice: (String, String) -> () = { (string, another_string) in
-            print(string)
+            // empty closure
         }
     }
     
+    // closure representing what to do when the user chooses a room
     var displayChoice: (String, String) -> () {
         set (newValue) {
             Holder._displayChoice = newValue
@@ -71,11 +72,11 @@ extension MapViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                 // this code will execute when the user presses go
                 
                 if let startRoom = alertController.textFields?[0].text, let endRoom = alertController.textFields?[1].text {
-                    let startIndex = rooms[startRoom]
-                    let endIndex = rooms[endRoom]
+                    let startIndex = rooms[startRoom]!
+                    let endIndex = rooms[endRoom]!
                     
                     do {
-                        let path = try layout.makePath(start: startIndex!, end: endIndex!)
+                        let path = try layout.makePath(start: startIndex, end: endIndex)
                         
                         // project path on image
                         
@@ -83,7 +84,6 @@ extension MapViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                         print("Error on making layout: ", error)
                     }
                 }
-                print("routable!")
             }
             
             let cancelActiom = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
