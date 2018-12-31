@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SwiftyJSON
 @testable import OpenNav
 
 class OpenNavTests: XCTestCase {
@@ -24,15 +25,10 @@ class OpenNavTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
 
         do {
-            let rsa = try RSA()
-            let rsa2 = try RSA()
-            
-            let pub = rsa.publicKey?.stringRepresentation!
-            let pub2 = rsa2.publicKey?.stringRepresentation!
-            
-            let keysAreTheSame = (pub == pub2)
-            
-            print("Keys are the same: ", keysAreTheSame)
+            let jsonString = "{\"key\":\"keyyy\",\"iv\":\"ivvv\"}"
+            let data = jsonString.data(using: .ascii)
+            let json = try JSON(data: data!)
+            print("Json: ", json)
         } catch {
             print("ERROR: \(error)")
         }

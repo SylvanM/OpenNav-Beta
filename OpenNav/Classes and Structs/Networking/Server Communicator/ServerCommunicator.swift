@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import CryptoSwift
 
 class ServerCommunicator {
     
@@ -59,20 +60,24 @@ class ServerCommunicator {
                 let keyString  = cryptoJson["key"].stringValue
                 let ivString   = cryptoJson["iv"].stringValue
                 
-                cryptokey = Data(bytes: keyString.bytes) // make Data instances from collected strings
-                cryptoiv  = Data(bytes: ivString.bytes)  // same here
+                cryptokey = keyString.data(using: .utf8)! // make Data instances from collected strings
+                cryptoiv  = ivString.data(using: .utf8)!  // same here
 
                 let decryption: (Bool, Data?, Data?) = (true, cryptokey, cryptoiv) // this is the encryption instruction to give to the downloadLayoutItem function. For now, it is nil because all data is decrypted
                 
-                for (key, url) in request.urls where key != "crypto" {
+                for (key, url) in request.urls where (key != "crypto") {
                     // call the other requests, we have the decryption info!
                     
                     self.downloadLayoutItem(url: url, withDecryption: decryption) { json in
+                        
+                        
+                        
                         if let recievedJson = json {
                             layout[key] = recievedJson
                         } else {
                             layout[key] = nil
                         }
+                        
                         responseWatcher += 1 // let the watcher know that another item has been recieved and downlaoded
                     }
                 }
@@ -106,35 +111,33 @@ class ServerCommunicator {
     // download a specific aspect of the layout
     func downloadLayoutItem(url: URL, withDecryption shouldDecrypt: (Bool, Data?, Data?), completion: @escaping (JSON?) -> ()) {
         
-        Alamofire.request(url).responseData() { response in
-            
-            let responseData = response.data! // data returned from server, potentially encrypted
+        Alamofire.request(url).responseString() { response in
             var json: JSON?
-            
-            var jsonData: Data? // data to make json out of
             
             if shouldDecrypt.0 {
                 do {
-                    // decrypt the response data, make THAT the thing to construct the json out of
-                    jsonData = try responseData.decrypt(key: shouldDecrypt.1!, iv: shouldDecrypt.2!)
+                    let responseString = String(data: response.data!, encoding: .ascii)!.replacingOccurrences(of: " ", with: "+")
+                    
+                    if let encryptedData = Data(base64Encoded: responseString.removingPercentEncoding!) {
+                        let decryptedData = try encryptedData.decrypt(key: shouldDecrypt.1!, iv: shouldDecrypt.2!)
+                        json = try JSON(data: decryptedData)
+                    } else {
+                        print("Could not decrypt from: ", url)
+                    }
+                    
+                } catch AES.Error.dataPaddingRequired {
+                    print("Data padding required: ", url)
                 } catch {
-                    print("Error on decryption: ", error)
+                    print("ERROR: ", error)
                 }
             } else {
                 // response data is in plaintext, it's fine to set as the jsonData
-                jsonData = responseData
-            }
-            
-            // construct data from jsonData
-            do {
-                if let data = jsonData {
-                    json = try JSON(data: data)
+                do {
+                    json = try JSON(data: response.data!)
+                } catch {
+                    print("ERROR: ", error)
                 }
-            } catch {
-                print("Error on constructing json from response data: ", error)
             }
-            
-            print("Downloaded JSON: ", json)
             
             // run completion
             completion(json)
