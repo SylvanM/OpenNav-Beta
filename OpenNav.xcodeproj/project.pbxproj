@@ -293,7 +293,6 @@
 		AE1AA5F22143FFE000D173D6 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
-				AE53813521D80AB800664F0C /* Extensions */,
 				AE96F42C21C1B5F0000D1A6D /* Keychain Helper */,
 				AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */,
 				AE1AA5F52143FFE000D173D6 /* Errors.swift */,
@@ -309,7 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */,
-				AE58DD2721D8790F008AAF7F /* Image Processing */,
 				AE12083221CF28F500B6C50F /* Networking */,
 				AE12082E21CF285400B6C50F /* User Settings */,
 				AEE2B64E21CAFE5D00102344 /* Navigation */,
@@ -323,20 +321,6 @@
 				AE4937E42181460A006FF800 /* AppearanceViewController.swift */,
 			);
 			path = Appearance;
-			sourceTree = "<group>";
-		};
-		AE53813521D80AB800664F0C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		AE58DD2721D8790F008AAF7F /* Image Processing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Image Processing";
 			sourceTree = "<group>";
 		};
 		AE58DD2821D87C26008AAF7F /* Advanced */ = {
