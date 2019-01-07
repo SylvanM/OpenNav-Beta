@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         if let key = keychain.getKey() {
-            server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: key.publicKey.stringRepresentation!)
+            server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: key)
         } else {
             do {
                 // no key saved, make new key
@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 // save keys
                 keychain.saveKey(rsa.privateKey!) // save private key
-                server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: (rsa.publicKey?.stringRepresentation!)!)
+                server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: rsa.privateKey!)
             } catch {
                 print(error)
             }

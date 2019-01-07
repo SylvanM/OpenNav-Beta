@@ -45,6 +45,8 @@ class ServerCommunicator {
             let encryptedData = response.data!
             var decryptedData: Data
             
+            print("Recieved data: ", encryptedData)
+            
             // ok now collect the data
             var cryptokey: Data // encryption key, this will be set when teh crypto response is decrypted
             var cryptoiv:  Data // encryption iv

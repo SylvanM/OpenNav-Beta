@@ -21,7 +21,7 @@ extension RSA {
         return encryptedCFData as! NSData as Data
     }
     
-    func decrypt(_ data: Data) -> Data {
+    func decrypt(_ data: Data) -> Data {        
         var error: Unmanaged<CFError>?
         
         let cfdata = data as NSData as CFData
