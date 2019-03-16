@@ -72,8 +72,6 @@ class ServerCommunicator {
                     
                     self.downloadLayoutItem(url: url, withDecryption: decryption) { json in
                         
-                        
-                        
                         if let recievedJson = json {
                             layout[key] = recievedJson
                         } else {
@@ -97,6 +95,8 @@ class ServerCommunicator {
         // generate test url
         let urlString = layoutsURLString + "testCode&code=\(code)"
         let url = URL(string: urlString)!
+        
+        print("Testing: ", url)
         
         Alamofire.request(url).responseString() { response in
             let responseData = response.data!

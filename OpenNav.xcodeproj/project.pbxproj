@@ -351,7 +351,6 @@
 		AE5EA0ED21891E1D00A22307 /* Map View Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AEF8CA3F21D8216000922C9D /* PickerView Extensions */,
 				AE5EA0EE21891E5500A22307 /* MapView+Zoom.swift */,
 				AE5EA0F021891EEC00A22307 /* MapView+Refresh.swift */,
 				AE5EA0F221891F7300A22307 /* MapView+ErrorMessage.swift */,
@@ -449,13 +448,6 @@
 			name = DarkModeIcon;
 			path = OpenNav/DarkModeIcon;
 			sourceTree = SOURCE_ROOT;
-		};
-		AEF8CA3F21D8216000922C9D /* PickerView Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "PickerView Extensions";
-			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 

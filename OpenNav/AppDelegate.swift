@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // save keys
                 keychain.saveKey(rsa.privateKey!) // save private key
                 server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: rsa.privateKey!)
+                print("Uploading key!")
             } catch {
                 print(error)
             }
