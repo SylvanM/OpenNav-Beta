@@ -166,8 +166,8 @@ class Layout {
         var queue:Array = [finderNode]()
         var finderNodeArray:Array = [[[finderNode]]]()
         
-        var aNode = finderNode()
-        var count1 = 0;
+        _ = finderNode()
+        _ = 0;
         
         
         
@@ -206,9 +206,9 @@ class Layout {
             //if current has not been visited before
             if (current.colored == false){
                 //set it to colored
-                var floor = current.floor
-                var row = current.row
-                var col = current.col
+                let floor = current.floor
+                let row = current.row
+                let col = current.col
                 
                finderNodeArray[floor][row][col].setColored()
                 
