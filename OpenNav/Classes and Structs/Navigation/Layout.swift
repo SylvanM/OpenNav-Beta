@@ -103,44 +103,6 @@ class Layout {
                 }
             }
         }
-        
-//        for flr in 0...nodes!.count-1 {
-//            for row in 0...nodes![flr].count-1 {
-//                for col in 0...nodes![flr][row].count-1 {
-//                    var current = self.nodes?[flr][row][col]
-//                    if (current?.value != MapNode.MapNodeValue.notWalkable) {
-//                        if ((self.nodes?[flr][row].indices.contains((current?.index.y)! + 1))! && self.nodes?[flr][row+1][col].value != MapNode.MapNodeValue.notWalkable) {
-//                            current?.neighbors["behind"] = self.nodes?[flr][row+1][col]
-//                        }
-//                        if ((self.nodes?[flr][row].indices.contains((current?.index.y)! - 1))! && self.nodes?[flr][row-1][col].value != MapNode.MapNodeValue.notWalkable) {
-//                            current?.neighbors["front"] = self.nodes?[flr][row-1][col]
-//                        }
-//                        if ((self.nodes?[flr].indices.contains(((current?.index.x)! + 1)))! && self.nodes?[flr][row][col+1].value != MapNode.MapNodeValue.notWalkable) {
-//                            current?.neighbors["right"] = self.nodes?[flr][row][col+1]
-//                        }
-//                        if ((self.nodes?[flr].indices.contains(((current?.index.x)! - 1)))! && self.nodes?[flr][row][col-1].value != MapNode.MapNodeValue.notWalkable) {
-//                            current?.neighbors["left"] = self.nodes?[flr][row][col-1]
-//                        }
-//
-//                        if (self.nodes?.indices.contains(flr) ?? false) && flr > 0 {
-//                            //if it is a elevator then add connections to other floors
-//                            if (current?.value == MapNode.MapNodeValue.elevator) {
-//                                if ((self.nodes?[flr].indices.contains((current?.index.floor)! + 1))! && self.nodes?[flr+1][row][col].value != MapNode.MapNodeValue.notWalkable) {
-//                                    current?.neighbors["above"] = self.nodes?[flr+1][row][col]
-//                                }
-//                                if ((self.nodes?[flr].indices.contains((current?.index.floor)! - 1))! && self.nodes?[flr-1][row][col].value != MapNode.MapNodeValue.notWalkable) {
-//                                    current?.neighbors["below"] = self.nodes?[flr-1][row][col]
-//                                }
-//                            }
-//                        }
-//                    }
-//                    self.nodes![flr][row][col] = current!
-//                }
-//            }
-//            //corrections will be set up as floor,row,col,correct enter direction
-//            //1 = right, 2 = behind, 3 = left, 4 = left
-//        }
-        
     }
     
     func makePath(start: Index, end: Index) throws -> Path? {
