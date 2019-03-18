@@ -105,8 +105,17 @@ class Layout {
         }
     }
     
-    func makePath(start: Index, end: Index) throws -> Path? {
-        // Make the path, and place those blue dot things on the images of the floors. Return the new image array.
+    /// Makes a path given a start and end point
+    ///
+    /// - Parameters:
+    ///     - start: Index indicating start
+    ///     - end: Final point
+    ///
+    /// - Returns: Path object, or nil if there is an error
+    func makePath(start: Index, end: Index) -> Path? {
+        
+        // madhava does his magic
+        
         return nil
     }
     
