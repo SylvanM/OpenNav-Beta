@@ -193,9 +193,6 @@ class Layout {
             }
         }
         
-        
-        
-        
         var found = false;
         
         while ((!queue.isEmpty) && (found == false)){
@@ -203,17 +200,17 @@ class Layout {
             var current : finderNode
             current = queue.remove(at:0)
             
-            //if current has not been visited before
+            // if current has not been visited before
             if (current.colored == false){
                 //set it to colored
                 let floor = current.floor
                 let row = current.row
                 let col = current.col
                 
-               finderNodeArray[floor][row][col].setColored()
+                finderNodeArray[floor][row][col].setColored()
                 
                 //if not found continue otherwise stop
-                if (finderNodeArray[floor][row][col].type !=  2){
+                if (finderNodeArray[floor][row][col].type !=  2) {
                     
                     //if row - 1 is walkable, set parent of row - 1 to current and append to queue
                     if (nodes![floor][row - 1][col].value == MapNode.MapNodeValue.walkable){
@@ -262,11 +259,6 @@ class Layout {
         
         //By finding the end index in finderNodeArray and by finding its parent and its parent so on.... you will have the shortest path to start index
         //All we have to do now is use the indexes and assign pathNodes to them and return it
-       
-        
-        
-        
-            
         
         return nil
     }

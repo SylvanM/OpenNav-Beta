@@ -32,54 +32,32 @@ class BuildingInfo {
     
     init(_ jsonDictionary: [String : JSON?]) {
         
-        if let temp = jsonDictionary["rooms"], let rooms = temp?.dictionary {
+        if let temp = jsonDictionary["rooms"], let rooms = temp?.dictionaryObject as? [String : [Int]] {
             // room dict exists
             self.rooms = [:]
 
             // create an index for each json array in rooms
-            for (name, jsonArray) in rooms {
+            for (name, array) in rooms {
                 // 1d string array containing the info for making an index for one room
                 var roomInfoArray: [Int] = []
-                if let array = jsonArray.array {
-                    roomInfoArray = array.map { $0.intValue }
-                }
+                roomInfoArray = array.map { $0 }
                 // create index from roomInfoArray
                 let index = Index(floor: roomInfoArray[0], x: roomInfoArray[1], y: roomInfoArray[2])
 
                 self.rooms?[name] = index
             }
         } else {
-            print("rooms doesn't exist")
+            print("No rooms")
         }
         
         // set up layout
-        if let layoutJson = jsonDictionary["layout"], let layout = layoutJson?.arrayValue {
-//            print("Layout JSON: ", layoutJson)
-            
-            var stringArray: [[[String]]] = [[[]]]
-//            print("Layout to parse: ", layout)
-            
-            for i in 0..<layout.count {
-                
-                let floor = layout[i]
-//                print("Floor \(i): ", floor)
-                var floorStringValues: [[String]] = [[]]
-                
-                for j in 0..<floor.count {
-                    let row = floor.arrayValue[j]
-                    let rowStringValues = row.arrayValue.map { $0.stringValue }
-//                    print("Row: ", row)
-                    
-                    floorStringValues.append(rowStringValues)
-                }
-                floorStringValues.removeFirst()
-                stringArray.append(floorStringValues)
-            }
-        
-            stringArray.removeFirst()
-            
-            self.stringLayout = stringArray
-            self.layout = Layout(stringArray, correction: [])
+        let test = jsonDictionary["layout"]??.arrayObject as? [[[String]]]
+        print("TEST::::", test)
+        if let layoutJson = jsonDictionary["layout"], let layout = layoutJson?.arrayObject as? [[[String]]] {
+            self.layout = Layout(layout, correction: [])
+            self.stringLayout = layout
+        } else {
+            print("No layout")
         }
         
         // set up images
@@ -96,11 +74,13 @@ class BuildingInfo {
                 self.mappedImages = floorImages
             }
         } else {
-            print("Image json doesn't exist")
+            print("No images")
         }
         
         if let temp = jsonDictionary["info"], let infoJson = temp {
             self.info = infoJson.dictionaryObject
+        } else {
+            print("No info")
         }
     }
 

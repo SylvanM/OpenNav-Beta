@@ -38,7 +38,7 @@ class ServerCommunicator {
             }
         }
         
-        print("Crypto request url: ", request.urls["crypto"])
+        //print("Crypto request url: ", request.urls["crypto"])
         
         Alamofire.request(request.urls["crypto"]!).responseData { (response) in
             // crypto information has been retrieved, now we can collect the rest of the information
@@ -70,7 +70,7 @@ class ServerCommunicator {
                 for (key, url) in request.urls where (key != "crypto") {
                     // call the other requests, we have the decryption info!
                     
-                    self.downloadLayoutItem(url: url, withDecryption: decryption) { json in
+                    self.downloadLayoutItem(url: url, withDecryption: decryption, item: key) { json in
                         
                         if let recievedJson = json {
                             layout[key] = recievedJson
@@ -111,21 +111,30 @@ class ServerCommunicator {
     }
     
     // download a specific aspect of the layout
-    func downloadLayoutItem(url: URL, withDecryption shouldDecrypt: (Bool, Data?, Data?), completion: @escaping (JSON?) -> ()) {
+    func downloadLayoutItem(url: URL, withDecryption shouldDecrypt: (Bool, Data?, Data?), item: String? = nil, completion: @escaping (JSON?) -> ()) {
+        
+        
         
         Alamofire.request(url).responseString() { response in
+            if let thing = item { // just for debugging
+                print("Downloading", thing)
+                print("Will decrypt \(thing):", shouldDecrypt.0)
+            }
+            
             var json: JSON?
             
             if shouldDecrypt.0 {
                 do {
-                    let responseString = String(data: response.data!, encoding: .ascii)!.replacingOccurrences(of: " ", with: "+")
                     
-                    if let encryptedData = Data(base64Encoded: responseString.removingPercentEncoding!) {
-                        let decryptedData = try encryptedData.decrypt(key: shouldDecrypt.1!, iv: shouldDecrypt.2!)
-                        json = try JSON(data: decryptedData)
-                    } else {
-                        print("Could not decrypt from: ", url)
-                    }
+                    let encodedString = String(data: response.data!, encoding: .utf8)!.replacingOccurrences(of: " ", with: "+")
+                    let encryptedData = Data(base64Encoded: encodedString)!
+                    let decryptedData = try encryptedData.decrypt(key: shouldDecrypt.1!, iv: shouldDecrypt.2!)
+                    let decryptedString = String(data: decryptedData, encoding: .utf8)!
+                    
+                    print("Decrypted \(item!) to find:\n", decryptedString)
+                    
+                    
+                    json = JSON(parseJSON: decryptedString)
                     
                 } catch AES.Error.dataPaddingRequired {
                     print("Data padding required: ", url)
@@ -137,7 +146,7 @@ class ServerCommunicator {
                 do {
                     json = try JSON(data: response.data!)
                 } catch {
-                    print("ERROR: ", error)
+                    print("JSON ERROR: ", error)
                 }
             }
             
