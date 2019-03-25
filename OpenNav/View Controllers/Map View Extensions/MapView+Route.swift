@@ -75,20 +75,14 @@ extension MapViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                     let startIndex = rooms[startRoom]!
                     let endIndex = rooms[endRoom]!
                     
-                    do {
-                        let path = try layout.makePath(start: startIndex, end: endIndex)
-                        
-                        // project path on image
-                        
-                    } catch {
-                        print("Error on making layout: ", error)
-                    }
+                    // here's where we make the path and project it on the images
                 }
             }
             
-            let cancelActiom = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let goAction     = UIAlertAction(title: "Go", style: .default, handler: goHandler)
             alertController.addAction(goAction)
+            alertController.addAction(cancelAction)
             
             self.present(alertController, animated: true)
         } else {

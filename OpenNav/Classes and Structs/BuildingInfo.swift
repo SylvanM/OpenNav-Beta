@@ -51,8 +51,6 @@ class BuildingInfo {
         }
         
         // set up layout
-        let test = jsonDictionary["layout"]??.arrayObject as? [[[String]]]
-        print("TEST::::", test)
         if let layoutJson = jsonDictionary["layout"], let layout = layoutJson?.arrayObject as? [[[String]]] {
             self.layout = Layout(layout, correction: [])
             self.stringLayout = layout
