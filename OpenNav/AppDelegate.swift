@@ -13,8 +13,6 @@ import CryptoSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let settings = UserSettings()
-    let server = ServerCommunicator()
-    let keychain = KeychainHelper()
 
     var window: UIWindow?
 
@@ -29,33 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             redTint()
         } else {
             blueTint()
-        }
-        
-        // generate and upload app ID on launch
-        if UserDefaults.standard.string(forKey: "appID") == nil {
-            let baseIntA = Int(arc4random() % 65535)
-            let baseIntB = Int(arc4random() % 65535)
-            let baseIntC = Int(arc4random() % 65535)
-            let hex = String(format: "%02x%02x%02x", baseIntA, baseIntB, baseIntC)
-            UserDefaults.standard.set(hex, forKey: "appID")
-            
-            print("id: ", UserDefaults.standard.string(forKey: "appID")!)
-        }
-        
-        if let key = keychain.getKey() {
-            server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: key)
-        } else {
-            do {
-                // no key saved, make new key
-                let rsa = try RSA()
-                
-                // save keys
-                keychain.saveKey(rsa.privateKey!) // save private key
-                server.uploadKey(for: UserDefaults.standard.string(forKey: "appID")!, key: rsa.privateKey!)
-                print("Uploading key!")
-            } catch {
-                print(error)
-            }
         }
         
         return true

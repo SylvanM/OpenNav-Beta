@@ -13,9 +13,6 @@
 		AE0F102921CD7E08009D0348 /* Node Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F102821CD7E08009D0348 /* Node Protocol.swift */; };
 		AE0F102B21CD7F24009D0348 /* MapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F102A21CD7F24009D0348 /* MapNode.swift */; };
 		AE0F102D21CD826B009D0348 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F102C21CD826B009D0348 /* Path.swift */; };
-		AE12082D21CF270D00B6C50F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12082C21CF270D00B6C50F /* Request.swift */; };
-		AE12083021CF289A00B6C50F /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12082F21CF289A00B6C50F /* UserRequest.swift */; };
-		AE12083421CF292700B6C50F /* ServerComm+KeyUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12083321CF292700B6C50F /* ServerComm+KeyUpload.swift */; };
 		AE1212872185DEE0009AEEFE /* File Management.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1212862185DEE0009AEEFE /* File Management.swift */; };
 		AE1365DC2183BE5200DF1DBA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1365DB2183BE5100DF1DBA /* RootViewController.swift */; };
 		AE1AA5BF2143FEA200D173D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5BE2143FEA200D173D6 /* AppDelegate.swift */; };
@@ -23,7 +20,6 @@
 		AE1AA5DF2143FEA300D173D6 /* OpenNavUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5DE2143FEA300D173D6 /* OpenNavUITests.swift */; };
 		AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F02143FFE000D173D6 /* MapViewController.swift */; };
 		AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */; };
-		AE1AA5FE2143FFE000D173D6 /* Data+Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */; };
 		AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F52143FFE000D173D6 /* Errors.swift */; };
 		AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */; };
 		AE1AA6022143FFE000D173D6 /* ServerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */; };
@@ -35,7 +31,6 @@
 		AE48DCB5215F0D5F00708691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1AA5C52143FEA300D173D6 /* Assets.xcassets */; };
 		AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4937E42181460A006FF800 /* AppearanceViewController.swift */; };
 		AE4937E721814B7A006FF800 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4937E621814B7A006FF800 /* Notification+Extension.swift */; };
-		AE49F97D21E2C3D700B99078 /* Data+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49F97C21E2C3D700B99078 /* Data+Random.swift */; };
 		AE58DD2E21D87CB5008AAF7F /* AdvancedSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE58DD2D21D87CB5008AAF7F /* AdvancedSettingsViewController.swift */; };
 		AE5EA0EF21891E5500A22307 /* MapView+Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0EE21891E5500A22307 /* MapView+Zoom.swift */; };
 		AE5EA0F121891EEC00A22307 /* MapView+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EA0F021891EEC00A22307 /* MapView+Refresh.swift */; };
@@ -49,16 +44,8 @@
 		AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6E898121989AD4006E370B /* MapView+Route.swift */; };
 		AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */; };
 		AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */; };
-		AE95EAEB21B4B2F900717225 /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAEA21B4B2F900717225 /* RSA.swift */; };
-		AE95EAEE21B4B51A00717225 /* RSA+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAED21B4B51A00717225 /* RSA+Keys.swift */; };
-		AE95EAF021B4B55100717225 /* RSA+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAEF21B4B55100717225 /* RSA+Crypto.swift */; };
-		AE95EAF421B4C9AF00717225 /* SecKey+Export.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95EAF321B4C9AF00717225 /* SecKey+Export.swift */; };
-		AE96F42E21C1B616000D1A6D /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96F42D21C1B616000D1A6D /* KeychainHelper.swift */; };
-		AE96F43021C1BE22000D1A6D /* SecKey+PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96F42F21C1BE22000D1A6D /* SecKey+PublicKey.swift */; };
-		AEB0090821CF2C570056C3B7 /* LayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB0090721CF2C560056C3B7 /* LayoutRequest.swift */; };
 		AEE2B65A21CB119600102344 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE2B65921CB119600102344 /* Index.swift */; };
 		AEF04AAA218E8D340029C1CD /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */; };
-		AEFD0D1D21B881CA00C42D87 /* RSA+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFD0D1C21B881CA00C42D87 /* RSA+Errors.swift */; };
 		B385C19C47FC0FFE25758129 /* Pods_OpenNavTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F41548D3818E9E999A06CB /* Pods_OpenNavTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,9 +76,6 @@
 		AE0F102821CD7E08009D0348 /* Node Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Node Protocol.swift"; sourceTree = "<group>"; };
 		AE0F102A21CD7F24009D0348 /* MapNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNode.swift; sourceTree = "<group>"; };
 		AE0F102C21CD826B009D0348 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
-		AE12082C21CF270D00B6C50F /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		AE12082F21CF289A00B6C50F /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
-		AE12083321CF292700B6C50F /* ServerComm+KeyUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerComm+KeyUpload.swift"; sourceTree = "<group>"; };
 		AE1212862185DEE0009AEEFE /* File Management.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "File Management.swift"; sourceTree = "<group>"; };
 		AE1365DB2183BE5100DF1DBA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AE1AA5BB2143FEA200D173D6 /* OpenNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,7 +90,6 @@
 		AE1AA5E02143FEA300D173D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE1AA5F02143FFE000D173D6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AE1AA5F12143FFE000D173D6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Encryption.swift"; sourceTree = "<group>"; };
 		AE1AA5F52143FFE000D173D6 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		AE1AA5F72143FFE000D173D6 /* BuildingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingInfo.swift; sourceTree = "<group>"; };
 		AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommunicator.swift; sourceTree = "<group>"; };
@@ -116,7 +99,6 @@
 		AE246C4E21657BFA006BAE2B /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		AE4937E42181460A006FF800 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		AE4937E621814B7A006FF800 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
-		AE49F97C21E2C3D700B99078 /* Data+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Random.swift"; sourceTree = "<group>"; };
 		AE58DD2D21D87CB5008AAF7F /* AdvancedSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettingsViewController.swift; sourceTree = "<group>"; };
 		AE5EA0EE21891E5500A22307 /* MapView+Zoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Zoom.swift"; sourceTree = "<group>"; };
 		AE5EA0F021891EEC00A22307 /* MapView+Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Refresh.swift"; sourceTree = "<group>"; };
@@ -131,17 +113,9 @@
 		AE6E898121989AD4006E370B /* MapView+Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Route.swift"; sourceTree = "<group>"; };
 		AE7F88D9218F8B6B00AE51CF /* MapView+Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Prompt.swift"; sourceTree = "<group>"; };
 		AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Dictionary.swift"; sourceTree = "<group>"; };
-		AE95EAEA21B4B2F900717225 /* RSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSA.swift; sourceTree = "<group>"; };
-		AE95EAED21B4B51A00717225 /* RSA+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Keys.swift"; sourceTree = "<group>"; };
-		AE95EAEF21B4B55100717225 /* RSA+Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Crypto.swift"; sourceTree = "<group>"; };
-		AE95EAF321B4C9AF00717225 /* SecKey+Export.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecKey+Export.swift"; sourceTree = "<group>"; };
-		AE96F42D21C1B616000D1A6D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
-		AE96F42F21C1BE22000D1A6D /* SecKey+PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecKey+PublicKey.swift"; sourceTree = "<group>"; };
-		AEB0090721CF2C560056C3B7 /* LayoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutRequest.swift; sourceTree = "<group>"; };
 		AEE2B65921CB119600102344 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
 		AEEDC48D21D935D800D79852 /* OpenNav-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "OpenNav-Bridging-Header.h"; path = "OpenNav/OpenNav-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		AEF04AA9218E8D340029C1CD /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
-		AEFD0D1C21B881CA00C42D87 /* RSA+Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Errors.swift"; sourceTree = "<group>"; };
 		B1108DBF75C6AA32A805BE25 /* Pods-OpenNavTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavTests/Pods-OpenNavTests.release.xcconfig"; sourceTree = "<group>"; };
 		B81830BA92EA1FE101878E59 /* Pods-OpenNavUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNavUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNavUITests/Pods-OpenNavUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C08BCA4147717B8F0D5BC3BE /* Pods-OpenNav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenNav.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenNav/Pods-OpenNav.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,9 +184,6 @@
 		AE12083221CF28F500B6C50F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				AEB0090721CF2C560056C3B7 /* LayoutRequest.swift */,
-				AE12082C21CF270D00B6C50F /* Request.swift */,
-				AE12082F21CF289A00B6C50F /* UserRequest.swift */,
 				AEE2B65121CB0E4C00102344 /* Server Communicator */,
 			);
 			path = Networking;
@@ -248,7 +219,6 @@
 				AE1AA5EC2143FFE000D173D6 /* View Controllers */,
 				AE1AA5F22143FFE000D173D6 /* Helper Files */,
 				AE1AA5F62143FFE000D173D6 /* Classes and Structs */,
-				AE95EAE921B4B2DE00717225 /* RSA */,
 				AE5FF6B821A83FD200446393 /* Info.plist */,
 				AE246C4A216524EC006BAE2B /* Attributions */,
 				AE1AA5C22143FEA200D173D6 /* Main.storyboard */,
@@ -295,8 +265,6 @@
 		AE1AA5F22143FFE000D173D6 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
-				AE96F42C21C1B5F0000D1A6D /* Keychain Helper */,
-				AE1AA5F32143FFE000D173D6 /* Data+Encryption.swift */,
 				AE1AA5F52143FFE000D173D6 /* Errors.swift */,
 				AE246C4E21657BFA006BAE2B /* Global.swift */,
 				AE9013C82166A393005855E5 /* UserDefaults+Dictionary.swift */,
@@ -323,14 +291,6 @@
 				AE4937E42181460A006FF800 /* AppearanceViewController.swift */,
 			);
 			path = Appearance;
-			sourceTree = "<group>";
-		};
-		AE49F97B21E2C3C400B99078 /* Data+Random */ = {
-			isa = PBXGroup;
-			children = (
-				AE49F97C21E2C3D700B99078 /* Data+Random.swift */,
-			);
-			path = "Data+Random";
 			sourceTree = "<group>";
 		};
 		AE58DD2821D87C26008AAF7F /* Advanced */ = {
@@ -370,35 +330,6 @@
 			path = "Settings Extensions";
 			sourceTree = "<group>";
 		};
-		AE95EAE921B4B2DE00717225 /* RSA */ = {
-			isa = PBXGroup;
-			children = (
-				AE95EAEA21B4B2F900717225 /* RSA.swift */,
-				AE95EAF321B4C9AF00717225 /* SecKey+Export.swift */,
-				AE95EAEC21B4B50600717225 /* RSA Extensions */,
-				AE96F42F21C1BE22000D1A6D /* SecKey+PublicKey.swift */,
-			);
-			path = RSA;
-			sourceTree = "<group>";
-		};
-		AE95EAEC21B4B50600717225 /* RSA Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				AE95EAED21B4B51A00717225 /* RSA+Keys.swift */,
-				AE95EAEF21B4B55100717225 /* RSA+Crypto.swift */,
-				AEFD0D1C21B881CA00C42D87 /* RSA+Errors.swift */,
-			);
-			path = "RSA Extensions";
-			sourceTree = "<group>";
-		};
-		AE96F42C21C1B5F0000D1A6D /* Keychain Helper */ = {
-			isa = PBXGroup;
-			children = (
-				AE96F42D21C1B616000D1A6D /* KeychainHelper.swift */,
-			);
-			path = "Keychain Helper";
-			sourceTree = "<group>";
-		};
 		AEC256E42146A911008F4772 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,9 +356,7 @@
 		AEE2B65121CB0E4C00102344 /* Server Communicator */ = {
 			isa = PBXGroup;
 			children = (
-				AE49F97B21E2C3C400B99078 /* Data+Random */,
 				AE1AA5F82143FFE000D173D6 /* ServerCommunicator.swift */,
-				AE12083321CF292700B6C50F /* ServerComm+KeyUpload.swift */,
 			);
 			path = "Server Communicator";
 			sourceTree = "<group>";
@@ -675,41 +604,28 @@
 				AEF04AAA218E8D340029C1CD /* NavigationViewController.swift in Sources */,
 				AE1365DC2183BE5200DF1DBA /* RootViewController.swift in Sources */,
 				AE0F102B21CD7F24009D0348 /* MapNode.swift in Sources */,
-				AE1AA5FE2143FFE000D173D6 /* Data+Encryption.swift in Sources */,
-				AEB0090821CF2C570056C3B7 /* LayoutRequest.swift in Sources */,
 				AE5EA0F521891FEE00A22307 /* MapView+FloorsMenu.swift in Sources */,
 				AE1AA6032143FFE000D173D6 /* Layout.swift in Sources */,
 				AE1AA5FC2143FFE000D173D6 /* MapViewController.swift in Sources */,
 				AE9013C92166A393005855E5 /* UserDefaults+Dictionary.swift in Sources */,
-				AE12083421CF292700B6C50F /* ServerComm+KeyUpload.swift in Sources */,
-				AE95EAF421B4C9AF00717225 /* SecKey+Export.swift in Sources */,
-				AE96F43021C1BE22000D1A6D /* SecKey+PublicKey.swift in Sources */,
 				AEE2B65A21CB119600102344 /* Index.swift in Sources */,
 				AE5EA0EF21891E5500A22307 /* MapView+Zoom.swift in Sources */,
-				AE12082D21CF270D00B6C50F /* Request.swift in Sources */,
 				AE4937E52181460A006FF800 /* AppearanceViewController.swift in Sources */,
 				AE7F88DA218F8B6B00AE51CF /* MapView+Prompt.swift in Sources */,
 				AE6E8980219777BB006E370B /* Settings+Server.swift in Sources */,
 				AE1AA6012143FFE000D173D6 /* BuildingInfo.swift in Sources */,
 				AE4937E721814B7A006FF800 /* Notification+Extension.swift in Sources */,
 				AE0F102D21CD826B009D0348 /* Path.swift in Sources */,
-				AE12083021CF289A00B6C50F /* UserRequest.swift in Sources */,
 				AE246C4F21657BFA006BAE2B /* Global.swift in Sources */,
-				AE95EAEB21B4B2F900717225 /* RSA.swift in Sources */,
-				AE96F42E21C1B616000D1A6D /* KeychainHelper.swift in Sources */,
 				AE1AA6002143FFE000D173D6 /* Errors.swift in Sources */,
 				AE1212872185DEE0009AEEFE /* File Management.swift in Sources */,
 				AE6726E321D692DA00EB2CEC /* String+Node.swift in Sources */,
 				AE246C4D21657399006BAE2B /* AboutViewController.swift in Sources */,
-				AE95EAEE21B4B51A00717225 /* RSA+Keys.swift in Sources */,
-				AE49F97D21E2C3D700B99078 /* Data+Random.swift in Sources */,
 				AE1AA5FD2143FFE000D173D6 /* SettingsViewController.swift in Sources */,
 				AE5EA0F92189226700A22307 /* MapView+InfoPopup.swift in Sources */,
-				AEFD0D1D21B881CA00C42D87 /* RSA+Errors.swift in Sources */,
 				AE6E898221989AD4006E370B /* MapView+Route.swift in Sources */,
 				AE5EA0FF2189BB2300A22307 /* UserSettings.swift in Sources */,
 				AE58DD2E21D87CB5008AAF7F /* AdvancedSettingsViewController.swift in Sources */,
-				AE95EAF021B4B55100717225 /* RSA+Crypto.swift in Sources */,
 				AE5EA0F121891EEC00A22307 /* MapView+Refresh.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

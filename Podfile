@@ -7,7 +7,6 @@ target 'OpenNav' do
 
   # Pods for OpenNav
 
-  pod ‘CryptoSwift’
   pod ‘Alamofire’
 
   pod ‘SwiftyJSON’

@@ -62,12 +62,13 @@ class BuildingInfo {
         
         // set up images
         if let temp = jsonDictionary["images"], let imageJson = temp {
+            self.floorImages = [:]
             print("image json exists")
             if let images = imageJson.dictionaryObject as? [String : String] {
                 print("Images are converted")
                 for (name, encodedImage) in images {
-                    let decodedData = Data(base64Encoded: encodedImage)
-                    let image = UIImage(data: decodedData!)
+                    let imageData = Data(base64Encoded: encodedImage)!
+                    let image = UIImage(data: imageData)!
                     self.floorImages?[name] = image
                     print("images are decoded")
                 }
@@ -135,6 +136,8 @@ class BuildingInfo {
                 encodedDict[name] = encodedData
             }
             dictionary["images"] = JSON(encodedDict)
+        } else {
+            print("No images stored lol")
         }
         
         // convert layout
