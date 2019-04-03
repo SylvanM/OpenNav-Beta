@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
-import CryptoSwift
+import UIKit
 
 class ServerCommunicator {
     
@@ -24,6 +24,7 @@ class ServerCommunicator {
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest  = TimeInterval(60.0)
         manager.session.configuration.timeoutIntervalForResource = TimeInterval(60.0)
+        
         
         var layout: [String : JSON?] = [:] // object to return when requests are done
     
@@ -83,13 +84,12 @@ class ServerCommunicator {
             }
             
             manager.download(urls[i], to: destination).downloadProgress { progress in
-                print("Download progress:", progress.fractionCompleted)
+                // no nothing
             }.response { _ in
                 print("Success!")
                 downloadedPartsCount += 1
             }
         }
-        
     }
     
     // test to see if the layout exists. Whether it exists is stored in a bool. A completion is run with the bool as an argument

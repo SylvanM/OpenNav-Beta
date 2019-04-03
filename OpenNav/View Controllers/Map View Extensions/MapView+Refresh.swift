@@ -24,10 +24,8 @@ extension MapViewController {
         do {
             
             // make spinning activity indicator in top left of view in place of info button
-            let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-            let barButton = UIBarButtonItem(customView: activityIndicator)
-            self.navigationItem.setLeftBarButton(barButton, animated: true)
-            activityIndicator.startAnimating()
+            
+            changeActivityIndicator(willBeShown: true)
             
             // make new building from UserDefaults
             building = try BuildingInfo()
@@ -58,9 +56,7 @@ extension MapViewController {
                 }
             }
             
-            activityIndicator.stopAnimating()
-            
-            self.navigationItem.setLeftBarButton(infoButton, animated: true) // set left bar button item back to info button
+            changeActivityIndicator(willBeShown: false)
         } catch {
             displayErrorMessage(error)
             print("Error on loading view")

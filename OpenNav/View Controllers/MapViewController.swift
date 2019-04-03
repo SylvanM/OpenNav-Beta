@@ -34,6 +34,8 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var infoButton:   UIBarButtonItem! // button for popup to display info about the school
     @IBOutlet var mapImageView: UIImageView!   // image view for displaying image (kinda self explanatory)
     @IBOutlet var scrollView:   UIScrollView!
+    
+    let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
 
     // MARK: View Controller
 
@@ -66,9 +68,20 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         displayFloorsMenu()
     }
 
-    // when "refresh" button tapped, refresh teh view
+    // when "refresh" button tapped, refresh the view
     @IBAction func refreshMapView(_ sender: Any) {
-        refresh()
+        if let code = settings.get(setting: .layoutCode) as? String {
+            print("Refreshing", code)
+            changeActivityIndicator(willBeShown: true)
+            let server = ServerCommunicator()
+            server.getLayout(code: code) { (layout) in
+                self.building = BuildingInfo(layout)
+                self.building.saveData()
+                self.refresh()
+            }
+        } else {
+            refresh()
+        }
     }
 
     // makes popup for user to enter destination and starting point for a path through the layout
@@ -90,6 +103,18 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     func disableDarkMode() {
         self.mapImageView.backgroundColor = UIColor.white
         self.scrollView.backgroundColor   = UIColor.white
+    }
+    
+    func changeActivityIndicator(willBeShown show: Bool) {
+        switch show {
+        case true:
+            let barButton = UIBarButtonItem(customView: activityIndicator)
+            self.navigationItem.setLeftBarButton(barButton, animated: true)
+            activityIndicator.startAnimating()
+        case false:
+            activityIndicator.stopAnimating()
+            self.navigationItem.setLeftBarButton(infoButton, animated: true) // set left bar button item back to info button
+        }
     }
     
     // MARK: Storyboard

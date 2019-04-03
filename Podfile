@@ -8,7 +8,6 @@ target 'OpenNav' do
   # Pods for OpenNav
 
   pod ‘Alamofire’
-
   pod ‘SwiftyJSON’
   pod ’SwiftyRSA’
 

@@ -22,35 +22,36 @@ extension SettingsViewController {
             let alertController = UIAlertController(title: "Downloading Layouts", message: "This may take a couple seconds", preferredStyle: .alert)
             
             // test the code
-            server.testCode(code, completion: { layoutExists in
+            server.testCode(code) { layoutExists in
                 switch layoutExists {
                 case true:
-                    self.present(alertController, animated: true, completion: nil)
                     
-                    self.server.getLayout(code: code, completion: { layout in
+                    self.present(alertController, animated: true) {
+                        //alertController.view.addSubview(progressView)
+                    }
+                    
+                    self.server.getLayout(code: code) { layout in
                         let building = BuildingInfo(layout)
                         building.saveData()
-                        alertController.dismiss(animated: true, completion: nil)
-                        self.dismiss()
-                    })
+                        alertController.dismiss(animated: true, completion: {
+                            self.dismiss()
+                        })
+                    }
                     
                 case false:
                     self.present(errorController, animated: true, completion: nil)
                 }
-            })
-            
-            
-            
+            }
         }
-        // No errors are actuall thrown in the "do" block, so there isn't any point for this catch block
-        // Not gonna delete this block because it may come in handy later
-        //            catch {
-        //                let ac = UIAlertController(title: "Unable to retrieve building data", message: "Please double check the code you entered", preferredStyle: .alert)
-        //                let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        //                ac.addAction(confirmAction)
-        //
-        //                present(ac, animated: true, completion: nil)
-        //            }
+// No errors are actually thrown in the "do" block, so there isn't any point for this catch block
+// Not gonna delete this block because it may come in handy later
+//      catch {
+//          let ac = UIAlertController(title: "Unable to retrieve building data", message: "Please double check the code you entered", preferredStyle: .alert)
+//          let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//          ac.addAction(confirmAction)
+//
+//          present(ac, animated: true, completion: nil)
+//      }
     }
     
     func dismiss() {

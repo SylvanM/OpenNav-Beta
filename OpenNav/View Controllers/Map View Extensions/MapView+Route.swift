@@ -72,8 +72,8 @@ extension MapViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                 // this code will execute when the user presses go
                 
                 if let startRoom = alertController.textFields?[0].text, let endRoom = alertController.textFields?[1].text {
-                    let startIndex = rooms[startRoom]!
-                    let endIndex = rooms[endRoom]!
+                    let startIndex = rooms[startRoom] ?? rooms.first?.value
+                    let endIndex = rooms[endRoom]     ?? rooms.first?.value
                     
                     // here's where we make the path and project it on the images
                 }
